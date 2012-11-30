@@ -1,4 +1,4 @@
 crmf
 ====
 
-CRM Framework - Customer Relationship Management Scaffolding Software
+CRM Framework - Customer Relationship Management Software Scaffolding Framework
