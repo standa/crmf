@@ -8,6 +8,7 @@ import cz.crmf.model.bo.AbstractBusinessObject;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * Implementuje (hibernatem) akce GenericDao zpusobem obvyklym pro
@@ -21,14 +22,18 @@ import javax.persistence.EntityManagerFactory;
 public class GenericHibernateJpaDao implements GenericDao {
 
 //    @Autowired
-    protected EntityManagerFactory entityManagerfactory;
+//    protected EntityManagerFactory entityManagerFactory;
+    protected EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("cz.crmf");
 
     /**
      * Get entity manager for the current transaction
      * @return
      */
     protected EntityManager getEntityManager() {
-        return entityManagerfactory.createEntityManager();
+        
+        return entityManagerFactory.createEntityManager();
+        
+        //return entityManagerfactory.createEntityManager();
 //        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerfactory); //entity manager with @Transactional support
     }
 
