@@ -36,14 +36,14 @@ public interface GenericDao {
      * Odstrani entitu dle jejiho id
      * @param id entity k odstraneni
      */
-    public <ENTITY extends AbstractBusinessObject> void removeById(long id, Class<ENTITY> clazz);
+    public <ENTITY extends AbstractBusinessObject> void removeById(Integer id, Class<ENTITY> clazz);
 
     /**
      * Vrati pocet entit dane tridy
      * @param clazz trida
      * @return pocet
      */
-    public Long getCount(Class clazz);
+    public Integer getCount(Class clazz);
 
     /**
      * Odstrani dany objekt
@@ -64,7 +64,7 @@ public interface GenericDao {
      * @param id id objektu k vraceni
      * @return objekt identifikovany id, @null pokud neexistuje
      */
-    public <ENTITY> ENTITY getById(Long id, Class<ENTITY> clazz);
+    public <ENTITY> ENTITY getById(Integer id, Class<ENTITY> clazz);
 
     /**
      * Load (proxy objektu) dle identifikatoru
@@ -73,7 +73,7 @@ public interface GenericDao {
      * @param clazz
      * @return
      */
-    public <ENTITY> ENTITY loadById(long id, Class<ENTITY> clazz);
+    public <ENTITY> ENTITY loadById(Integer id, Class<ENTITY> clazz);
 
     /**
      * Vrati vsechny instance razene sestupne dle property

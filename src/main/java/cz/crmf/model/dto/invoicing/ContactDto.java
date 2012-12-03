@@ -35,9 +35,32 @@ public class ContactDto extends AbstractDto {
     private boolean primaryContact;
     private List<InvoiceDto> invoiceList;
     private List<InvoiceDto> invoiceList1;
-    private CustomerDto customerId;
+    private CustomerDto customer;
 
-    public ContactDto() {
+    public ContactDto(Integer id, String name, String surname, String street, String number, 
+            String zip, String district, String city, String region, 
+            String country, String companyId, String vatNo, String company, 
+            String bankAccount, String bank, String phone, String email, 
+            Boolean primaryContact, CustomerDto customer) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.street = street;
+        this.number = number;
+        this.zip = zip;
+        this.district = district;
+        this.city = city;
+        this.region = region;
+        this.country = country;
+        this.companyId = companyId;
+        this.vatNo = vatNo;
+        this.company = company;
+        this.bankAccount = bankAccount;
+        this.bank = bank;
+        this.phone = phone;
+        this.email = email;
+        this.primaryContact = primaryContact;
+        this.customer = customer;
     }
 
     public ContactDto(Integer id) {
@@ -54,169 +77,97 @@ public class ContactDto extends AbstractDto {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public String getStreet() {
         return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
     }
 
     public String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
     public String getZip() {
         return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
     }
 
     public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public String getRegion() {
         return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
     }
 
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
 
     public String getVatNo() {
         return vatNo;
     }
 
-    public void setVatNo(String vatNo) {
-        this.vatNo = vatNo;
-    }
 
     public String getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
 
     public String getBankAccount() {
         return bankAccount;
     }
 
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
-    }
 
     public String getBank() {
         return bank;
     }
 
-    public void setBank(String bank) {
-        this.bank = bank;
-    }
 
     public String getIban() {
         return iban;
     }
 
-    public void setIban(String iban) {
-        this.iban = iban;
-    }
 
     public String getSwiftBic() {
         return swiftBic;
     }
 
-    public void setSwiftBic(String swiftBic) {
-        this.swiftBic = swiftBic;
-    }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public boolean getPrimaryContact() {
         return primaryContact;
     }
 
-    public void setPrimaryContact(boolean primaryContact) {
-        this.primaryContact = primaryContact;
-    }
 
     @XmlTransient
     public List<InvoiceDto> getInvoiceList() {
         return invoiceList;
-    }
-
-    public void setInvoiceList(List<InvoiceDto> invoiceList) {
-        this.invoiceList = invoiceList;
     }
 
     @XmlTransient
@@ -224,36 +175,8 @@ public class ContactDto extends AbstractDto {
         return invoiceList1;
     }
 
-    public void setInvoiceList1(List<InvoiceDto> invoiceList1) {
-        this.invoiceList1 = invoiceList1;
-    }
-
-    public CustomerDto getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(CustomerDto customerId) {
-        this.customerId = customerId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ContactDto)) {
-            return false;
-        }
-        ContactDto other = (ContactDto) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public CustomerDto getCustomer() {
+        return customer;
     }
 
     @Override

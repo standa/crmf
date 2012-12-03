@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
+    <title>CRM Framewrok Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="standa-at-jasa-name">
@@ -41,10 +41,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">CRM Framework</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Username</a>
+              <!-- Logged in as <a href="#" class="navbar-link">Username</a> -->
             </p>
             <ul class="nav">
               <li class="active"><a href="${pageContext.request["contextPath"]}/">Home</a></li>
@@ -62,7 +62,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Test Suite</li>
-              <li class="active"><a href="${pageContext.request["contextPath"]}/logging.jsp">Logging</a></li>
+              <li><a href="${pageContext.request["contextPath"]}/logging.jsp">Logging</a></li>
               <li><a href="${pageContext.request["contextPath"]}/invoicing.jsp">Invoicing</a></li>
               <li><a href="${pageContext.request["contextPath"]}/monitoring.jsp">Monitoring</a></li>
               <li><a href="${pageContext.request["contextPath"]}/ticketing.jsp">Ticketing</a></li>

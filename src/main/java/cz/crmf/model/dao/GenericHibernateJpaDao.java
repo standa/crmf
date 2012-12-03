@@ -92,7 +92,7 @@ public class GenericHibernateJpaDao implements GenericDao {
      * @param id id objektu je smazani
      */
     @Override
-    public <ENTITY extends AbstractBusinessObject> void removeById(long id, Class<ENTITY> clazz) {
+    public <ENTITY extends AbstractBusinessObject> void removeById(Integer id, Class<ENTITY> clazz) {
         ENTITY e = getEntityManager().find(clazz, id);
         if (e != null) {
             getEntityManager().remove(e);
@@ -119,26 +119,25 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public <ENTITY> ENTITY getById(Long id, Class<ENTITY> clazz) {
+    public <ENTITY> ENTITY getById(Integer id, Class<ENTITY> clazz) {
         return getEntityManager().find(clazz, id);
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public <ENTITY> ENTITY loadById(long id, Class<ENTITY> clazz) {
+    public <ENTITY> ENTITY loadById(Integer id, Class<ENTITY> clazz) {
         throw new IllegalStateException("Not implemented yet");
 //        return (ENTITY) ((Session) getEntityManager().getDelegate()).load(clazz, id);
     }
 
     @Override
     public <ENTITY extends AbstractBusinessObject> ENTITY saveOrUpdate(ENTITY o) {
-        throw new IllegalStateException("Not implemented yet");
-//        if (o.getId() == null) {
-//            getEntityManager().persist(o);
-//        } else {
-//            getEntityManager().merge(o);
-//        }
-//        return o;
+        if (o.getId() == null) {
+            getEntityManager().persist(o);
+        } else {
+            getEntityManager().merge(o);
+        }
+        return o;
     }
 
     @Override
@@ -153,7 +152,7 @@ public class GenericHibernateJpaDao implements GenericDao {
     }
 
     @Override
-    public Long getCount(Class clazz) {
+    public Integer getCount(Class clazz) {
         throw new IllegalStateException("Not implemented yet");
     }
 

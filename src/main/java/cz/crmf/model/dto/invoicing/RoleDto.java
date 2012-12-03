@@ -16,63 +16,29 @@ public class RoleDto extends AbstractDto {
     private String description;
     private CustomerDto customer;
 
-    public RoleDto() {
-    }
-
-    public RoleDto(Integer id) {
+    public RoleDto(Integer id, String roleName, String description) {
         this.id = id;
+        this.roleName = roleName;
+        this.description = description;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    
+    public RoleDto(Integer id, String roleName, String description, CustomerDto customer) {
         this.id = id;
-    }
+        this.roleName = roleName;
+        this.description = description;
+        this.customer = customer;
+    }    
 
     public String getRoleName() {
         return roleName;
     }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
+    
     public String getDescription() {
         return description;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
+    
     public CustomerDto getCustomer() {
         return customer;
-    }
-
-    public void setCustomer(CustomerDto customer) {
-        this.customer = customer;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof RoleDto)) {
-            return false;
-        }
-        RoleDto other = (RoleDto) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
     }
 
     @Override

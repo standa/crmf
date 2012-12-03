@@ -23,7 +23,7 @@ public class OrderItemDto extends AbstractDto {
     private Date validFrom;
     private Date validUntil;
     private Integer reminderDays;
-    private InvoiceDto invoiceId;
+    private InvoiceDto invoice;
 
     public OrderItemDto() {
     }
@@ -32,7 +32,9 @@ public class OrderItemDto extends AbstractDto {
         this.id = id;
     }
 
-    public OrderItemDto(Integer id, String productName, int quantity, float unitPrice, float vatRate, String currency, float subtotal) {
+    public OrderItemDto(Integer id, String productName, int quantity, 
+            float unitPrice, float vatRate, String currency, float subtotal,
+            Date validFrom, Date validUntil, Integer reminderDays, InvoiceDto invoice) {
         this.id = id;
         this.productName = productName;
         this.quantity = quantity;
@@ -40,122 +42,63 @@ public class OrderItemDto extends AbstractDto {
         this.vatRate = vatRate;
         this.currency = currency;
         this.subtotal = subtotal;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.validFrom = validFrom;
+        this.validUntil = validUntil;
+        this.reminderDays = reminderDays;
+        this.invoice = invoice;
     }
 
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public float getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(float unitPrice) {
-        this.unitPrice = unitPrice;
-    }
 
     public float getVatRate() {
         return vatRate;
     }
 
-    public void setVatRate(float vatRate) {
-        this.vatRate = vatRate;
-    }
 
     public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
 
     public float getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(float subtotal) {
-        this.subtotal = subtotal;
-    }
 
     public Date getValidFrom() {
         return validFrom;
     }
 
-    public void setValidFrom(Date validFrom) {
-        this.validFrom = validFrom;
-    }
 
     public Date getValidUntil() {
         return validUntil;
     }
 
-    public void setValidUntil(Date validUntil) {
-        this.validUntil = validUntil;
-    }
 
     public Integer getReminderDays() {
         return reminderDays;
     }
 
-    public void setReminderDays(Integer reminderDays) {
-        this.reminderDays = reminderDays;
-    }
 
     public InvoiceDto getInvoiceId() {
-        return invoiceId;
-    }
-
-    public void setInvoiceId(InvoiceDto invoiceId) {
-        this.invoiceId = invoiceId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof OrderItemDto)) {
-            return false;
-        }
-        OrderItemDto other = (OrderItemDto) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return invoice;
     }
 
     @Override

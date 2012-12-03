@@ -160,7 +160,7 @@ public class Invoice extends AbstractBusinessObject {
         this.billingContact = billingContact;
     }
 
-    public Customer getCustomerId() {
+    public Customer getCustomer() {
         return customerId;
     }
 

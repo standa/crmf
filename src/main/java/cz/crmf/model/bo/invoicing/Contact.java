@@ -111,8 +111,34 @@ public class Contact extends AbstractBusinessObject {
     private List<Invoice> invoiceList1;
     @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
-    private Customer customerId;
+    private Customer customer;
 
+    public Contact(String name, String surname, String street, String number, 
+            String zip, String district, String city, String region, 
+            String country, String companyId, String vatNo, String company, 
+            String bankAccount, String bank, String phone, String email, 
+            Boolean primaryContact, Customer customer) {
+        this.name = name;
+        this.surname = surname;
+        this.street = street;
+        this.number = number;
+        this.zip = zip;
+        this.district = district;
+        this.city = city;
+        this.region = region;
+        this.country = country;
+        this.companyId = companyId;
+        this.vatNo = vatNo;
+        this.company = company;
+        this.bankAccount = bankAccount;
+        this.bank = bank;
+        this.phone = phone;
+        this.email = email;
+        this.primaryContact = primaryContact;
+        this.customer = customer;
+    }    
+    
+    
     public Contact() {
     }
 
@@ -304,12 +330,12 @@ public class Contact extends AbstractBusinessObject {
         this.invoiceList1 = invoiceList1;
     }
 
-    public Customer getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+        this.customer = customerId;
     }
 
     @Override
