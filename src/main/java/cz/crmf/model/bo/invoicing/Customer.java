@@ -6,6 +6,7 @@ package cz.crmf.model.bo.invoicing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
 import cz.crmf.model.bo.ticketing.Ticket;
+import cz.crmf.model.provider.HashProvider;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -60,6 +61,16 @@ public class Customer extends AbstractBusinessObject {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
     private List<Contact> contactList;
 
+    private transient HashProvider hashProvider; //transient fields are not persisted
+
+    public HashProvider getHashProvider() {
+        return hashProvider;
+    }
+
+    public void setHashProvider(HashProvider hashProvider) {
+        this.hashProvider = hashProvider;
+    }    
+    
     public Customer() {
     }
 
