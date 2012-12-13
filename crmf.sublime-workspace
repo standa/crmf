@@ -1,0 +1,788 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"pri",
+				"pricelists-container"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"login",
+				"login-form"
+			],
+			[
+				"logi",
+				"login-form"
+			],
+			[
+				"log",
+				"login-form"
+			],
+			[
+				"ranom",
+				"randomNumbers"
+			],
+			[
+				"has",
+				"hashTable"
+			],
+			[
+				"asser",
+				"assertNull"
+			],
+			[
+				"get",
+				"getArray"
+			],
+			[
+				"print",
+				"printSet"
+			],
+			[
+				"assert",
+				"assertEquals"
+			],
+			[
+				"rand",
+				"randomNumbers"
+			],
+			[
+				"hash",
+				"hashTable"
+			],
+			[
+				"ite",
+				"iterator"
+			],
+			[
+				"ass",
+				"assertTrue"
+			],
+			[
+				"ha",
+				"hashTable"
+			],
+			[
+				"new",
+				"newSize"
+			],
+			[
+				"heap",
+				"heapsort"
+			],
+			[
+				"int",
+				"intToE"
+			],
+			[
+				"random",
+				"randomArray"
+			],
+			[
+				"ra",
+				"randomArray"
+			],
+			[
+				"Home",
+				"Homework3"
+			],
+			[
+				"DSACom",
+				"DSAComparableImpl"
+			],
+			[
+				"DSAC",
+				"DSAComparableImpl"
+			],
+			[
+				"DSA",
+				"DSAComparableImpl"
+			],
+			[
+				"hea",
+				"heapStorageToString"
+			],
+			[
+				"Heap",
+				"HeapStorage"
+			],
+			[
+				"Ho",
+				"Homework3"
+			],
+			[
+				"Array",
+				"Arrays"
+			],
+			[
+				"rano",
+				"random2"
+			],
+			[
+				"ran",
+				"random2"
+			],
+			[
+				"DS",
+				"DSAComparableImpl"
+			],
+			[
+				"set",
+				"setElement"
+			],
+			[
+				"Inde",
+				"IndexOutOfBoundsException"
+			],
+			[
+				"st",
+				"storage"
+			],
+			[
+				"extra",
+				"extractLast"
+			],
+			[
+				"insert",
+				"insertLast"
+			],
+			[
+				"Ds",
+				"DSAComparableImpl"
+			],
+			[
+				"Hea",
+				"HeapStorageImpl"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"DB_",
+				"DB_MEDIA_PRODUCTS"
+			],
+			[
+				"cure",
+				"current_pid"
+			],
+			[
+				"ched",
+				"checked"
+			],
+			[
+				"cur",
+				"current_pid"
+			],
+			[
+				"export",
+				"export_json"
+			],
+			[
+				"current",
+				"current_pid"
+			],
+			[
+				"parent",
+				"parent_nid"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"createC",
+				"createCategoryForm"
+			],
+			[
+				"curre",
+				"current_pid"
+			],
+			[
+				"create_",
+				"create_category"
+			],
+			[
+				"curr",
+				"current_nid"
+			],
+			[
+				"boot",
+				"bootstrap-wysihtml5"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"s",
+				"script"
+			],
+			[
+				"current_",
+				"current_category"
+			],
+			[
+				"ale",
+				"alert-info"
+			],
+			[
+				"upload",
+				"upload_data"
+			],
+			[
+				"manufa",
+				"manufacturer"
+			],
+			[
+				"manu",
+				"manufacturers"
+			],
+			[
+				"manuf",
+				"manuf_q"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"curren",
+				"current_pid"
+			],
+			[
+				"DB_PRODUC",
+				"DB_PRODUCTS_SPECS"
+			],
+			[
+				"DB_PR",
+				"DB_PRODUCTS_TREE"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/models/invoicing/contacts.php",
+			"settings":
+			{
+				"buffer_size": 488,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/invoicing/customers.php",
+			"settings":
+			{
+				"buffer_size": 247,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/invoicing/invoices.php",
+			"settings":
+			{
+				"buffer_size": 352,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/invoicing/orders.php",
+			"settings":
+			{
+				"buffer_size": 381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/invoicing/roles.php",
+			"settings":
+			{
+				"buffer_size": 219,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/logging/logs.php",
+			"settings":
+			{
+				"buffer_size": 279,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/monitoring/monitoring.php",
+			"settings":
+			{
+				"buffer_size": 287,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/monitoring/servers.php",
+			"settings":
+			{
+				"buffer_size": 271,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/standa/www/crmf/application/models/ticketing/agents.php",
+		"/home/standa/www/crmf/application/models/ticketing/tickets.php",
+		"/home/standa/www/crmf/application/models/invoicing/orders.php",
+		"/home/standa/www/crmf/application/models/invoicing/invoices.php",
+		"/home/standa/www/crmf/application/models/invoicing/contacts.php",
+		"/home/standa/www/crmf/application/models/invoicing/customers.php",
+		"/home/standa/www/crmf/application/models/logging/logs.php",
+		"/home/standa/www/crmf/application/config/autoload.php",
+		"/home/standa/www/crmf/application/models/invoicing/roles.php",
+		"/home/standa/www/crmf/application/views/welcome.php",
+		"/home/standa/www/crmf/application/controllers/welcome.php",
+		"/home/standa/www/crmf/application/config/database.php",
+		"/home/standa/www/crmf/application/views/common/sidebar-nav.php",
+		"/home/standa/www/crmf/application/views/welcome_message.php",
+		"/home/standa/www/crmf/application/views/common/navbar-fixed-top.php",
+		"/home/standa/www/novymail/CrmFramework/src/main/webapp/index.jsp",
+		"/home/standa/www/crmf/application/views/common/script.php",
+		"/home/standa/www/crmf/application/config/config.php",
+		"/home/standa/www/crmf/application/views/common/header.php",
+		"/home/standa/www/crmf/application/views/common/footer.php",
+		"/home/standa/www/novymail/preauth.php",
+		"/home/standa/www/novymail/index.php",
+		"/home/standa/Dokumenty/cvut/semestr3/DBS/semestralka-popis.txt",
+		"/home/standa/www/lm/application/views/admin2/catalogue.php",
+		"/home/standa/www/lm/application/views/header.php",
+		"/tmp/dsa/Homework4Test.java",
+		"/tmp/dsa/Homework4.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework4.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework4Test.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/when-changed.py",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/test.sh",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/start.sh",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework5.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework5Test.java",
+		"/home/standa/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework3.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework3Test.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/Homework2Test.java",
+		"/home/standa/Stažené/MS Office 2007/README.HTM",
+		"/home/standa/Dokumenty/cvut/STM-YD/semestr3/yd36dsa/uloha1/src/uloha1/Seznam.java",
+		"/home/standa/Dokumenty/cvut/STM-YD/semestr3/yd36dsa/uloha1/src/uloha1/Main.java",
+		"/home/standa/Dokumenty/cvut/STM-YD/semestr3/yd36dsa/uloha2/src/uloha2/Main.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/HeapStorage.java",
+		"/home/standa/Dokumenty/cvut/semestr3/DSA/svn/jasastan/homeworks/DSAComparable.java",
+		"/home/standa/www/lm/application/controllers/admin.php",
+		"/home/standa/www/lm/application/config/config.php",
+		"/home/standa/www/lm/application/config/upload.php",
+		"/home/standa/www/lm/system/libraries/Image_lib.php",
+		"/home/standa/www/lm/system/libraries/Upload.php",
+		"/home/standa/www/lm/application/controllers/image.php",
+		"/home/standa/www/lm/application/config/routes.php",
+		"/home/standa/www/lm/application/models/media.php",
+		"/home/standa/www/lm/application/models/products_specs.php",
+		"/home/standa/www/lm/application/helpers/export_helper.php",
+		"/home/standa/www/lm/application/config/autoload.php",
+		"/home/standa/www/lm/application/models/products.php",
+		"/home/standa/www/lm/application/views/admin2/login.php",
+		"/home/standa/www/lm/application/helpers/current_category_helper.php",
+		"/home/standa/www/lm/application/helpers/current_category.php",
+		"/home/standa/www/lm/application/helpers/menu_admin_helper.php",
+		"/home/standa/www/lm/application/views/product/show.php",
+		"/home/standa/www/lm/application/controllers/category.php",
+		"/home/standa/www/lm/application/config/development/constants.php",
+		"/home/standa/www/lm/application/controllers/product.php",
+		"/home/standa/www/lm/application/controllers/home.php",
+		"/home/standa/www/lm/application/views/left.php",
+		"/home/standa/www/lm/application/models/tree.php",
+		"/home/standa/www/lm/application/helpers/menu_helper.php",
+		"/home/standa/www/lm/application/helpers/menu_admin.php",
+		"/home/standa/www/lm/application/controllers/admin2.php"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"http://",
+			"64x64",
+			"table",
+			"System.err",
+			"count",
+			"iterator()",
+			"array.length",
+			"System.err",
+			"ruler",
+			"private",
+			"heapMax",
+			"last_id",
+			"encrypt_name",
+			"jpg",
+			"main",
+			"input-xlarge",
+			"input-large",
+			"input-xxlarge",
+			"kategorie",
+			"/>",
+			"upload_photo",
+			"current",
+			"categories"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"//",
+			"64x128",
+			"array",
+			"// System.err",
+			"System.out",
+			"input-xxlarge",
+			"input-xlarge",
+			"input-large",
+			">"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/models/invoicing/contacts.php",
+					"settings":
+					{
+						"buffer_size": 488,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/models/invoicing/customers.php",
+					"settings":
+					{
+						"buffer_size": 247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/models/invoicing/invoices.php",
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/models/invoicing/orders.php",
+					"settings":
+					{
+						"buffer_size": 381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/models/invoicing/roles.php",
+					"settings":
+					{
+						"buffer_size": 219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/models/logging/logs.php",
+					"settings":
+					{
+						"buffer_size": 279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/models/monitoring/monitoring.php",
+					"settings":
+					{
+						"buffer_size": 287,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								221,
+								221
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/models/monitoring/servers.php",
+					"settings":
+					{
+						"buffer_size": 271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								205,
+								205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 178.0,
+	"status_bar_visible": true
+}
