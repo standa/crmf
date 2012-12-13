@@ -15,4 +15,13 @@ class Invoicing extends CI_Controller {
 		$this->load->view('invoicing/show', $this->tpl_vars);
 
 	}
+
+	public function invoice_pdf($invoice_id) {
+
+		$i = new Invoice();
+		$i->select('invoice_pdf')->get_by_id($invoice_id);
+
+		$this->load->helper('download');
+		force_download('invoice_'.$invoice_id.'.pdf', $i->invoice_pdf);
+	}
 }

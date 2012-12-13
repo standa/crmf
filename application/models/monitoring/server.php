@@ -1,20 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Server extends MY_Model {
+class Server extends DataMapper {
 
-	protected $_table 			= "servers"; //Default lowercase plural modelname
-	protected $primary_key 	= "id"; //Default id
-	protected $validate 		= array(); //Set Codeigniter validation rules {
+	var $has_one = array('agent');
+	var $has_many = array('monitoring');
 
-	var $id;
-	var $server_name;
-	var $description;
-	var $ip_address;
-	var $agent_id;
-	var $status;
-
-  function __construct()
-  {
-      parent::__construct();
-  }
 }

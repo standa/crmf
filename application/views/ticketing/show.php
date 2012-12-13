@@ -11,7 +11,14 @@
 
     <div class="row-fluid">
 
-      <?php $this->load->view('common/sidebar-nav'); ?>
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Ticketing menu</li>
+          </ul>
+        </div><!--/.well -->
+      </div><!--/span-->
+
 
       <div class="span9" id="content"> <?php /* the actual content */ ?>
 

@@ -1,22 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Monitoring extends MY_Model {
+class Monitoring extends DataMapper {
 
-	protected $_table 			= "monitoring"; //Default lowercase plural modelname
-	protected $primary_key 	= "id"; //Default id
-	protected $validate 		= array(); //Set Codeigniter validation rules {
+	var $table 		= 'monitoring';
 
-	var $id;
-	var $server_id;
-	var $update_time;
-	var $loadavg;
-	var $top;
-	var $netstat;
-	var $df;
-	var $free;
+	var $has_one 	= array('server');
 
-  function __construct()
-  {
-      parent::__construct();
-  }
+	
+
 }

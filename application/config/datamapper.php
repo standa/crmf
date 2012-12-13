@@ -19,18 +19,15 @@ $config['lang_file_format'] = 'model_${model}';
 $config['field_label_lang_format'] = '${model}_${field}';
 $config['auto_transaction'] = FALSE;
 $config['auto_populate_has_many'] = FALSE;
-$config['auto_populate_has_one'] = FALSE;
+$config['auto_populate_has_one'] = TRUE;
 $config['all_array_uses_ids'] = FALSE;
-
 // set to FALSE to use the same DB instance across the board (breaks subqueries)
 // Set to any acceptable parameters to $CI->database() to override the default.
 $config['db_params'] = '';
-
 // Uncomment to enable the production cache
-// $config['production_cache'] = APPPATH.'cache';
-
-$config['extensions_path'] = '../sparks/Datamapper-ORM/1.8.2/extensions';
+// $config['production_cache'] = 'datamapper/cache';
+$config['extensions_path'] = 'datamapper';
 $config['extensions'] = array();
 
 /* End of file datamapper.php */
-/* Location: ./sparks/Datamapper-ORM/config/datamapper.php */
+/* Location: ./application/config/datamapper.php */

@@ -60,6 +60,7 @@ $autoload['sparks'] = array(
 $autoload['libraries'] = array(
 
 	'database',
+	'datamapper',
 	'table'
 
 );
@@ -138,7 +139,7 @@ $autoload['model'] = array(
 	'ticketing/agent',
 	'ticketing/ticket'
 */
-	
+
 );
 
 
