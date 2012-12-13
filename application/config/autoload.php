@@ -39,6 +39,11 @@
 
 $autoload['packages'] = array();
 
+$autoload['sparks'] = array(
+	'urilang/1.0.1',
+	'secure-auth/2.0.0',
+	'minify/1.0.0'
+);
 
 /*
 | -------------------------------------------------------------------
@@ -54,10 +59,10 @@ $autoload['packages'] = array();
 
 $autoload['libraries'] = array(
 
-	'database'
+	'database',
+	'table'
 
 );
-
 
 /*
 | -------------------------------------------------------------------
@@ -118,21 +123,22 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array(
-
-	'logging/logs',
+/*
+	'logging/log',
 	
-	'invoicing/contacts',
-	'invoicing/customers',
-	'invoicing/invoices',
-	'invoicing/orders',
-	'invoicing/roles',
+	'invoicing/contact',
+	'invoicing/customer',
+	'invoicing/invoice',
+	'invoicing/order',
+	'invoicing/role',
 	
 	'monitoring/monitoring',
-	'monitoring/servers',
+	'monitoring/server',
 
-	'ticketing/agents',
-	'ticketing/tickets'
-
+	'ticketing/agent',
+	'ticketing/ticket'
+*/
+	
 );
 
 

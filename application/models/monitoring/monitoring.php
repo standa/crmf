@@ -1,6 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Monitoring extends CI_Model {
+class Monitoring extends MY_Model {
+
+	protected $_table 			= "monitoring"; //Default lowercase plural modelname
+	protected $primary_key 	= "id"; //Default id
+	protected $validate 		= array(); //Set Codeigniter validation rules {
 
 	var $id;
 	var $server_id;

@@ -1,9 +1,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>CRM Framewrok Homepage</title>
+  <title><?= !empty($title) ? "$title | " : '';?>CRM Framework</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Simple framework for the CRM systems.">
   <meta name="author" content="standa-at-jasa-name">
 
 

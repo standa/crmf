@@ -17,33 +17,147 @@
 
         <div class="hero-unit">
           <h1>Hello, CRM!</h1>
-          <p>This is the landing page for the first checkpoint of the CRM Framework project.</p>
-          <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+          <p>This is the landing page for the first checkpoint of the CRM Framework project.</p>          
         </div>
-        <div class="row-fluid">
-          <div class="span4">
-            <h2>Invoicing</h2>
-            <p>Invoicing module allows for registration of new customers to the system. Invoice monitoring, reporting, and controlling.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
-          </div><!--/span-->
-          <div class="span4">
-            <h2>Logging</h2>
-            <p>Logging module is responsible for recording of all important events in the system so that the valid proof in case of trouble escalation occurs.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
-          </div><!--/span-->
-          <div class="span4">
-            <h2>Monitoring</h2>
-            <p>Monitoring module is designed to process automating performance statistics sent to the system by connected services.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
-          </div><!--/span-->
+
+<?php if (!empty($tickets)) { ?>
+        <div class="row well">
+          <table class="table table-condensed table-striped" id="ticketsListing">
+            <caption>Top 5 unresolved tickets.</caption>            
+            <thead>              
+              <tr>
+                <th>Agent</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($tickets as $t) { ?>
+              <tr>
+                <td><?=$t->agent_id;?></td>
+                <td><?=$t->customer_id;?></td>
+                <td><?=$t->submit_datetime;?></td>
+                <td><?=$t->subject;?></td>
+                <td><?=$t->status;?><?=!empty($t->resolved)?'/OK':'';?></td>
+                <td><?=anchor('ticketing/ticket/'.$t->id, 'Details');?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
         </div><!--/row-->
-        <div class="row-fluid">
-          <div class="span4">
-            <h2>Ticketing</h2>
-            <p>Ticketing module facilitates the requests submitted by users / customers of the system.</p>
-            <p><a class="btn" href="#">View details &raquo;</a></p>
-          </div><!--/span-->
-        </div><!--/row-->
+<?php } ?>
+
+<?php if (!empty($agents)) {?>
+        <div class="row well">
+          <table class="table table-condensed table-striped" id="agentsActivity">
+            <caption>Top 5 agents</caption>
+            <thead>              
+              <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Details</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($agents as $a) {?>
+              <tr>
+                <td><?=$a->name;?></td>
+                <td><?=$a->username;?></td>
+                <td><?=$a->email;?></td>
+                <td><?=anchor('ticketing/agent/'.$a->agent_id, 'Detail');?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+<?php } ?>
+
+<?php if (!empty($invoices)) {?>
+        <div class="row well">
+          <table class="table table-condensed table-striped" id="invoicesActivity">
+            <caption>Top 5 due invoices</caption>
+            <thead>              
+              <tr>
+                <th>Customer</th>
+                <th>Total</th>
+                <th>Due Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($invoices as $i) {?>
+              <tr>
+                <td><?=$i->customer_id; ?></td>
+                <td><?=$i->total; ?></td>
+                <td><?=$i->due_date;?></td>
+                <td><?=anchor('invoicing/invoice/'.$i->id, 'Detail');?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+<?php } ?>
+
+<?php if (!empty($customers)) {?>
+        <div class="row well">
+          <table class="table table-condensed table-striped" id="customersActitivy">
+            <caption>Last 5 registered customers</caption>
+            <thead>              
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($customers as $c) {?>
+              <tr>
+                <td><?=$c->username;?></td>
+                <td><?=$c->email;?></td>
+                <td><?php print_r($this->role->find($c->role_id, 1)[0]);?></td>
+                <td><?=anchor('invoicing/customer/'.$c->id, 'Detail');?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+<?php } ?>
+
+<?php if (!empty($servers)) {?>
+        <div class="row well">
+          <table class="table table-condensed table-striped" id="serversActivity">
+            <caption>Servers Monitoring</caption>
+            <thead>              
+              <tr>
+                <th>Server</th>
+                <th>IP Address</th>
+                <th>Load</th>
+                <th>Disk</th>
+                <th>Memory</th>
+                <th>Net</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($servers as $s) {?>
+              <tr>
+                <td><?=$s->server_name;?></td>
+                <td><?=$s->ip_address;?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+<?php } ?>
+
 
       </div><!--/span-->
 
