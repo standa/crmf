@@ -63,7 +63,7 @@ public class Invoice extends AbstractBusinessObject {
     private Contact billingContact;
     @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
-    private Customer customerId;
+    private Customer customer;
 
     public Invoice() {
     }
@@ -161,11 +161,11 @@ public class Invoice extends AbstractBusinessObject {
     }
 
     public Customer getCustomer() {
-        return customerId;
+        return customer;
     }
 
     public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+        this.customer = customerId;
     }
 
     @Override

@@ -54,11 +54,11 @@ public class Customer extends AbstractBusinessObject {
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Role role;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Invoice> invoiceList;
     @OneToMany(mappedBy = "customerId")
     private List<Ticket> ticketList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Contact> contactList;
 
     private transient HashProvider hashProvider; //transient fields are not persisted
