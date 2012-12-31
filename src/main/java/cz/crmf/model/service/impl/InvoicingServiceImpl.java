@@ -12,11 +12,13 @@ import cz.crmf.model.service.InvoicingService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author standa
  */
+@Service
 public class InvoicingServiceImpl extends AbstractDataAccessService 
     implements InvoicingService {
 

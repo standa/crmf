@@ -284,26 +284,10 @@
 	"buffers":
 	[
 		{
-			"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/pom.xml",
+			"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/cz/crmf/model/bo/AbstractBusinessObject.java",
 			"settings":
 			{
-				"buffer_size": 13384,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/resources/META-INF/persistence.xml",
-			"settings":
-			{
-				"buffer_size": 1021,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/webapp/META-INF/context.xml",
-			"settings":
-			{
-				"buffer_size": 93,
+				"buffer_size": 1128,
 				"line_ending": "Unix"
 			}
 		}
@@ -336,6 +320,10 @@
 	},
 	"file_history":
 	[
+		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/faces-config.NavData",
+		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/pom.xml",
+		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/webapp/META-INF/context.xml",
+		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/resources/META-INF/persistence.xml",
 		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/cz/crmf/model/bo/monitoring/Monitoring.java",
 		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/webapp/WEB-INF/rootContext.xml",
 		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/spring-config.xml",
@@ -456,84 +444,30 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/pom.xml",
+					"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/cz/crmf/model/bo/AbstractBusinessObject.java",
 					"settings":
 					{
-						"buffer_size": 13384,
+						"buffer_size": 1128,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11413,
-								11413
+								267,
+								267
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/XML/XML.tmLanguage",
+							"syntax": "Packages/Java/Java.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4743.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/resources/META-INF/persistence.xml",
-					"settings":
-					{
-						"buffer_size": 1021,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								857,
-								857
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/webapp/META-INF/context.xml",
-					"settings":
-					{
-						"buffer_size": 93,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -600,6 +534,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 178.0,
+	"side_bar_width": 392.0,
 	"status_bar_visible": true
 }

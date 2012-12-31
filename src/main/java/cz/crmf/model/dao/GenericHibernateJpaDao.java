@@ -8,7 +8,10 @@ import cz.crmf.model.bo.AbstractBusinessObject;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.EntityManagerFactoryUtils;
+import org.springframework.stereotype.Repository;
 
 /**
  * Implementuje (hibernatem) akce GenericDao zpusobem obvyklym pro
@@ -18,12 +21,11 @@ import javax.persistence.Persistence;
  * 
  * @author Pavel Micka (mickapa1@fel.cvut.cz)
  */
-//@Component("genericDao")
+@Repository("genericDao")
 public class GenericHibernateJpaDao implements GenericDao {
 
-//    @Autowired
-//    protected EntityManagerFactory entityManagerFactory;
-    protected EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("cz.crmf");
+    @Autowired
+    protected EntityManagerFactory entityManagerFactory;
 
     /**
      * Get entity manager for the current transaction
@@ -31,10 +33,9 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     protected EntityManager getEntityManager() {
         
-        return entityManagerFactory.createEntityManager();
+//        return entityManagerFactory.createEntityManager();
         
-        //return entityManagerfactory.createEntityManager();
-//        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerfactory); //entity manager with @Transactional support
+        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerFactory); //entity manager with @Transactional support
     }
 
     /**
@@ -126,8 +127,7 @@ public class GenericHibernateJpaDao implements GenericDao {
     @SuppressWarnings("unchecked")
     @Override
     public <ENTITY> ENTITY loadById(Integer id, Class<ENTITY> clazz) {
-        throw new IllegalStateException("Not implemented yet");
-//        return (ENTITY) ((Session) getEntityManager().getDelegate()).load(clazz, id);
+        return (ENTITY) ((Session) getEntityManager().getDelegate()).load(clazz, id);
     }
 
     @Override

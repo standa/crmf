@@ -5,20 +5,15 @@
 package cz.crmf.model.service;
 
 import cz.crmf.model.dao.GenericDao;
-import cz.crmf.model.dao.GenericHibernateJpaDao;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author mickapa1
  */
 public abstract class AbstractDataAccessService {
-    
-//  no-spring work-around    
-    public AbstractDataAccessService() {
-        genericDao = new GenericHibernateJpaDao();
-    }
-    
-//    @Autowired
+        
+    @Autowired
     protected GenericDao genericDao;
     public void setGenericDao(GenericDao genericDao) {
         this.genericDao = genericDao;
