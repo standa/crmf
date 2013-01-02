@@ -1,2 +1,8 @@
-mvn org.mortbay.jetty:maven-jetty-plugin:run
+#mvn org.mortbay.jetty:maven-jetty-plugin:run
 #java -jar target/endorsed/jetty-runner.jar target/*.war
+
+export CLEARDB_DATABASE_URL='mysql://b2ea198aa681b2:79f8c401@us-cdbr-east-02.cleardb.com/heroku_dde7524bbccd5bf?reconnect=true'
+
+#heroku config | grep CLEARDB_DATABASE_URL
+
+mvn jetty:run
