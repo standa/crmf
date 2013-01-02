@@ -95,6 +95,15 @@
             <artifactId>spring-orm</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
+        
+        <!--
+            Spring Data for data repositories so that the DAO actually makes sense.
+        -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency> 
  
         <!--
             Web application development utilities applicable to both Servlet and Portlet Environments
@@ -141,6 +150,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${org.hibernate.version}</version>
+            <scope>runtime</scope>
+        </dependency>        
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.0.Final</version>
         </dependency>
        
         
@@ -189,6 +204,13 @@
 
 
         <!-- MOJARRA - END -->
+
+        <!-- PRIMEFACES (JSF 2.0 compliant component library) -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>3.4.2</version>
+        </dependency>    
         
         <!-- Reflection utils - used for extracting type parameters -->
         <!--dependency>
@@ -222,6 +244,7 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
+            <scope>runtime</scope>
         </dependency>    
         
         <!-- Bridge between slf4j and log4j -->
@@ -229,6 +252,7 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.6.1</version>
+            <scope>runtime</scope>
         </dependency>        
         
         <!-- AspectJ  -->
@@ -309,7 +333,14 @@
                                        
                 </executions>
             </plugin> 
-            
+            <plugin>
+              <groupId>org.mortbay.jetty</groupId>
+              <artifactId>jetty-maven-plugin</artifactId>
+              <version>7.0.0.v20091005</version>
+              <configuration>
+                  <scanIntervalSeconds>1</scanIntervalSeconds>
+              </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -338,6 +369,12 @@
             <id>org.springframework.security.taglibs.facelets</id>
             <url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
         </repository>
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Technology Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>  
     </repositories>    
 
 </project>

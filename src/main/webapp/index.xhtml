@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags">
+  <f:view>
   <h:head>
     <title>CRM Framewrok Homepage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -100,8 +105,30 @@
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
+      
 
       <hr/>
+      
+      <div class="row-fluid">
+          
+          <p:growl/>
+          
+          <p:dataTable var="role" value="#{invoicingBB.allRoles}">
+                <p:column headerText="Role Name">
+                    <h:outputText value="#{role.roleName}" />
+                </p:column>
+                <p:column headerText="Description">
+                    <h:outputText value="#{role.description}" />
+                </p:column>        
+<!--                <sec:ifAllGranted roles="ROLE_ADMIN">
+                    <p:column headerText="Delete">
+                        <p:commandButton value="Delete user" actionListener="{userListBB.deleteUser(user.id)}" update="@form"/>
+                    </p:column>                          
+                </sec:ifAllGranted>-->
+
+            </p:dataTable>          
+          
+      </div>
 
       <footer>
         <p>&copy; CRM Framework 2012</p>
@@ -112,9 +139,10 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
     <script src="resources/bootstrap/js/bootstrap.min.js"></script>
 
 
   </h:body>
+  </f:view>
 </html>

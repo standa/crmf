@@ -7,11 +7,19 @@
     xmlns:context="http://www.springframework.org/schema/context" 
     xmlns:tx="http://www.springframework.org/schema/tx" 
     xmlns:aop="http://www.springframework.org/schema/aop" 
-    xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-        http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
-        http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.0.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd" 
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/webflow-config 
+        http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+        http://www.springframework.org/schema/faces 
+        http://www.springframework.org/schema/faces/spring-faces-2.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+        http://www.springframework.org/schema/data/jpa 
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd" 
     >
     
 
@@ -42,6 +50,7 @@
     <context:component-scan base-package="cz.crmf"/>
     <!-- Podpora anotace @Configurable -->
     <context:spring-configured/> 
+    
     <!-- Property files -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -81,5 +90,8 @@
     
     <!-- Podpora deklarativni demarkace transakci - anotace @Transactional-->
     <tx:annotation-driven transaction-manager="txManager" /> 
+    
+    <!-- Spring Data JPA Repositories package -->
+    <jpa:repositories base-package="cz.crmf.repositories" />    
 
 </beans>

@@ -33,9 +33,9 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     protected EntityManager getEntityManager() {
         
-//        return entityManagerFactory.createEntityManager();
+        return entityManagerFactory.createEntityManager();
         
-        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerFactory); //entity manager with @Transactional support
+//        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerFactory); //entity manager with @Transactional support
     }
 
     /**

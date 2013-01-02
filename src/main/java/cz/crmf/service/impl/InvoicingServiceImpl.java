@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.crmf.model.service.impl;
+package cz.crmf.service.impl;
 
 import cz.crmf.model.bo.invoicing.*;
 import cz.crmf.model.dto.invoicing.*;
 import cz.crmf.model.helper.DtoTransformerHelper;
-import cz.crmf.model.service.AbstractDataAccessService;
-import cz.crmf.model.service.InvoicingService;
+import cz.crmf.service.AbstractDataAccessService;
+import cz.crmf.service.InvoicingService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

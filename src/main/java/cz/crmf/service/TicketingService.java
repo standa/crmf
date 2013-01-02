@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.crmf.model.service;
+package cz.crmf.service;
 
 import cz.crmf.model.dto.ticketing.TicketDto;
 import java.util.List;
