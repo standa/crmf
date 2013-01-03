@@ -14,10 +14,10 @@
             <supported-locale>cs</supported-locale>
             <supported-locale>en</supported-locale>
         </locale-config>
-<!--        <resource-bundle>
-            <base-name>cz.crmf.locale.translation</base-name>
+        <resource-bundle>
+            <base-name>cz.crmf.locale</base-name>
             <var>msgs</var>
-        </resource-bundle>-->
+        </resource-bundle>
     </application>
     <navigation-rule>
         <from-view-id>/*</from-view-id>

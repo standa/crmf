@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+
+            <li class="nav-header">Test Suite</li>
+            <li><h:outputLink value="logging"><h:outputText value="#{msgs['sidebar.logging']}" /></h:outputLink></li>
+            <li><a href="invoicing">Invoicing</a></li>
+            <li><a href="monitoring">Monitoring</a></li>
+            <li><a href="ticketing">Ticketing</a></li>
+
+        </ul>
+
+        <ol class="nav nav-list">
+
+            <li class="nav-header">Installation &amp; Start-Up</li>
+            <li><a href="welcome/backup">Backup DB To Server</a></li>
+            <li><a href="welcome/download">Download DB</a></li>
+            <li><a href="welcome/restore">Restore DB From Server</a></li>
+
+        </ol>
+    </div><!--/.well -->
+    
+</ui:composition>        

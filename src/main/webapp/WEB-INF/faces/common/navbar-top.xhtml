@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="/">CRM Framework</a>
+                <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">
+                        <h:outputLink class="navbar-link" value="/logout">Logout</h:outputLink>
+                    </p>
+                    <ul class="nav">
+                        <li class="active"><a href="/">Dashboard</a></li>
+                        <li><h:outputLink value="ticketing.xhtml">Ticketing</h:outputLink></li>
+                        <li><a href="invoicing">Invoicing</a></li>
+                        <li><a href="monitoring">Monitoring</a></li>
+                        <li><a href="logging">Logging</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>     
+
+    </div>
+
+</ui:composition>

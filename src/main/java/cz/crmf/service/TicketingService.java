@@ -23,6 +23,7 @@ public interface TicketingService {
     
     public List<TicketDto> getTicketsByCustomer(Integer customerId);
     public List<TicketDto> getTicketsByAgent(Integer agentId);    
+    public List<TicketDto> getAllTickets();
     public TicketDto getTicketById(Integer ticketId);
     
     public void removeTicket(Integer ticketId);
