@@ -37,6 +37,13 @@
     </listener>             
     
     <!-- ================= SPRING FRAMEWORK - END ================= -->
+    
+    <!-- ================= PRIME FACES THEME - START ============= -->
+    <context-param>  
+        <param-name>primefaces.THEME</param-name>  
+        <param-value>bootstrap</param-value>  
+    </context-param>  
+    <!-- ================= PRIME FACES THEME - END ============= -->
              
     <!-- ================= JAVASERVER FACES - START ================= -->
     <context-param>

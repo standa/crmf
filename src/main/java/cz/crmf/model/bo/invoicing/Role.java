@@ -5,9 +5,7 @@
 package cz.crmf.model.bo.invoicing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
-import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,28 +22,21 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Role.findByRoleName", query = "SELECT r FROM Role r WHERE r.roleName = :roleName"),
     @NamedQuery(name = "Role.findByDescription", query = "SELECT r FROM Role r WHERE r.description = :description")})
 public class Role extends AbstractBusinessObject {
-
+    
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @ManyToOne
+    private Customer customer;
     @Size(max = 20)
     @Column(name = "role_name", length = 20)
     private String roleName;
     @Size(max = 100)
     @Column(name = "description", length = 100)
-    private String description;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "role")
-    private Customer customer;
+    private String description;    
 
     public Role() {
     }
 
     public Role(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
         this.id = id;
     }
 

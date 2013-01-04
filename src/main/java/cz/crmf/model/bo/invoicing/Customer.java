@@ -10,6 +10,7 @@ import cz.crmf.model.provider.HashProvider;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -27,8 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id"),
     @NamedQuery(name = "Customer.findByUsername", query = "SELECT c FROM Customer c WHERE c.username = :username"),
     @NamedQuery(name = "Customer.findByPassword", query = "SELECT c FROM Customer c WHERE c.password = :password"),
-    @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email"),
-    @NamedQuery(name = "Customer.findByRoleId", query = "SELECT c FROM Customer c WHERE c.roleId = :roleId")})
+    @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")})
 public class Customer extends AbstractBusinessObject {
 
     @Basic(optional = false)
@@ -41,19 +41,18 @@ public class Customer extends AbstractBusinessObject {
     @Size(min = 1, max = 100)
     @Column(name = "password", nullable = false, length = 100)
     private String password;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")
+    //if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "email", nullable = false, length = 100)
-    private String email;
+    private String email;    
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "role_id", nullable = false)
-    private int roleId;
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Role role;
+    @Column(name = "enabled")
+    private Boolean enabled = true;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private List<Role> roleList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Invoice> invoiceList;
     @OneToMany(mappedBy = "customerId")
@@ -78,20 +77,12 @@ public class Customer extends AbstractBusinessObject {
         this.id = id;
     }
 
-    public Customer(Integer id, String username, String password, String email, int roleId) {
+    public Customer(Integer id, String username, String password, String email, List<Role> roleList) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.roleId = roleId;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.roleList = roleList;
     }
 
     public String getUsername() {
@@ -118,20 +109,12 @@ public class Customer extends AbstractBusinessObject {
         this.email = email;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public List<Role> getRoleList() {
+        return roleList;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleId(List<Role> roleList) {
+        this.roleList = roleList;
     }
 
     @XmlTransient
@@ -159,6 +142,14 @@ public class Customer extends AbstractBusinessObject {
 
     public void setContactList(List<Contact> contactList) {
         this.contactList = contactList;
+    }
+    
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override

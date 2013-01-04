@@ -18,24 +18,16 @@ public class CustomerDto extends AbstractDto {
     private String username;
     private String password;
     private String email;
-    private int roleId;
-    private RoleDto role;
+    private List<RoleDto> roleList;
     private List<InvoiceDto> invoiceList;
     private List<TicketDto> ticketList;
     private List<ContactDto> contactList;
-
-    public CustomerDto(Integer id, String username, String email, int roleId) {
+    
+    public CustomerDto(Integer id, String username, String email, List<RoleDto> roleList) {
         this.id = id;
         this.username = username;
         this.email = email;
-        this.roleId = roleId;
-    }
-
-    public CustomerDto(Integer id, String username, String email, RoleDto role) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.role = role;
+        this.roleList = roleList;
     }
 
    
@@ -52,12 +44,8 @@ public class CustomerDto extends AbstractDto {
         return email;
     }
 
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public RoleDto getRole() {
-        return role;
+    public List<RoleDto> getRoleList() {
+        return roleList;
     }
 
     @XmlTransient
