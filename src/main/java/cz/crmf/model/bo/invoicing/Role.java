@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Role.findByDescription", query = "SELECT r FROM Role r WHERE r.description = :description")})
 public class Role extends AbstractBusinessObject {
     
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "username", referencedColumnName = "username")
     @ManyToOne
     private Customer customer;
     @Size(max = 20)

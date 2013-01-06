@@ -36,19 +36,18 @@
     </http>
     
     <authentication-manager>
-        <authentication-provider>
+<!--        <authentication-provider>
             <user-service>
                 <user name="user" password="password" authorities="ROLE_ADMIN" />     
             </user-service>            
+        </authentication-provider>-->
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"
+                users-by-username-query="SELECT username, password, enabled FROM customers WHERE username=?"
+                authorities-by-username-query="SELECT username, role_name FROM roles WHERE username=?"
+                role-prefix="ROLE_" />
+            <password-encoder base64="false" hash="sha" />
         </authentication-provider>
-<!--        <authentication-provider>-->
-<!--            <jdbc-user-service data-source-ref="dataSource"
-                users-by-username-query="SELECT username,password,true FROM person WHERE username=?"
-                authorities-by-username-query="SELECT username,groupname FROM person WHERE username=?"
-                role-prefix="ROLE_" />-->
-            <!--password-encoder base64="false" hash="plaintext" /-->
-<!--            <password-encoder base64="false" hash="sha" />-->
-<!--        </authentication-provider>-->
     </authentication-manager>
     
 </beans:beans>

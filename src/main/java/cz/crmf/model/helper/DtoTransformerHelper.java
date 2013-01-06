@@ -14,19 +14,13 @@ import java.util.Date;
  */
 public class DtoTransformerHelper {
     public static ContactDto contactDtoFactory(Contact c) {
-
-        return new ContactDto(c.getId(), c.getName(), c.getSurname(),
-                c.getStreet(), c.getNumber(), c.getZip(), c.getDistrict(),
-                c.getCity(), c.getRegion(), c.getCountry(), c.getCompanyId(),
-                c.getVatNo(), c.getCompany(), c.getBankAccount(),
-                c.getBank(), c.getPhone(), c.getEmail(), c.getPrimaryContact(),
-                customerDtoFactory(c.getCustomer()));
-    }
-
-    public static CustomerDto customerDtoFactory(Customer c) {        
-        return new CustomerDto(c.getId(), c.getUsername(), c.getEmail(),
-                roleDtoFactory(c.getRole())
-        );
+        throw new UnsupportedOperationException();
+//        return new ContactDto(c.getId(), c.getName(), c.getSurname(),
+//                c.getStreet(), c.getNumber(), c.getZip(), c.getDistrict(),
+//                c.getCity(), c.getRegion(), c.getCountry(), c.getCompanyId(),
+//                c.getVatNo(), c.getCompany(), c.getBankAccount(),
+//                c.getBank(), c.getPhone(), c.getEmail(), c.getPrimaryContact(),
+//                customerDtoFactory(c.getCustomer()));
     }
     
     public static RoleDto roleDtoFactory(Role r) {        
@@ -45,13 +39,13 @@ public class DtoTransformerHelper {
     }
 
     private static InvoiceDto invoiceDtoFactory(Invoice in) {
-
-        return new InvoiceDto(in.getId(), in.getTotal(), in.getBookingAmount(),
-                in.getIssueDate(), in.getDueDate(), 
-                customerDtoFactory(in.getCustomer()),
-                contactDtoFactory(in.getDeliveryContact()),
-                contactDtoFactory(in.getBillingContact()),
-                in.getNote(), in.getInvoicePdf()
-                );
+        throw new UnsupportedOperationException();
+//        return new InvoiceDto(in.getId(), in.getTotal(), in.getBookingAmount(),
+//                in.getIssueDate(), in.getDueDate(), 
+//                customerDtoFactory(in.getCustomer()),
+//                contactDtoFactory(in.getDeliveryContact()),
+//                contactDtoFactory(in.getBillingContact()),
+//                in.getNote(), in.getInvoicePdf()
+//                );
     }
 }

@@ -14,7 +14,15 @@ public class RoleDto extends AbstractDto {
 
     private String roleName;
     private String description;
+    private String username;
     private CustomerDto customer;
+    
+    public RoleDto(Integer id, String username, String roleName, String description) {
+        this.id = id;
+        this.roleName = roleName;
+        this.username = username;
+        this.description = description;
+    }
 
     public RoleDto(Integer id, String roleName, String description) {
         this.id = id;

@@ -68,14 +68,14 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
                 customer));
         
                
-        CustomerDto custDto = new CustomerDto(
-                customer.getId(), customer.getUsername(), customer.getEmail(), 
-                new RoleDto(
-                    customer.getRole().getId(), 
-                    customer.getRole().getRoleName(),
-                    customer.getRole().getDescription()
-                )
-        );
+//        CustomerDto custDto = new CustomerDto(
+//                customer.getId(), customer.getUsername(), customer.getEmail(), 
+//                new RoleDto(
+//                    customer.getRole().getId(), 
+//                    customer.getRole().getRoleName(),
+//                    customer.getRole().getDescription()
+//                )
+//        );
         
         ContactDto dto = DtoTransformerHelper.contactDtoFactory(c);
         
@@ -84,23 +84,7 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
 
     @Override
     public ContactDto getContactByID(Integer contactId) {
-        
-        Contact c = getGenericDao().getById(contactId, Contact.class);
-        
-        Customer customer = c.getCustomer();
-        
-        CustomerDto custDto = new CustomerDto(
-                customer.getId(), customer.getUsername(), customer.getEmail(), 
-                new RoleDto(
-                    customer.getRole().getId(), 
-                    customer.getRole().getRoleName(),
-                    customer.getRole().getDescription()
-                )
-        );
-        
-        ContactDto dto = DtoTransformerHelper.contactDtoFactory(c);
-        
-        return dto;        
+        throw new UnsupportedOperationException();        
     }
 
     @Override
@@ -111,20 +95,12 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
     @Override
     public Integer createCustomer(String username, String password, 
         String email, Integer roleId) {
-        
-        Customer customer = new Customer();
-        customer.setUsername(username);
-        customer.setPassword(password);
-        customer.setEmail(email);
-        customer.setRoleId(roleId);
-        
-        return getGenericDao().saveOrUpdate(customer).getId();        
+        throw new UnsupportedOperationException();             
     }
 
     @Override
     public CustomerDto getCustomerById(Integer customerId) {
-        Customer c = getGenericDao().getById(customerId, Customer.class);
-        return new CustomerDto(c.getId(), c.getUsername(), c.getEmail(), c.getRoleId());
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -152,25 +128,7 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
 
     @Override
     public List<InvoiceDto> getInvoicesByCustomerId(Integer customerId) {
-        List<InvoiceDto> dtos = new ArrayList<InvoiceDto>();
-        for (Invoice in: getGenericDao().getByProperty("id", customerId, Invoice.class)) {
-/*
- *     public InvoiceDto(Integer id, float total, float bookingAmount,
-            Date issueDate, Date dueDate, CustomerDto customer,
-            ContactDto deliveryContact, ContactDto billingContact, 
-            String note, byte[] invoicePdf) {
- */
-            
-            InvoiceDto dto = new InvoiceDto(in.getId(), in.getTotal(),
-                    in.getBookingAmount(),
-                    in.getIssueDate(), in.getDueDate(), 
-                    DtoTransformerHelper.customerDtoFactory(in.getCustomer()),
-                    DtoTransformerHelper.contactDtoFactory(in.getBillingContact()), 
-                    DtoTransformerHelper.contactDtoFactory(in.getDeliveryContact()),                     
-                    in.getNote(), in.getInvoicePdf());
-            dtos.add(dto);
-        }
-        return dtos;
+        throw new UnsupportedOperationException();    
     }
 
     @Override
