@@ -35,8 +35,10 @@ public class TicketingServiceImpl extends AbstractDataAccessService
     }
 
     @Override
-    public Integer createTicket(String subject, String message, String status) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Integer createTicket(String subject, String message, String status) {        
+        ModelMapper mm = new ModelMapper();
+        Ticket t = ticketRepository.save(mm.map(new TicketDto(subject, message), Ticket.class));
+        return t.getId();
     }
 
     @Override

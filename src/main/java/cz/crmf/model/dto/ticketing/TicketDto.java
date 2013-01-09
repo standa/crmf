@@ -40,9 +40,10 @@ public class TicketDto extends AbstractDto {
         this.status = status;
         this.resolved = resolved;
     }
-
-    public Integer getId() {
-        return id;
+    
+    public TicketDto(String subject, String message) {
+        this.subject = subject;
+        this.message = message;
     }
 
     public void setId(Integer id) {

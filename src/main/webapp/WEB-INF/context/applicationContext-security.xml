@@ -15,6 +15,7 @@
     <http security="none" pattern="/javax.faces.resource/**" />
     <http security="none" pattern="/login.xhtml" />
     <http security="none" pattern="/resources/**" />
+    <http security="none" pattern="/rest/**" />
 
     <http>
 <!--        <form-login login-processing-url="/static/j_spring_security_check" login-page="/login.xhtml" authentication-failure-url="/login.xhtml?login_error=t" />-->
@@ -30,7 +31,9 @@
 <!--        <intercept-url pattern="/login.xhtml" access="IS_AUTHENTICATED_ANONYMOUSLY" />-->
 <!--        <intercept-url pattern="/student.xhtml" access="ROLE_teacher" />-->
 
-        <intercept-url pattern="/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/client" access="ROLE_CLIENT" />
+        <intercept-url pattern="/admin" access="ROLE_ADMIN" />
+        <intercept-url pattern="/support" access="ROLE_AGENT" />
         
         <logout logout-url="/logout" />
     </http>

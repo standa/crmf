@@ -283,14 +283,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/cz/crmf/model/bo/AbstractBusinessObject.java",
-			"settings":
-			{
-				"buffer_size": 1128,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -320,6 +312,7 @@
 	},
 	"file_history":
 	[
+		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/cz/crmf/model/bo/AbstractBusinessObject.java",
 		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/faces-config.NavData",
 		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/pom.xml",
 		"/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/webapp/META-INF/context.xml",
@@ -444,37 +437,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/standa/Dokumenty/NetBeansProjects/CrmFramework/src/main/java/cz/crmf/model/bo/AbstractBusinessObject.java",
-					"settings":
-					{
-						"buffer_size": 1128,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								267,
-								267
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -534,6 +498,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 392.0,
+	"side_bar_width": 187.0,
 	"status_bar_visible": true
 }
