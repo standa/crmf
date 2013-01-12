@@ -55,6 +55,7 @@
                 <h2 class="form-signin-heading"><h:outputText value="#{msgs['login.pleaseLogin']}"/></h2>
                 <input type="text" name="j_username" class="input-block-level" placeholder="#{msgs['login.username']}"/>
                 <input type="password" name="j_password" class="input-block-level" placeholder="#{msgs['login.password']}"/>
+                <label><input type="checkbox" name="_spring_security_remember_me" /> #{msgs['login.rememberMe']}</label>
                 <button class="btn btn-large btn-primary" type="submit">#{msgs['login.loginButton']}</button>
             </form>
 

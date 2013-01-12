@@ -109,6 +109,7 @@
         <url-pattern>/spring/*</url-pattern>
     </servlet-mapping>
     <!-- ================= SPRING MVC DISPATCHER - END ================= -->
+    
     <!-- ================= SPRING SECURITY ================= -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
@@ -122,7 +123,18 @@
     </filter-mapping>
     <!-- ================= SPRING SECURITY END ========================== -->
     
-    <!-- ================= JERSERY REST SERVICE START =================== -->
+    <!-- ================= SPRING SECURITY TAGLIB FOR JSF2 START ======== -->
+    <!--
+        the file /WEB-INF/springsecurity.taglib.xml was added manually
+        @see http://static.springsource.org/spring-webflow/docs/2.2.x/reference/html/ch13s09.html
+    -->
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
+    </context-param>
+    <!-- ================= SPRING SECURITY TAGLIB FOR JSF2 END ======== -->
+    
+    <!-- ================= JERSEY REST SERVICE START =================== -->
         <servlet>
         <servlet-name>Jersey REST Service</servlet-name>
         <!--servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class-->

@@ -34,9 +34,31 @@ public class ContactDto extends AbstractDto {
     private String email;
     private boolean primaryContact;
     private List<InvoiceDto> invoiceList;
-    private List<InvoiceDto> invoiceList1;
     private CustomerDto customer;
 
+    /**
+     * a full stack constructor used for database communication
+     * 
+     * @param id
+     * @param name
+     * @param surname
+     * @param street
+     * @param number
+     * @param zip
+     * @param district
+     * @param city
+     * @param region
+     * @param country
+     * @param companyId
+     * @param vatNo
+     * @param company
+     * @param bankAccount
+     * @param bank
+     * @param phone
+     * @param email
+     * @param primaryContact
+     * @param customer 
+     */
     public ContactDto(Integer id, String name, String surname, String street, String number, 
             String zip, String district, String city, String region, 
             String country, String companyId, String vatNo, String company, 
@@ -62,9 +84,40 @@ public class ContactDto extends AbstractDto {
         this.primaryContact = primaryContact;
         this.customer = customer;
     }
-
-    public ContactDto(Integer id) {
-        this.id = id;
+    
+    /**
+     * DTO specific for company contact registrations:
+     * - the contact person may not be known, as well as other details
+     * but still many records can be found out just by knowing the company
+     * registration number
+     * 
+     * @param street
+     * @param number
+     * @param zip
+     * @param district
+     * @param city
+     * @param region
+     * @param country
+     * @param companyId
+     * @param vatNo
+     * @param company 
+     */
+    public ContactDto(String street, String number, 
+            String zip, String district, String city, String region, 
+            String country, String companyId, String vatNo, String company
+            ) {
+        
+        this.street = street;
+        this.number = number;
+        this.zip = zip;
+        this.district = district;
+        this.city = city;
+        this.region = region;
+        this.country = country;
+        this.companyId = companyId;
+        this.vatNo = vatNo;
+        this.company = company;
+        
     }
 
     public ContactDto(Integer id, String name, boolean primaryContact) {
@@ -170,18 +223,13 @@ public class ContactDto extends AbstractDto {
         return invoiceList;
     }
 
-    @XmlTransient
-    public List<InvoiceDto> getInvoiceList1() {
-        return invoiceList1;
-    }
-
     public CustomerDto getCustomer() {
         return customer;
     }
 
     @Override
     public String toString() {
-        return "cz.crmf.bo.Contact[ id=" + id + " ]";
+        return "cz.crmf.dto.Contact[ id=" + id + " ]";
     }
     
 }

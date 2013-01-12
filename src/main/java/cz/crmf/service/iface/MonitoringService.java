@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.crmf.service;
+package cz.crmf.service.iface;
 
 /**
  * This interface is not to be called directly from website (a big part of it).

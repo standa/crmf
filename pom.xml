@@ -1,3 +1,4 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -110,6 +111,8 @@
             Web application development utilities applicable to both Servlet and Portlet Environments
             (depends on spring-core, spring-beans, spring-context)
             Define this if you use Spring MVC, or wish to use Struts, JSF, or another web framework with Spring (org.springframework.web.*)
+            
+            Also supports Spring RESTfull services
         -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -240,9 +243,9 @@
                 
         <!-- MySQL server connection -->
         <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.21</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.21</version>
         </dependency>
         
         <!-- Driver pro PostgreSQL, pokud pouzivate jinou databazi, tak jej vymente -->
@@ -296,8 +299,9 @@
             <scope>provided</scope>
         </dependency>
         
-        <!-- web services -->
+        <!-- web services dependencies -->
         
+        <!-- podpora RESTfull serializace do JSON START -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
@@ -308,7 +312,9 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.4</version>
         </dependency>
- 
+        <!-- podpora RESTfull serializace do JSON END -->
+        
+        <!-- support for RESTfull Jersey implementation using spring START -->
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
@@ -359,7 +365,27 @@
                 </exclusion>
             </exclusions>            
         </dependency>
+        <!-- support for RESTfull Jersey implementation using spring END -->        
         
+        <!-- 
+            Maven artifacts not used here: 
+            Pro JAX-WS s JAX-WS RI = JAX Web Services
+                – com.sun.xml.ws:jaxws-rt
+                – org.jvnet.jax-ws-commons.spring:jaxws-spring
+                – org.apache.xbean:xbean-spring
+            Pro RESTfull klienta s Jersey = Jersey RESTfull client
+                – com.sun.jersey:jersey-client
+                – com.sun.jersey.contribs:jersey-multipart
+          -->
+         
+        <!-- JDOM XML PARSER START -->
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+        <!-- JDOM XML PARSER END -->
+
     </dependencies>
 
     <build>
@@ -382,6 +408,16 @@
                 <version>2.1.1</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webResources>
+                        <resource>
+                            <directory>src</directory>
+                            <targetPath>WEB-INF</targetPath>
+                            <includes>
+                                <include>jax-ws-catalog.xml</include>
+                                <include>wsdl/**</include>
+                            </includes>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
             <plugin>
@@ -418,12 +454,32 @@
                 </executions>
             </plugin> 
             <plugin>
-              <groupId>org.mortbay.jetty</groupId>
-              <artifactId>jetty-maven-plugin</artifactId>
-              <version>7.0.0.v20091005</version>
-              <configuration>
-                  <scanIntervalSeconds>1</scanIntervalSeconds>
-              </configuration>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>7.0.0.v20091005</version>
+                <configuration>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions></executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.xml</groupId>
+                        <artifactId>webservices-api</artifactId>
+                        <version>1.4</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+                    <xnocompile>true</xnocompile>
+                    <verbose>true</verbose>
+                    <extension>true</extension>
+                    <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
+                </configuration>
             </plugin>
         </plugins>
     </build>
