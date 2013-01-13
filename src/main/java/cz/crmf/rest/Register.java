@@ -45,6 +45,9 @@ public class Register {
     /**
      * lookup a company knowing its ICO from the ARES public database
      * of the ministery of finance of the Czech Republic
+     * 
+     * example URL: http://localhost:8080/rest/register/aresLookup/27074358
+     * 
      * @param ico
      * @return 
      */
@@ -56,7 +59,7 @@ public class Register {
         ContactDto dto = ws.getContactDtoByRegNo(ico);
         
         if (dto == null) {
-            return new Result(false, ResultCode.NOT_EXIST);
+            return new Result(false, ResultCode.NOT_FOUND);
         } else {
             return new Result(dto);
         }

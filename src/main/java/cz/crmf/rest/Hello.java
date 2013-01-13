@@ -6,6 +6,7 @@ package cz.crmf.rest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,4 +23,10 @@ public class Hello {
         return "Hello "+name;               
     }
     
+    @GET
+    @Path("test2")
+    public Response test2() {
+        String result = "Hello saved: aaa";
+        return Response.status(201).entity(result).build();
+    }
 }

@@ -7,4 +7,5 @@ echo $CLEARDB_DATABASE_URL
 
 #heroku config | grep CLEARDB_DATABASE_URL
 
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m -XX:PermSize=512m"
 mvn jetty:run
