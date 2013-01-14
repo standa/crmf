@@ -19,4 +19,10 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-maven-jaxws.rest_2e_config_2e_type>dd</org-netbeans-modules-maven-jaxws.rest_2e_config_2e_type>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_basic_5f_1_2e_0_2e_2>http://wwwinfo.mfcr.cz/ares/xml_doc/wsdl/basic_1.0.2.wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_basic_5f_1_2e_0_2e_2>
     </properties>
+    <spring-data xmlns="http://www.netbeans.org/ns/spring-data/1">
+        <config-files>
+            <config-file>src/main/webapp/WEB-INF/context/applicationContext-customBeans.xml.xml</config-file>
+        </config-files>
+        <config-file-groups/>
+    </spring-data>
 </project-shared-configuration>

@@ -6,7 +6,7 @@ package cz.crmf.model.bo.invoicing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
 import cz.crmf.model.bo.ticketing.Ticket;
-import cz.crmf.model.provider.HashProvider;
+import cz.crmf.provider.HashProvider;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

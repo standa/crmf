@@ -4,10 +4,11 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/faces/common/layout.xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:sec="http://www.springframework.org/security/tags">
 
 
-    <ui:define name="content">
+    <ui:define name="content" rendered="#{sec:areAnyGranted('ROLE_AGENT')}">
 
 
         <h:form prependId="false">  

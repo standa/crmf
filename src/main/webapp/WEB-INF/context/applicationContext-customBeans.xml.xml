@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This file is used for configuration of beans specific for this application.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+">
+
+    <bean id="domainDataService" class="cz.crmf.service.impl.WedosWapi">
+        <constructor-arg index="0" value="standa@jasa.name" /> <!-- name="wedosUser" -->
+        <constructor-arg index="1" value="7U5;6lO5J1;0d3H" /> <!-- name="wapiPassword" -->
+    </bean>
+
+</beans>

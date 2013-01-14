@@ -166,5 +166,10 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
         getGenericDao().removeById(orderItemId, OrderItem.class);
     }
 
+    @Override
+    public boolean checkUsername(String username) {        
+        return !getGenericDao().existsByProperty("username", username, Customer.class);
+    }
+
     
 }

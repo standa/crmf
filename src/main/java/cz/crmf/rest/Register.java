@@ -2,14 +2,16 @@ package cz.crmf.rest;
 
 import cz.crmf.model.dto.invoicing.ContactDto;
 import cz.crmf.service.iface.CompanyDataWebServiceClient;
-import cz.crmf.service.impl.AresWebService;
+import cz.crmf.service.iface.DomainDataWebServiceClient;
+import cz.crmf.service.iface.InvoicingService;
+import java.util.Locale;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,23 +25,40 @@ import org.springframework.stereotype.Component;
 @Path("/register")
 public class Register {
     
+    @Autowired
+    InvoicingService invoicingService;
+    
+    @Autowired
+    CompanyDataWebServiceClient companyDataService;
+    
+    @Autowired
+    DomainDataWebServiceClient domainDataService;
+    
+    // use as messages.getMessage("key", new Object[] {val1, val2}, Locale.ENGLISH)
+    @Autowired
+    MessageSource messages;
+    
     @GET
     @Path("/check/domain/{domain}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String checkDomain(@PathParam("domain") String domain) {
-        return "checking domain "+domain;
+    public Result checkDomain(@PathParam("domain") String domain) {
+        
+        if (domainDataService.checkDomain(domain)) {
+            return new Result(domain);
+        } else {
+            return new Result(false, ResultCode.CONFLICT);
+        }
     }
     
     @GET
     @Path("/check/username/{username}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response checkUsername(@PathParam("username") String username) {
-        Boolean a = false;
-        if (a) {
-            return Response.ok().build();
-        } else {
-            return Response.status(Status.CONFLICT).build();
-        }        
+    public Result checkUsername(@PathParam("username") String username) {
+        if (invoicingService.checkUsername(username)) {
+            return new Result();
+        } else {            
+            return new Result(false, ResultCode.CONFLICT);
+        }
     }
     
     /**
@@ -52,11 +71,10 @@ public class Register {
      * @return 
      */
     @GET
-    @Path("/aresLookup/{ico}")
+    @Path("/lookupCompany/{ico}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Result aresLookup(@PathParam("ico") String ico) {
-        CompanyDataWebServiceClient ws = new AresWebService();
-        ContactDto dto = ws.getContactDtoByRegNo(ico);
+    public Result lookupCompany(@PathParam("ico") String ico) {        
+        ContactDto dto = companyDataService.getContactDtoByRegNo(ico);
         
         if (dto == null) {
             return new Result(false, ResultCode.NOT_FOUND);

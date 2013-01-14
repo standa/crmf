@@ -15,7 +15,7 @@
             <supported-locale>en</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>cz.crmf.locale</base-name>
+            <base-name>cz.crmf.client</base-name>
             <var>msgs</var>
         </resource-bundle>
     </application>

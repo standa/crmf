@@ -9,11 +9,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.MessageFormat;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
-import org.jdom2.input.*;
+import org.jdom2.input.SAXBuilder;
+import org.springframework.stereotype.Service;
 
 /**
  * Deals with the loading XML data from the ARES Basic Web Access Service.
@@ -25,6 +25,7 @@ import org.jdom2.input.*;
  *
  * @author standa
  */
+@Service("companyDataService")
 public class AresWebService implements CompanyDataWebServiceClient {
     
     /**

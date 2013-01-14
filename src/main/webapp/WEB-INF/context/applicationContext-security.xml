@@ -38,9 +38,9 @@
 
 <!--        <intercept­url pattern=“/usermanagement/**“ access=“hasAnyRole('ROLE_MGR','ROLE_ADM')“/> -->
 
-        <intercept-url pattern="/client" access="ROLE_CLIENT" />
-        <intercept-url pattern="/admin" access="ROLE_ADMIN" />
-        <intercept-url pattern="/support" access="ROLE_AGENT" />
+        <intercept-url pattern="/client/**" access="ROLE_CLIENT" />
+        <intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/agent/**" access="ROLE_AGENT" />
         
         <logout logout-url="/logout" />
     </http>

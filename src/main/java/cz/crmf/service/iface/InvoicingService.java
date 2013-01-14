@@ -13,12 +13,15 @@ import java.util.List;
  * @author standa
  */
 public interface InvoicingService {
+    
+    // roles
 
     public Integer createRole(String roleName, String description);
     public List<RoleDto> getAllRoles();
     public RoleDto getRoleById(Integer roleId);
     public void deleteRole(Integer roleId);
 
+    // contacts
     public ContactDto createContact(String name, String surname, String street, 
         String number, String zip, String district, String city, String region, 
         String country, String companyId, String vatNo, String company, 
@@ -27,10 +30,12 @@ public interface InvoicingService {
     public ContactDto getContactByID(Integer contactId);
     public void deleteContact(Integer contactId);
 
+    // customers
     public Integer createCustomer(String username, String password, String email, Integer roleId);
     public CustomerDto getCustomerById(Integer customerId);
     public void deleteCustomer(Integer customerId);
 
+    // invoices
     public Integer createInvoice(float total, float bookingAmount, 
         Date issueDate, Date dueDate, Integer customerId, Integer billingContact, 
         Integer deliveryContact, String note, byte[] invoicePdf);
@@ -41,6 +46,13 @@ public interface InvoicingService {
         String currency, Float subtotal, Date validFrom,
         Date validUntil, Integer reminderDays);    
     public void deleteOrderItem(Integer orderItemId);
+
+    /**
+     * check if the username exists in the database already
+     * @param username the desired username
+     * @return true if the username is free to register, false otherwise
+     */
+    public boolean checkUsername(String username);
     
     
     

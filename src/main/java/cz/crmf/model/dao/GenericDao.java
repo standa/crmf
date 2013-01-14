@@ -42,9 +42,20 @@ public interface GenericDao {
      * Vrati pocet entit dane tridy
      * @param clazz trida
      * @return pocet
-     */
-    public Integer getCount(Class clazz);
+     */    
+    public <ENTITY extends AbstractBusinessObject> Integer getCount(Class<ENTITY> clazz);
 
+    /**
+     * Test existence entity v databazi podle nejake jeji vlastnosti.
+     * 
+     * @param <ENTITY> typovy parametr
+     * @param property vlastnost entity
+     * @param value hodnota entity
+     * @param clazz entita, kterou testujeme
+     * @return true pokud entita existuje; false, pokud v databazi neni
+     */
+    public <ENTITY extends AbstractBusinessObject> boolean existsByProperty(String property, Object value, Class<ENTITY> clazz);
+            
     /**
      * Odstrani dany objekt
      * @param o objekt k odstraneni

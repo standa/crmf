@@ -1,17 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package cz.crmf.model.provider;
+package cz.crmf.provider;
 
 import java.security.MessageDigest;
 
 /**
  * SHA1 hash functionprovider
- * @author mickapa1
+ *
+ * from: http://stackoverflow.com/questions/1515489/java-compute-sha-1
  */
-public class SHA1Provider implements HashProvider{
+public class SHA1Provider implements HashProvider {
+
     private static String convertToHex(byte[] data) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < data.length; i++) {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.dao;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
@@ -152,8 +148,16 @@ public class GenericHibernateJpaDao implements GenericDao {
     }
 
     @Override
-    public Integer getCount(Class clazz) {
-        throw new IllegalStateException("Not implemented yet");
+    public <ENTITY extends AbstractBusinessObject> Integer getCount(Class<ENTITY> clazz) {
+        return (Integer)getEntityManager().createQuery("SELECT COUNT(*) FROM "+clazz.getSimpleName()).getSingleResult();
+    }
+    
+    @Override
+    public <ENTITY extends AbstractBusinessObject> boolean existsByProperty(String property, Object value, Class<ENTITY> clazz) {
+        return !getEntityManager().
+                createQuery("FROM "+clazz.getSimpleName()+" WHERE "+property+" = :value").
+                setParameter("value", value).
+                setMaxResults(1).getResultList().isEmpty();
     }
 
     @Override
