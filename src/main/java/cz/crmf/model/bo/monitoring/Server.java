@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.bo.monitoring;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
@@ -14,7 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * Identification entity for all the devices attached to the system.
+ * 
  * @author standa
  */
 @Entity
@@ -34,19 +31,24 @@ public class Server extends AbstractBusinessObject {
     @Size(min = 1, max = 45)
     @Column(name = "server_name", nullable = false, length = 45)
     private String serverName;
+
     @Size(max = 200)
     @Column(name = "description", length = 200)
     private String description;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "ip_address", nullable = false, length = 45)
     private String ipAddress;
+    
     @Size(max = 11)
     @Column(name = "status", length = 11)
     private String status;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "serverId")
     private List<Monitoring> monitoringList;
+    
     @JoinColumn(name = "agent_id", referencedColumnName = "id")
     @ManyToOne
     private Agent agentId;
@@ -62,14 +64,6 @@ public class Server extends AbstractBusinessObject {
         this.id = id;
         this.serverName = serverName;
         this.ipAddress = ipAddress;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getServerName() {

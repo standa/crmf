@@ -35,10 +35,6 @@ public class ServerDto extends AbstractDto {
         this.ipAddress = ipAddress;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
     public void setId(Integer id) {
         this.id = id;
     }

@@ -38,6 +38,15 @@ public class Register {
     @Autowired
     MessageSource messages;
     
+    /**
+     * Check if the domain already exists, plus add the other rules like that
+     * some short domain names cannot be registered etc. Depending on
+     * national rules. This is actually using a kind of web service client.
+     * 
+     * @param domain the name of the domain eg. existingdomain.com
+     * @return true if the domain is free to register,
+     * false if it cannot be registered
+     */
     @GET
     @Path("/check/domain/{domain}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -50,6 +59,13 @@ public class Register {
         }
     }
     
+    /**
+     * check if the username already exists in the system
+     * 
+     * @param username
+     * @return true if the username is free, 
+     * or false if the username is already used
+     */
     @GET
     @Path("/check/username/{username}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -65,7 +81,7 @@ public class Register {
      * lookup a company knowing its ICO from the ARES public database
      * of the ministery of finance of the Czech Republic
      * 
-     * example URL: http://localhost:8080/rest/register/aresLookup/27074358
+     * example URL: http://localhost:8080/rest/register/lookupCompany/27074358
      * 
      * @param ico
      * @return 

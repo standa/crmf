@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.bo.monitoring;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
@@ -13,7 +9,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Monitoring records of all the attached devices.
+ * 
  * @author standa
  */
 @Entity
@@ -56,14 +53,6 @@ public class Monitoring extends AbstractBusinessObject {
     }
 
     public Monitoring(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
         this.id = id;
     }
 

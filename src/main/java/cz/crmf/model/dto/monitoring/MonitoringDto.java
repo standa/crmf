@@ -1,14 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.dto.monitoring;
 
 import cz.crmf.model.dto.AbstractDto;
 import java.util.Date;
 
 /**
- *
+ * The monitoring record DTO - a transport object for the monitoring entity.
+ * 
  * @author standa
  */
 public class MonitoringDto extends AbstractDto {
@@ -26,10 +23,6 @@ public class MonitoringDto extends AbstractDto {
 
     public MonitoringDto(Integer id) {
         this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setId(Integer id) {
@@ -114,7 +107,7 @@ public class MonitoringDto extends AbstractDto {
 
     @Override
     public String toString() {
-        return "cz.crmf.bo.Monitoring[ id=" + id + " ]";
+        return "cz.crmf.model.dto.MonitoringDto[ id=" + id + " ]";
     }
     
 }
