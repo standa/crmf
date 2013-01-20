@@ -10,11 +10,11 @@
         http://www.mkyong.com/spring/spring-jdk-timer-scheduler-example/ 
      -->
 
-    <bean id="serverMonitoring" class="cz.crmf.scheduler.ServerMonitoring" />
+<!--    <bean id="serverMonitoring" class="cz.crmf.scheduler.ServerMonitoring" />
     
     <bean id="schedulerTask" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
         <property name="targetObject" ref="serverMonitoring" />
-        <property name="targetMethod" value="ping" />
+        <property name="targetMethod" value="ping" />        
     </bean>
     
     <bean id="timerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
@@ -29,6 +29,6 @@
                 <ref local="timerTask" />
             </list>
         </property>
-    </bean>
+    </bean>-->
 
 </beans>

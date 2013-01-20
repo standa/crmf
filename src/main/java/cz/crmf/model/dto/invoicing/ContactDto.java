@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.dto.invoicing;
 
 import cz.crmf.model.dto.AbstractDto;
@@ -9,7 +5,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * DTO for contacts. This one serves as a transfer object for both
+ * company contacts and physical living people conctacs. It is therefore
+ * not required to use all the fields but a reasonable combination of those.
  * @author standa
  */
 public class ContactDto extends AbstractDto {
@@ -86,8 +84,8 @@ public class ContactDto extends AbstractDto {
     }
     
     /**
-     * DTO specific for company contact registrations:
-     * - the contact person may not be known, as well as other details
+     * DTO specific for company contact registrations.
+     * The contact person may not be known, as well as other details
      * but still many records can be found out just by knowing the company
      * registration number
      * 

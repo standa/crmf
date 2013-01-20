@@ -1,11 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.dao;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Definuje metody, ktere by melo kazde dao implementovat.
@@ -13,6 +10,7 @@ import java.util.List;
  * @author Pavel Micka (mickapa1@fel.cvut.cz)
  * @param <ENTITY> entita, ktere se dane dao tyka
  */
+@Transactional(readOnly=true)
 public interface GenericDao {
 
     /**
@@ -36,6 +34,7 @@ public interface GenericDao {
      * Odstrani entitu dle jejiho id
      * @param id entity k odstraneni
      */
+    @Transactional(readOnly=false)
     public <ENTITY extends AbstractBusinessObject> void removeById(Integer id, Class<ENTITY> clazz);
 
     /**
@@ -60,6 +59,7 @@ public interface GenericDao {
      * Odstrani dany objekt
      * @param o objekt k odstraneni
      */
+    @Transactional(readOnly=false)
     public <ENTITY extends AbstractBusinessObject> void remove(ENTITY o);
 
     /**
@@ -68,6 +68,7 @@ public interface GenericDao {
      * @param o
      * @return attached ulozeny (zaktualizovany objekt)
      */
+    @Transactional(readOnly=false)
     public <ENTITY extends AbstractBusinessObject> ENTITY saveOrUpdate(ENTITY o);
 
     /**

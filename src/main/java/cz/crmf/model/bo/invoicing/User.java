@@ -20,34 +20,33 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author standa
  */
 @Entity
-@Table(name = "customers", uniqueConstraints = {
+@Table(name = "users", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"username"})})
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
-    @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id"),
-    @NamedQuery(name = "Customer.findByUsername", query = "SELECT c FROM Customer c WHERE c.username = :username"),
-    @NamedQuery(name = "Customer.findByPassword", query = "SELECT c FROM Customer c WHERE c.password = :password"),
-    @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")})
-public class Customer extends AbstractBusinessObject {
+    @NamedQuery(name = "User.findAll", query = "SELECT c FROM User c"),
+    @NamedQuery(name = "User.findById", query = "SELECT c FROM User c WHERE c.id = :id"),
+    @NamedQuery(name = "User.findByUsername", query = "SELECT c FROM User c WHERE c.username = :username"),
+    @NamedQuery(name = "User.findByPassword", query = "SELECT c FROM User c WHERE c.password = :password"),
+    @NamedQuery(name = "User.findByEmail", query = "SELECT c FROM User c WHERE c.email = :email")})
+public class User extends AbstractBusinessObject {
 
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "username", nullable = false, length = 45)
-    private String username;
+    protected String username;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "password", nullable = false, length = 100)
-    private String password;
+    protected String password;
     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")
-    //if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "email", nullable = false, length = 100)
-    private String email;    
+    protected String email;    
     @Basic(optional = false)
     @Column(name = "enabled")
     private Boolean enabled = true;
@@ -70,14 +69,14 @@ public class Customer extends AbstractBusinessObject {
         this.hashProvider = hashProvider;
     }    
     
-    public Customer() {
+    public User() {
     }
 
-    public Customer(Integer id) {
+    public User(Integer id) {
         this.id = id;
     }
 
-    public Customer(Integer id, String username, String password, String email, List<Role> roleList) {
+    public User(Integer id, String username, String password, String email, List<Role> roleList) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -162,10 +161,10 @@ public class Customer extends AbstractBusinessObject {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        Customer other = (Customer) object;
+        User other = (User) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

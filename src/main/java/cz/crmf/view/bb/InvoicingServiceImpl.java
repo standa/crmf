@@ -1,26 +1,28 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.view.bb;
 
 import cz.crmf.model.bo.invoicing.*;
 import cz.crmf.model.dto.invoicing.*;
 import cz.crmf.model.helper.DtoTransformerHelper;
+import cz.crmf.model.repositories.invoicing.RoleRepository;
 import cz.crmf.service.iface.AbstractDataAccessService;
 import cz.crmf.service.iface.InvoicingService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * Reference implementation for the invoicing service used by JSF pages.
+ * 
  * @author standa
  */
 @Service("invoicingService")
 public class InvoicingServiceImpl extends AbstractDataAccessService 
     implements InvoicingService {
+    
+    @Autowired
+    RoleRepository roleRepository;
 
     @Override
     public Integer createRole(String roleName, String description) {
@@ -59,7 +61,7 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
         String bankAccount, String bank, String phone, String email, 
         Boolean primaryContact, Integer customerId) {        
         
-        Customer customer = getGenericDao().getById(customerId, Customer.class);
+        User customer = getGenericDao().getById(customerId, User.class);
         
         Contact c = getGenericDao().saveOrUpdate(
                 new Contact(name, surname, street, number, zip, district, 
@@ -95,17 +97,26 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
     @Override
     public Integer createCustomer(String username, String password, 
         String email, Integer roleId) {
-        throw new UnsupportedOperationException();             
+        
+        List<RoleDto> roles = new ArrayList<RoleDto>();
+        roles.add(getModelMapper().map(roleRepository.getRoleByRoleName("CUSTOMER"), RoleDto.class));
+        
+        return getGenericDao().saveOrUpdate(
+            getModelMapper().map(
+                new CustomerDto(username, password, email, roles), User.class
+            )
+        ).getId();
+                
     }
 
     @Override
     public CustomerDto getCustomerById(Integer customerId) {
-        throw new UnsupportedOperationException();
+        return getModelMapper().map(getGenericDao().getById(customerId, User.class), CustomerDto.class);
     }
 
     @Override
     public void deleteCustomer(Integer customerId) {
-        getGenericDao().removeById(customerId, Customer.class);
+        getGenericDao().removeById(customerId, User.class);
     }
 
     @Override
@@ -168,7 +179,29 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
 
     @Override
     public boolean checkUsername(String username) {        
-        return !getGenericDao().existsByProperty("username", username, Customer.class);
+        return !getGenericDao().existsByProperty("username", username, User.class);
+    }
+
+    @Override
+    public List<CustomerDto> getAllCustomers() {
+        List<CustomerDto> dtos = new ArrayList<CustomerDto>();
+        
+        for (User u : getGenericDao().getAllOrderedDesc("id", User.class)) {
+            dtos.add(getModelMapper().map(u, CustomerDto.class));
+        }
+        
+        return dtos;
+    }
+
+    @Override
+    public List<CustomerDto> getLast5Customers() {
+        List<CustomerDto> dtos = new ArrayList<CustomerDto>();
+        
+        for (User u : getGenericDao().getPage(1, 5, "id", false, User.class)) {
+            dtos.add(getModelMapper().map(u, CustomerDto.class));
+        }
+        
+        return dtos;
     }
 
     

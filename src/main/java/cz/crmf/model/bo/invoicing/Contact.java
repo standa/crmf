@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.bo.invoicing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
@@ -13,7 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * Entity for keeping the customer contacts.
+ * 
  * @author standa
  */
 @Entity
@@ -111,13 +108,13 @@ public class Contact extends AbstractBusinessObject {
     private List<Invoice> invoiceList1;
     @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
-    private Customer customer;
+    private User customer;
 
     public Contact(String name, String surname, String street, String number, 
             String zip, String district, String city, String region, 
             String country, String companyId, String vatNo, String company, 
             String bankAccount, String bank, String phone, String email, 
-            Boolean primaryContact, Customer customer) {
+            Boolean primaryContact, User customer) {
         this.name = name;
         this.surname = surname;
         this.street = street;
@@ -330,11 +327,11 @@ public class Contact extends AbstractBusinessObject {
         this.invoiceList1 = invoiceList1;
     }
 
-    public Customer getCustomer() {
+    public User getCustomer() {
         return customer;
     }
 
-    public void setCustomerId(Customer customerId) {
+    public void setCustomerId(User customerId) {
         this.customer = customerId;
     }
 

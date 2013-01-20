@@ -4,6 +4,7 @@ import cz.crmf.model.bo.AbstractBusinessObject;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.EntityManagerFactoryUtils;
@@ -22,14 +23,19 @@ public class GenericHibernateJpaDao implements GenericDao {
 
     @Autowired
     protected EntityManagerFactory entityManagerFactory;
-
+    
+    @PersistenceContext    
+    protected EntityManager entityManager;
+        
     /**
      * Get entity manager for the current transaction
      * @return
      */
     protected EntityManager getEntityManager() {
         
-        return entityManagerFactory.createEntityManager();
+        return entityManager;
+        
+//        return entityManagerFactory.createEntityManager();
         
 //        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerFactory); //entity manager with @Transactional support
     }
@@ -40,7 +46,7 @@ public class GenericHibernateJpaDao implements GenericDao {
      * @return vsechny objekty tridy, jez je injektovana jako clazz, serazene
      *         dle id sestupne
      */
-    @Override
+    @Override    
     public <ENTITY> List<ENTITY> getAll(Class<ENTITY> clazz) {
         return getEntityManager().createQuery("SELECT e FROM " + clazz.getSimpleName() + " e").getResultList();
     }
@@ -162,15 +168,24 @@ public class GenericHibernateJpaDao implements GenericDao {
 
     @Override
     public <ENTITY> List<ENTITY> getPage(int from, int maxResults, Class<ENTITY> clazz) {
-        throw new IllegalStateException("Not implemented yet");
+        return getEntityManager()
+                .createQuery("FROM "+clazz.getSimpleName())                
+                .setFirstResult(from)
+                .setMaxResults(maxResults).getResultList();
     }
 
     @Override
     public <ENTITY> List<ENTITY> getPage(int first, int rows, String sortBy, boolean ascending, Class<ENTITY> clazz) {
-        throw new IllegalStateException("Not implemented yet");
+        return getEntityManager()
+                .createQuery("FROM "+clazz.getSimpleName()+" ORDER BY :sortBy :order")
+                .setParameter("sortBy", sortBy)
+                .setParameter("order", ascending ? "ASC":"DESC")
+                .setFirstResult(first)
+                .setMaxResults(rows).getResultList();
     }
 
     public void merge(Object o) {
-        throw new IllegalStateException("Not implemented yet");
+        getEntityManager().merge(o);
+        getEntityManager().refresh(o);
     }
 }

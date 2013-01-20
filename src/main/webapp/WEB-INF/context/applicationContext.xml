@@ -31,7 +31,7 @@
     <!-- Podpora anotace @Configurable -->
     <context:spring-configured/> 
     
-    <!-- Property files -->
+    <!-- Property - in case the JDBC was configured via these -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -41,15 +41,16 @@
         </property>
     </bean>
 
-    <!-- localisation of the beans -->
+    <!-- localisation of the java beans -->
+    <!-- second part is the cz.crmf.client that localises JSF pages -->
     <bean id="messageSource"
-      class="org.springframework.context.support.ResourceBundleMessageSource">
+          class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
                 <value>cz.crmf.server</value>
             </list>
         </property>
-        </bean>
+    </bean>
     
     <!-- Connection pool -->
 <!--    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -61,20 +62,24 @@
         <property name="minIdle" value="2" />
     </bean>-->
     
+    <!-- heroku's good practise is to configure database via reading the environment variable -->
     <bean class="java.net.URI" id="dbUrl">
+        <!-- the other option is to connect to the database via URL hard-coded here -->
         <constructor-arg value="${CLEARDB_DATABASE_URL}"/>
 <!--        <constructor-arg value="mysql://root:h@127.0.0.1/heroku_dde7524bbccd5bf" />-->
 <!--        <constructor-arg value="#{systemEnvironment['CLEARDB_DATABASE_URL']}"/>-->
     </bean>
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <!-- database data source -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="url" value="#{ 'jdbc:'+ @dbUrl.getScheme() +'://' + @dbUrl.getHost() + @dbUrl.getPath() }"/>
         <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
         <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
     </bean>
-     
+
+    <!-- entity manager created by hibernate - persistence.xml is not used then -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="dataSource"/>        
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="databasePlatform" value="${jpa.platform}"/>
@@ -86,10 +91,12 @@
 <!--        <property name="persistenceUnitName" value="cz.crmf"></property>-->
     </bean> 
     
+    <!-- transaction manager -->
     <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
     
+   
     <!-- Podpora deklarativni demarkace transakci - anotace @Transactional-->
     <tx:annotation-driven transaction-manager="txManager" /> 
     

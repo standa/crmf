@@ -6,6 +6,8 @@ package cz.crmf.model.dto.invoicing;
 
 import cz.crmf.model.dto.AbstractDto;
 import cz.crmf.model.dto.ticketing.TicketDto;
+import cz.crmf.provider.HashProvider;
+import cz.crmf.provider.SHA1Provider;
 import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -30,7 +32,21 @@ public class CustomerDto extends AbstractDto {
         this.roleList = roleList;
     }
 
-   
+    /**
+     * Constructor for creating new customer entities.
+     * 
+     * @param username
+     * @param password the password is automatically hashed via SHA1Provider
+     * @param email
+     * @param roleList 
+     */
+    public CustomerDto(String username, String password, String email, List<RoleDto> roleList) {
+        this.username = username;
+        HashProvider hash = new SHA1Provider();
+        this.password = hash.computeHash(password);
+        this.email = email;
+        this.roleList = roleList;
+    }
 
     public String getUsername() {
         return username;

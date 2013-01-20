@@ -1,6 +1,6 @@
 package cz.crmf.model.repositories.invoicing;
 
-import cz.crmf.model.bo.invoicing.Customer;
+import cz.crmf.model.bo.invoicing.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -9,6 +9,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * 
  * @author standa
  */
-public interface CustomerRepository extends PagingAndSortingRepository<Customer, Integer>  {
+public interface CustomerRepository extends PagingAndSortingRepository<User, Integer>  {
     
 }

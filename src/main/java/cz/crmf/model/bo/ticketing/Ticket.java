@@ -5,7 +5,7 @@
 package cz.crmf.model.bo.ticketing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
-import cz.crmf.model.bo.invoicing.Customer;
+import cz.crmf.model.bo.invoicing.User;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -58,7 +58,7 @@ public class Ticket extends AbstractBusinessObject {
     private boolean resolved;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @ManyToOne
-    private Customer customerId;
+    private User customerId;
     @OneToMany(mappedBy = "parentTicket")
     private List<Ticket> ticketList;
     @JoinColumn(name = "parent_ticket", referencedColumnName = "id")
@@ -66,7 +66,7 @@ public class Ticket extends AbstractBusinessObject {
     private Ticket parentTicket;
     @JoinColumn(name = "agent_id", referencedColumnName = "id")
     @ManyToOne
-    private Agent agentId;
+    private User agentId;
 
     public Ticket() {
     }
@@ -137,11 +137,11 @@ public class Ticket extends AbstractBusinessObject {
         this.resolved = resolved;
     }
 
-    public Customer getCustomerId() {
+    public User getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Customer customerId) {
+    public void setCustomerId(User customerId) {
         this.customerId = customerId;
     }
 
@@ -162,11 +162,11 @@ public class Ticket extends AbstractBusinessObject {
         this.parentTicket = parentTicket;
     }
 
-    public Agent getAgentId() {
+    public User getAgentId() {
         return agentId;
     }
 
-    public void setAgentId(Agent agentId) {
+    public void setAgentId(User agentId) {
         this.agentId = agentId;
     }
 

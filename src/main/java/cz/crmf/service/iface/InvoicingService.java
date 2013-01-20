@@ -18,7 +18,7 @@ public interface InvoicingService {
 
     public Integer createRole(String roleName, String description);
     public List<RoleDto> getAllRoles();
-    public RoleDto getRoleById(Integer roleId);
+    public RoleDto getRoleById(Integer roleId);    
     public void deleteRole(Integer roleId);
 
     // contacts
@@ -34,6 +34,8 @@ public interface InvoicingService {
     public Integer createCustomer(String username, String password, String email, Integer roleId);
     public CustomerDto getCustomerById(Integer customerId);
     public void deleteCustomer(Integer customerId);
+    public List<CustomerDto> getAllCustomers();
+    public List<CustomerDto> getLast5Customers();
 
     // invoices
     public Integer createInvoice(float total, float bookingAmount, 

@@ -1,20 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.service.iface;
 
 import cz.crmf.model.dao.GenericDao;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- *
- * @author mickapa1
+ * Fields common to all the services.
+ * 
+ * @author standa
  */
 public abstract class AbstractDataAccessService {
         
     @Autowired
     protected GenericDao genericDao;
+    
+    protected ModelMapper modelMapper = new ModelMapper();
+    
     public void setGenericDao(GenericDao genericDao) {
         this.genericDao = genericDao;
     }
@@ -22,4 +23,8 @@ public abstract class AbstractDataAccessService {
     public GenericDao getGenericDao() {
         return genericDao;
     }    
+    
+    public ModelMapper getModelMapper() {
+        return modelMapper;
+    }
 }

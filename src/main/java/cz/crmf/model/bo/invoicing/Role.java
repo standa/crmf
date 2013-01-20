@@ -25,7 +25,7 @@ public class Role extends AbstractBusinessObject {
     
     @JoinColumn(name = "username", referencedColumnName = "username")
     @ManyToOne
-    private Customer customer;
+    private User customer;
     @Size(max = 20)
     @Column(name = "role_name", length = 20)
     private String roleName;
@@ -56,11 +56,11 @@ public class Role extends AbstractBusinessObject {
         this.description = description;
     }
 
-    public Customer getCustomer() {
+    public User getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(User customer) {
         this.customer = customer;
     }
 

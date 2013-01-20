@@ -4,9 +4,12 @@
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
         <title>crmF Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>        
         <meta name="description" content="CRM Framework app"/>
-        <h:outputStylesheet name="css/bootstrap.min.css" library="bootstrap"/>        
+        
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css" rel="stylesheet"/>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css" rel="stylesheet"/>
+        
         <style type="text/css">
             body {
                 padding-top: 40px;
@@ -45,21 +48,46 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <h:outputStylesheet name="css/bootstrap-responsive.min.css" library="bootstrap"/>
     </h:head>
     <h:body>
 
         <div class="container">
 
             <form  method="post" action="/security_check" class="form-signin">
+                
                 <h2 class="form-signin-heading"><h:outputText value="#{msgs['login.pleaseLogin']}"/></h2>
+
                 <input type="text" name="j_username" class="input-block-level" placeholder="#{msgs['login.username']}"/>
                 <input type="password" name="j_password" class="input-block-level" placeholder="#{msgs['login.password']}"/>
+
                 <label><input type="checkbox" name="_spring_security_remember_me" /> #{msgs['login.rememberMe']}</label>
-                <button class="btn btn-large btn-primary" type="submit">#{msgs['login.loginButton']}</button>
+                
+                <hr/>
+                
+                <button class="btn btn-large btn-primary pull-left" type="submit">#{msgs['login.loginButton']}</button>
+                
+                <div class="btn-group pull-right">                    
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        #{msgs['login.registerButton']} <span class="caret"></span>
+                    </button>  
+                    <ul class="dropdown-menu">
+                        <li><a href="/register.xhtml?role=CUSTOMER">as CUSTOMER</a></li>
+                        <li><a href="/register.xhtml?role=AGENT">as AGENT</a></li>
+                        <li><a href="/register.xhtml?role=ADMIN">as ADMIN</a></li>
+                    </ul>
+                </div>
+                
+                <hr />
+                
             </form>
 
         </div> <!-- /container -->
 
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+        
     </h:body>
 </html>

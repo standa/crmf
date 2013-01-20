@@ -1,0 +1,889 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb4a5a783, pid=13996, tid=3077786480
+#
+# JRE version: 6.0_24-b24
+# Java VM: OpenJDK Server VM (20.0-b12 mixed mode linux-x86 )
+# Derivative: IcedTea6 1.11.5
+# Distribution: Ubuntu 11.10, package 6b24-1.11.5-0ubuntu1~11.10.1
+# Problematic frame:
+# J  com.sun.jersey.core.reflection.ReflectionHelper.findMethodOnClass(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-6/
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x08855000):  JavaThread "main" [_thread_in_Java, id=14004, stack(0xb76e4000,0xb7735000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=128 (), si_addr=0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x568a0c58, ECX=0x568a0c58, EDX=0x00000000
+ESP=0xb7732cb0, EBP=0xac074f40, ESI=0xb4a5a760, EDI=0x08855000
+EIP=0xb4a5a783, EFLAGS=0x00010246, CR2=0x00000004
+
+Top of Stack: (sp=0xb7732cb0)
+0xb7732cb0:   7653a110 ac074f50 00000029 ac074f28
+0xb7732cc0:   08855000 ac074920 000000a4 568a0c58
+0xb7732cd0:   ac074dd0 0000015b ac0747c8 ac074f40
+0xb7732ce0:   ac074cc8 ac074cd4 b7732d08 b492fbe4
+0xb7732cf0:   08855120 b7732cf8 568a57d8 00000010
+0xb7732d00:   74a78568 55446710 ac0747c8 b4a54dd0
+0xb7732d10:   ac0747c8 ac0748d8 00000002 00000000
+0xb7732d20:   568a0c58 b7732d64 016e6688 00000000 
+
+Instructions: (pc=0xb4a5a783)
+0xb4a5a763:   7b 56 66 90 e8 c4 dd cf ff 8b 4c 24 1c 33 d2 89
+0xb4a5a773:   04 24 66 90 e8 90 88 d0 ff 8b 4c 24 1c 66 66 90
+0xb4a5a783:   e8 c4 a6 04 00 8b c8 90 e8 10 95 dc ff 8b 58 08
+0xb4a5a793:   85 db 0f 8e d2 00 00 00 85 db 0f 86 c4 0e 00 00 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x568a0c58 is an oop
+java.lang.Class 
+ - klass: 'java/lang/Class'
+ECX=0x568a0c58 is an oop
+java.lang.Class 
+ - klass: 'java/lang/Class'
+EDX=0x00000000 is an unknown value
+ESP=0xb7732cb0 is pointing into the stack for thread: 0x08855000
+EBP=0xac074f40 is an oop
+[C 
+ - klass: {type array char}
+ - length: 164
+ESI=0xb4a59c88 [CodeBlob (0xb4a59c88)]
+Framesize: 24
+EDI=0x08855000 is a thread
+
+
+Stack: [0xb76e4000,0xb7735000],  sp=0xb7732cb0,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J  com.sun.jersey.core.reflection.ReflectionHelper.findMethodOnClass(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x5052f000 JavaThread "Abandoned connection cleanup thread" daemon [_thread_blocked, id=14042, stack(0x5202c000,0x5207d000)]
+  0x52d7b400 JavaThread "HashSessionScavenger-0" daemon [_thread_blocked, id=14041, stack(0x52084000,0x520d5000)]
+  0x08902000 JavaThread "qtp33197371-24" [_thread_blocked, id=14040, stack(0x5251b000,0x5256c000)]
+  0x08900800 JavaThread "qtp33197371-23" [_thread_blocked, id=14039, stack(0x5256c000,0x525bd000)]
+  0x088ff000 JavaThread "qtp33197371-22" [_thread_blocked, id=14038, stack(0x525bd000,0x5260e000)]
+  0x08d49800 JavaThread "qtp33197371-21" [_thread_blocked, id=14037, stack(0x5260e000,0x5265f000)]
+  0x088fd000 JavaThread "qtp33197371-20" [_thread_blocked, id=14036, stack(0x5265f000,0x526b0000)]
+  0x089ca800 JavaThread "qtp33197371-19" [_thread_blocked, id=14035, stack(0x526b0000,0x52701000)]
+  0x08d4fc00 JavaThread "qtp33197371-18" [_thread_blocked, id=14034, stack(0x52701000,0x52752000)]
+  0x089ed000 JavaThread "qtp33197371-17" [_thread_blocked, id=14033, stack(0x52752000,0x527a3000)]
+  0x09aea400 JavaThread "pool-1-thread-5" [_thread_blocked, id=14031, stack(0x5280d000,0x5285e000)]
+  0x09ae8c00 JavaThread "pool-1-thread-4" [_thread_blocked, id=14030, stack(0x5285e000,0x528af000)]
+  0x0893d400 JavaThread "pool-1-thread-3" [_thread_blocked, id=14029, stack(0x528af000,0x52900000)]
+  0x0893c800 JavaThread "pool-1-thread-2" [_thread_blocked, id=14028, stack(0x5364b000,0x5369c000)]
+  0x08abdc00 JavaThread "pool-1-thread-1" [_thread_blocked, id=14027, stack(0x5369c000,0x536ed000)]
+  0x088f7400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=14013, stack(0x537af000,0x53800000)]
+  0x088f5800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=14012, stack(0x5392e000,0x539af000)]
+  0x088f3800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=14011, stack(0x539af000,0x53a30000)]
+  0x088f2000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=14010, stack(0x53a30000,0x53a81000)]
+  0x088e2800 JavaThread "Finalizer" daemon [_thread_blocked, id=14009, stack(0x53cdf000,0x53d30000)]
+  0x088ddc00 JavaThread "Reference Handler" daemon [_thread_blocked, id=14008, stack(0x53d30000,0x53d81000)]
+=>0x08855000 JavaThread "main" [_thread_in_Java, id=14004, stack(0xb76e4000,0xb7735000)]
+
+Other Threads:
+  0x088d9c00 VMThread [stack: 0x53d81000,0x53e02000] [id=14007]
+  0x088f9400 WatcherThread [stack: 0x5372e000,0x537af000] [id=14014]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 287616K, used 236288K [0x9f0d0000, 0xb4620000, 0xb4620000)
+  eden space 264768K, 80% used [0x9f0d0000,0xac1426f8,0xaf360000)
+  from space 22848K, 99% used [0xb2fd0000,0xb461d940,0xb4620000)
+  to   space 42368K, 0% used [0xaf360000,0xaf360000,0xb1cc0000)
+ PSOldGen        total 115264K, used 82215K [0x74620000, 0x7b6b0000, 0x9f0d0000)
+  object space 115264K, 71% used [0x74620000,0x79669e38,0x7b6b0000)
+ PSPermGen       total 524288K, used 38303K [0x54620000, 0x74620000, 0x74620000)
+  object space 524288K, 7% used [0x54620000,0x56b87d50,0x74620000)
+
+Code Cache  [0xb46e4000, 0xb4abc000, 0xb76e4000)
+ total_blobs=1206 nmethods=1048 adapters=111 free_code_cache=46384384 largest_free_block=31424
+
+Dynamic libraries:
+00110000-0028c000 r-xp 00000000 08:01 11272287   /lib/i386-linux-gnu/libc-2.13.so
+0028c000-0028e000 r--p 0017c000 08:01 11272287   /lib/i386-linux-gnu/libc-2.13.so
+0028e000-0028f000 rw-p 0017e000 08:01 11272287   /lib/i386-linux-gnu/libc-2.13.so
+0028f000-00292000 rw-p 00000000 00:00 0 
+00292000-002ae000 r-xp 00000000 08:01 11273144   /lib/i386-linux-gnu/libgcc_s.so.1
+002ae000-002af000 r--p 0001b000 08:01 11273144   /lib/i386-linux-gnu/libgcc_s.so.1
+002af000-002b0000 rw-p 0001c000 08:01 11273144   /lib/i386-linux-gnu/libgcc_s.so.1
+002b0000-002ba000 r-xp 00000000 08:01 11273278   /lib/i386-linux-gnu/libnss_nis-2.13.so
+002ba000-002bb000 r--p 00009000 08:01 11273278   /lib/i386-linux-gnu/libnss_nis-2.13.so
+002bb000-002bc000 rw-p 0000a000 08:01 11273278   /lib/i386-linux-gnu/libnss_nis-2.13.so
+002c3000-002ce000 r-xp 00000000 08:01 20840885   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libverify.so
+002ce000-002cf000 ---p 0000b000 08:01 20840885   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libverify.so
+002cf000-002d0000 r--p 0000b000 08:01 20840885   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libverify.so
+002d0000-002d1000 rw-p 0000c000 08:01 20840885   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libverify.so
+002d1000-002dc000 r-xp 00000000 08:01 11276173   /lib/i386-linux-gnu/libnss_files-2.13.so
+002dc000-002dd000 r--p 0000a000 08:01 11276173   /lib/i386-linux-gnu/libnss_files-2.13.so
+002dd000-002de000 rw-p 0000b000 08:01 11276173   /lib/i386-linux-gnu/libnss_files-2.13.so
+002de000-002e5000 r-xp 00000000 08:01 20840865   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libzip.so
+002e5000-002e6000 r--p 00006000 08:01 20840865   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libzip.so
+002e6000-002e7000 rw-p 00007000 08:01 20840865   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libzip.so
+002fe000-00326000 r-xp 00000000 08:01 11276164   /lib/i386-linux-gnu/libm-2.13.so
+00326000-00327000 r--p 00028000 08:01 11276164   /lib/i386-linux-gnu/libm-2.13.so
+00327000-00328000 rw-p 00029000 08:01 11276164   /lib/i386-linux-gnu/libm-2.13.so
+00359000-00377000 r-xp 00000000 08:01 11276168   /lib/i386-linux-gnu/ld-2.13.so
+00377000-00378000 r--p 0001d000 08:01 11276168   /lib/i386-linux-gnu/ld-2.13.so
+00378000-00379000 rw-p 0001e000 08:01 11276168   /lib/i386-linux-gnu/ld-2.13.so
+005ca000-005dd000 r-xp 00000000 08:01 11273206   /lib/i386-linux-gnu/libz.so.1.2.3.4
+005dd000-005de000 r--p 00012000 08:01 11273206   /lib/i386-linux-gnu/libz.so.1.2.3.4
+005de000-005df000 rw-p 00013000 08:01 11273206   /lib/i386-linux-gnu/libz.so.1.2.3.4
+00606000-0060a000 r-xp 00000000 08:01 20840905   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/jli/libjli.so
+0060a000-0060b000 r--p 00003000 08:01 20840905   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/jli/libjli.so
+0060b000-0060c000 rw-p 00004000 08:01 20840905   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/jli/libjli.so
+006e2000-006e3000 r-xp 00000000 00:00 0          [vdso]
+00724000-0072b000 r-xp 00000000 08:01 11273271   /lib/i386-linux-gnu/librt-2.13.so
+0072b000-0072c000 r--p 00006000 08:01 11273271   /lib/i386-linux-gnu/librt-2.13.so
+0072c000-0072d000 rw-p 00007000 08:01 11273271   /lib/i386-linux-gnu/librt-2.13.so
+007e7000-007fc000 r-xp 00000000 08:01 20840899   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnet.so
+007fc000-007fd000 r--p 00014000 08:01 20840899   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnet.so
+007fd000-007fe000 rw-p 00015000 08:01 20840899   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libnet.so
+00889000-008af000 r-xp 00000000 08:01 20840913   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libjava.so
+008af000-008b0000 r--p 00025000 08:01 20840913   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libjava.so
+008b0000-008b2000 rw-p 00026000 08:01 20840913   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/libjava.so
+00947000-0094f000 r-xp 00000000 08:01 11273279   /lib/i386-linux-gnu/libnss_compat-2.13.so
+0094f000-00950000 r--p 00007000 08:01 11273279   /lib/i386-linux-gnu/libnss_compat-2.13.so
+00950000-00951000 rw-p 00008000 08:01 11273279   /lib/i386-linux-gnu/libnss_compat-2.13.so
+00a07000-00a1c000 r-xp 00000000 08:01 11273275   /lib/i386-linux-gnu/libnsl-2.13.so
+00a1c000-00a1d000 r--p 00015000 08:01 11273275   /lib/i386-linux-gnu/libnsl-2.13.so
+00a1d000-00a1e000 rw-p 00016000 08:01 11273275   /lib/i386-linux-gnu/libnsl-2.13.so
+00a1e000-00a20000 rw-p 00000000 00:00 0 
+00b39000-00b50000 r-xp 00000000 08:01 11276158   /lib/i386-linux-gnu/libpthread-2.13.so
+00b50000-00b51000 r--p 00016000 08:01 11276158   /lib/i386-linux-gnu/libpthread-2.13.so
+00b51000-00b52000 rw-p 00017000 08:01 11276158   /lib/i386-linux-gnu/libpthread-2.13.so
+00b52000-00b54000 rw-p 00000000 00:00 0 
+00bfc000-00cda000 r-xp 00000000 08:01 20455037   /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00cda000-00cdb000 ---p 000de000 08:01 20455037   /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00cdb000-00cdf000 r--p 000de000 08:01 20455037   /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00cdf000-00ce0000 rw-p 000e2000 08:01 20455037   /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+00ce0000-00ce7000 rw-p 00000000 00:00 0 
+00da1000-00da4000 r-xp 00000000 08:01 11276161   /lib/i386-linux-gnu/libdl-2.13.so
+00da4000-00da5000 r--p 00002000 08:01 11276161   /lib/i386-linux-gnu/libdl-2.13.so
+00da5000-00da6000 rw-p 00003000 08:01 11276161   /lib/i386-linux-gnu/libdl-2.13.so
+00da6000-015c6000 r-xp 00000000 08:01 20840875   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/server/libjvm.so
+015c6000-0160b000 r--p 0081f000 08:01 20840875   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/server/libjvm.so
+0160b000-0161a000 rw-p 00864000 08:01 20840875   /usr/lib/jvm/java-6-openjdk/jre/lib/i386/server/libjvm.so
+0161a000-01a34000 rw-p 00000000 00:00 0 
+08048000-08051000 r-xp 00000000 08:01 20840642   /usr/lib/jvm/java-6-openjdk/jre/bin/java
+08051000-08052000 r--p 00008000 08:01 20840642   /usr/lib/jvm/java-6-openjdk/jre/bin/java
+08052000-08053000 rw-p 00009000 08:01 20840642   /usr/lib/jvm/java-6-openjdk/jre/bin/java
+0884e000-0eb0b000 rw-p 00000000 00:00 0          [heap]
+44d00000-44dea000 rw-p 00000000 00:00 0 
+44dea000-44e00000 ---p 00000000 00:00 0 
+44f00000-44ffb000 rw-p 00000000 00:00 0 
+44ffb000-45000000 ---p 00000000 00:00 0 
+45000000-450dc000 rw-p 00000000 00:00 0 
+450dc000-45100000 ---p 00000000 00:00 0 
+45100000-451f1000 rw-p 00000000 00:00 0 
+451f1000-45200000 ---p 00000000 00:00 0 
+45200000-452ea000 rw-p 00000000 00:00 0 
+452ea000-45300000 ---p 00000000 00:00 0 
+45300000-453ed000 rw-p 00000000 00:00 0 
+453ed000-45400000 ---p 00000000 00:00 0 
+45400000-454f1000 rw-p 00000000 00:00 0 
+454f1000-45500000 ---p 00000000 00:00 0 
+45500000-455f1000 rw-p 00000000 00:00 0 
+455f1000-45600000 ---p 00000000 00:00 0 
+45600000-456ee000 rw-p 00000000 00:00 0 
+456ee000-45700000 ---p 00000000 00:00 0 
+45700000-458f9000 rw-p 00000000 00:00 0 
+458f9000-45900000 ---p 00000000 00:00 0 
+45900000-45af9000 rw-p 00000000 00:00 0 
+45af9000-45b00000 ---p 00000000 00:00 0 
+45b00000-45bf8000 rw-p 00000000 00:00 0 
+45bf8000-45c00000 ---p 00000000 00:00 0 
+45c00000-45cf9000 rw-p 00000000 00:00 0 
+45cf9000-45d00000 ---p 00000000 00:00 0 
+45d00000-45df9000 rw-p 00000000 00:00 0 
+45df9000-45e00000 ---p 00000000 00:00 0 
+45e00000-45ef9000 rw-p 00000000 00:00 0 
+45ef9000-45f00000 ---p 00000000 00:00 0 
+45f00000-45ff9000 rw-p 00000000 00:00 0 
+45ff9000-46000000 ---p 00000000 00:00 0 
+46000000-46100000 rw-p 00000000 00:00 0 
+46100000-461f9000 rw-p 00000000 00:00 0 
+461f9000-46200000 ---p 00000000 00:00 0 
+46200000-462f9000 rw-p 00000000 00:00 0 
+462f9000-46300000 ---p 00000000 00:00 0 
+46300000-463f9000 rw-p 00000000 00:00 0 
+463f9000-46400000 ---p 00000000 00:00 0 
+46400000-464f9000 rw-p 00000000 00:00 0 
+464f9000-46500000 ---p 00000000 00:00 0 
+46500000-46700000 rw-p 00000000 00:00 0 
+46700000-468f9000 rw-p 00000000 00:00 0 
+468f9000-46900000 ---p 00000000 00:00 0 
+46900000-469f9000 rw-p 00000000 00:00 0 
+469f9000-46a00000 ---p 00000000 00:00 0 
+46a00000-46af9000 rw-p 00000000 00:00 0 
+46af9000-46b00000 ---p 00000000 00:00 0 
+46b00000-46bf9000 rw-p 00000000 00:00 0 
+46bf9000-46c00000 ---p 00000000 00:00 0 
+46c00000-46d00000 rw-p 00000000 00:00 0 
+46d00000-46df9000 rw-p 00000000 00:00 0 
+46df9000-46e00000 ---p 00000000 00:00 0 
+46e00000-46ef9000 rw-p 00000000 00:00 0 
+46ef9000-46f00000 ---p 00000000 00:00 0 
+46f00000-46ff9000 rw-p 00000000 00:00 0 
+46ff9000-47000000 ---p 00000000 00:00 0 
+47000000-470f8000 rw-p 00000000 00:00 0 
+470f8000-47100000 ---p 00000000 00:00 0 
+47100000-471f9000 rw-p 00000000 00:00 0 
+471f9000-47200000 ---p 00000000 00:00 0 
+47200000-47300000 rw-p 00000000 00:00 0 
+47300000-473f9000 rw-p 00000000 00:00 0 
+473f9000-47400000 ---p 00000000 00:00 0 
+47400000-474f9000 rw-p 00000000 00:00 0 
+474f9000-47500000 ---p 00000000 00:00 0 
+47500000-475f9000 rw-p 00000000 00:00 0 
+475f9000-47600000 ---p 00000000 00:00 0 
+47600000-476f9000 rw-p 00000000 00:00 0 
+476f9000-47700000 ---p 00000000 00:00 0 
+47700000-477fe000 rw-p 00000000 00:00 0 
+477fe000-47800000 ---p 00000000 00:00 0 
+47800000-478f9000 rw-p 00000000 00:00 0 
+478f9000-47900000 ---p 00000000 00:00 0 
+47900000-479f8000 rw-p 00000000 00:00 0 
+479f8000-47a00000 ---p 00000000 00:00 0 
+47a00000-47ac1000 rw-p 00000000 00:00 0 
+47ac1000-47b00000 ---p 00000000 00:00 0 
+47b00000-47bf2000 rw-p 00000000 00:00 0 
+47bf2000-47c00000 ---p 00000000 00:00 0 
+47c00000-47ce9000 rw-p 00000000 00:00 0 
+47ce9000-47d00000 ---p 00000000 00:00 0 
+47d00000-47dd9000 rw-p 00000000 00:00 0 
+47dd9000-47e00000 ---p 00000000 00:00 0 
+47e00000-47eeb000 rw-p 00000000 00:00 0 
+47eeb000-47f00000 ---p 00000000 00:00 0 
+47f00000-47ff7000 rw-p 00000000 00:00 0 
+47ff7000-48000000 ---p 00000000 00:00 0 
+48000000-480f5000 rw-p 00000000 00:00 0 
+480f5000-48100000 ---p 00000000 00:00 0 
+48100000-481f2000 rw-p 00000000 00:00 0 
+481f2000-48200000 ---p 00000000 00:00 0 
+48200000-482f5000 rw-p 00000000 00:00 0 
+482f5000-48300000 ---p 00000000 00:00 0 
+48400000-484ef000 rw-p 00000000 00:00 0 
+484ef000-48500000 ---p 00000000 00:00 0 
+48600000-486f0000 rw-p 00000000 00:00 0 
+486f0000-48700000 ---p 00000000 00:00 0 
+48700000-487d3000 rw-p 00000000 00:00 0 
+487d3000-48800000 ---p 00000000 00:00 0 
+48800000-488e2000 rw-p 00000000 00:00 0 
+488e2000-48900000 ---p 00000000 00:00 0 
+48900000-489f7000 rw-p 00000000 00:00 0 
+489f7000-48a00000 ---p 00000000 00:00 0 
+48a00000-48afd000 rw-p 00000000 00:00 0 
+48afd000-48b00000 ---p 00000000 00:00 0 
+48b00000-48bff000 rw-p 00000000 00:00 0 
+48bff000-48c00000 ---p 00000000 00:00 0 
+48c00000-48cfa000 rw-p 00000000 00:00 0 
+48cfa000-48d00000 ---p 00000000 00:00 0 
+48d00000-48dfe000 rw-p 00000000 00:00 0 
+48dfe000-48e00000 ---p 00000000 00:00 0 
+48e00000-48ff5000 rw-p 00000000 00:00 0 
+48ff5000-49000000 ---p 00000000 00:00 0 
+49000000-490fd000 rw-p 00000000 00:00 0 
+490fd000-49100000 ---p 00000000 00:00 0 
+49100000-491f9000 rw-p 00000000 00:00 0 
+491f9000-49200000 ---p 00000000 00:00 0 
+49200000-492f3000 rw-p 00000000 00:00 0 
+492f3000-49300000 ---p 00000000 00:00 0 
+49400000-494e0000 rw-p 00000000 00:00 0 
+494e0000-49500000 ---p 00000000 00:00 0 
+49500000-495f9000 rw-p 00000000 00:00 0 
+495f9000-49600000 ---p 00000000 00:00 0 
+49600000-497f9000 rw-p 00000000 00:00 0 
+497f9000-49800000 ---p 00000000 00:00 0 
+49800000-49a00000 rw-p 00000000 00:00 0 
+49a00000-49bff000 rw-p 00000000 00:00 0 
+49bff000-49c00000 ---p 00000000 00:00 0 
+49c00000-49cfe000 rw-p 00000000 00:00 0 
+49cfe000-49d00000 ---p 00000000 00:00 0 
+49e00000-49efb000 rw-p 00000000 00:00 0 
+49efb000-49f00000 ---p 00000000 00:00 0 
+49f00000-49ff2000 rw-p 00000000 00:00 0 
+49ff2000-4a000000 ---p 00000000 00:00 0 
+4a000000-4a0f3000 rw-p 00000000 00:00 0 
+4a0f3000-4a100000 ---p 00000000 00:00 0 
+4a100000-4a1fc000 rw-p 00000000 00:00 0 
+4a1fc000-4a200000 ---p 00000000 00:00 0 
+4a200000-4a400000 rw-p 00000000 00:00 0 
+4a400000-4a4f1000 rw-p 00000000 00:00 0 
+4a4f1000-4a500000 ---p 00000000 00:00 0 
+4a500000-4a5f9000 rw-p 00000000 00:00 0 
+4a5f9000-4a600000 ---p 00000000 00:00 0 
+4a600000-4a6f9000 rw-p 00000000 00:00 0 
+4a6f9000-4a700000 ---p 00000000 00:00 0 
+4a700000-4a7f9000 rw-p 00000000 00:00 0 
+4a7f9000-4a800000 ---p 00000000 00:00 0 
+4a800000-4a8f1000 rw-p 00000000 00:00 0 
+4a8f1000-4a900000 ---p 00000000 00:00 0 
+4a900000-4a9f9000 rw-p 00000000 00:00 0 
+4a9f9000-4aa00000 ---p 00000000 00:00 0 
+4aa00000-4aaf1000 rw-p 00000000 00:00 0 
+4aaf1000-4ab00000 ---p 00000000 00:00 0 
+4ab00000-4abf9000 rw-p 00000000 00:00 0 
+4abf9000-4ac00000 ---p 00000000 00:00 0 
+4ac00000-4acf9000 rw-p 00000000 00:00 0 
+4acf9000-4ad00000 ---p 00000000 00:00 0 
+4ad00000-4adf1000 rw-p 00000000 00:00 0 
+4adf1000-4ae00000 ---p 00000000 00:00 0 
+4ae00000-4aef9000 rw-p 00000000 00:00 0 
+4aef9000-4af00000 ---p 00000000 00:00 0 
+4af00000-4aff9000 rw-p 00000000 00:00 0 
+4aff9000-4b000000 ---p 00000000 00:00 0 
+4b000000-4b0f9000 rw-p 00000000 00:00 0 
+4b0f9000-4b100000 ---p 00000000 00:00 0 
+4b100000-4b1f9000 rw-p 00000000 00:00 0 
+4b1f9000-4b200000 ---p 00000000 00:00 0 
+4b200000-4b2f9000 rw-p 00000000 00:00 0 
+4b2f9000-4b300000 ---p 00000000 00:00 0 
+4b300000-4b3f9000 rw-p 00000000 00:00 0 
+4b3f9000-4b400000 ---p 00000000 00:00 0 
+4b400000-4b4f1000 rw-p 00000000 00:00 0 
+4b4f1000-4b500000 ---p 00000000 00:00 0 
+4b500000-4b5f9000 rw-p 00000000 00:00 0 
+4b5f9000-4b600000 ---p 00000000 00:00 0 
+4b600000-4b6f1000 rw-p 00000000 00:00 0 
+4b6f1000-4b700000 ---p 00000000 00:00 0 
+4b700000-4b7f1000 rw-p 00000000 00:00 0 
+4b7f1000-4b800000 ---p 00000000 00:00 0 
+4b800000-4b8f9000 rw-p 00000000 00:00 0 
+4b8f9000-4b900000 ---p 00000000 00:00 0 
+4b900000-4b9f1000 rw-p 00000000 00:00 0 
+4b9f1000-4ba00000 ---p 00000000 00:00 0 
+4ba00000-4baf9000 rw-p 00000000 00:00 0 
+4baf9000-4bb00000 ---p 00000000 00:00 0 
+4bb00000-4bbf9000 rw-p 00000000 00:00 0 
+4bbf9000-4bc00000 ---p 00000000 00:00 0 
+4bc00000-4bcf9000 rw-p 00000000 00:00 0 
+4bcf9000-4bd00000 ---p 00000000 00:00 0 
+4bd00000-4bdf1000 rw-p 00000000 00:00 0 
+4bdf1000-4be00000 ---p 00000000 00:00 0 
+4be00000-4bef9000 rw-p 00000000 00:00 0 
+4bef9000-4bf00000 ---p 00000000 00:00 0 
+4bf00000-4bff9000 rw-p 00000000 00:00 0 
+4bff9000-4c000000 ---p 00000000 00:00 0 
+4c000000-4c0f9000 rw-p 00000000 00:00 0 
+4c0f9000-4c100000 ---p 00000000 00:00 0 
+4c100000-4c1f9000 rw-p 00000000 00:00 0 
+4c1f9000-4c200000 ---p 00000000 00:00 0 
+4c200000-4c2f1000 rw-p 00000000 00:00 0 
+4c2f1000-4c300000 ---p 00000000 00:00 0 
+4c300000-4c3f9000 rw-p 00000000 00:00 0 
+4c3f9000-4c400000 ---p 00000000 00:00 0 
+4c400000-4c4f1000 rw-p 00000000 00:00 0 
+4c4f1000-4c500000 ---p 00000000 00:00 0 
+4c500000-4c5f1000 rw-p 00000000 00:00 0 
+4c5f1000-4c600000 ---p 00000000 00:00 0 
+4c600000-4c6f1000 rw-p 00000000 00:00 0 
+4c6f1000-4c700000 ---p 00000000 00:00 0 
+4c700000-4c7f1000 rw-p 00000000 00:00 0 
+4c7f1000-4c800000 ---p 00000000 00:00 0 
+4c800000-4c8f1000 rw-p 00000000 00:00 0 
+4c8f1000-4c900000 ---p 00000000 00:00 0 
+4c900000-4c9f1000 rw-p 00000000 00:00 0 
+4c9f1000-4ca00000 ---p 00000000 00:00 0 
+4ca00000-4caf9000 rw-p 00000000 00:00 0 
+4caf9000-4cb00000 ---p 00000000 00:00 0 
+4cb00000-4cbf1000 rw-p 00000000 00:00 0 
+4cbf1000-4cc00000 ---p 00000000 00:00 0 
+4cc00000-4ccf9000 rw-p 00000000 00:00 0 
+4ccf9000-4cd00000 ---p 00000000 00:00 0 
+4cd00000-4cdf9000 rw-p 00000000 00:00 0 
+4cdf9000-4ce00000 ---p 00000000 00:00 0 
+4ce00000-4cef9000 rw-p 00000000 00:00 0 
+4cef9000-4cf00000 ---p 00000000 00:00 0 
+4cf00000-4cff9000 rw-p 00000000 00:00 0 
+4cff9000-4d000000 ---p 00000000 00:00 0 
+4d000000-4d0f9000 rw-p 00000000 00:00 0 
+4d0f9000-4d100000 ---p 00000000 00:00 0 
+4d100000-4d1f9000 rw-p 00000000 00:00 0 
+4d1f9000-4d200000 ---p 00000000 00:00 0 
+4d200000-4d2f9000 rw-p 00000000 00:00 0 
+4d2f9000-4d300000 ---p 00000000 00:00 0 
+4d300000-4d3f9000 rw-p 00000000 00:00 0 
+4d3f9000-4d400000 ---p 00000000 00:00 0 
+4d400000-4d4f1000 rw-p 00000000 00:00 0 
+4d4f1000-4d500000 ---p 00000000 00:00 0 
+4d500000-4d5f9000 rw-p 00000000 00:00 0 
+4d5f9000-4d600000 ---p 00000000 00:00 0 
+4d600000-4d6f1000 rw-p 00000000 00:00 0 
+4d6f1000-4d700000 ---p 00000000 00:00 0 
+4d700000-4d7f9000 rw-p 00000000 00:00 0 
+4d7f9000-4d800000 ---p 00000000 00:00 0 
+4d800000-4d8f9000 rw-p 00000000 00:00 0 
+4d8f9000-4d900000 ---p 00000000 00:00 0 
+4d900000-4d9f9000 rw-p 00000000 00:00 0 
+4d9f9000-4da00000 ---p 00000000 00:00 0 
+4da00000-4daf9000 rw-p 00000000 00:00 0 
+4daf9000-4db00000 ---p 00000000 00:00 0 
+4db00000-4dbf9000 rw-p 00000000 00:00 0 
+4dbf9000-4dc00000 ---p 00000000 00:00 0 
+4dc00000-4dcf9000 rw-p 00000000 00:00 0 
+4dcf9000-4dd00000 ---p 00000000 00:00 0 
+4dd00000-4ddf9000 rw-p 00000000 00:00 0 
+4ddf9000-4de00000 ---p 00000000 00:00 0 
+4de00000-4def9000 rw-p 00000000 00:00 0 
+4def9000-4df00000 ---p 00000000 00:00 0 
+4df00000-4dff9000 rw-p 00000000 00:00 0 
+4dff9000-4e000000 ---p 00000000 00:00 0 
+4e000000-4e0f9000 rw-p 00000000 00:00 0 
+4e0f9000-4e100000 ---p 00000000 00:00 0 
+4e100000-4e1f9000 rw-p 00000000 00:00 0 
+4e1f9000-4e200000 ---p 00000000 00:00 0 
+4e200000-4e2f1000 rw-p 00000000 00:00 0 
+4e2f1000-4e300000 ---p 00000000 00:00 0 
+4e300000-4e3f9000 rw-p 00000000 00:00 0 
+4e3f9000-4e400000 ---p 00000000 00:00 0 
+4e400000-4e4f9000 rw-p 00000000 00:00 0 
+4e4f9000-4e500000 ---p 00000000 00:00 0 
+4e500000-4e5f9000 rw-p 00000000 00:00 0 
+4e5f9000-4e600000 ---p 00000000 00:00 0 
+4e600000-4e6f9000 rw-p 00000000 00:00 0 
+4e6f9000-4e700000 ---p 00000000 00:00 0 
+4e700000-4e7f9000 rw-p 00000000 00:00 0 
+4e7f9000-4e800000 ---p 00000000 00:00 0 
+4e800000-4e8f1000 rw-p 00000000 00:00 0 
+4e8f1000-4e900000 ---p 00000000 00:00 0 
+4e900000-4e9f9000 rw-p 00000000 00:00 0 
+4e9f9000-4ea00000 ---p 00000000 00:00 0 
+4ea00000-4eaf9000 rw-p 00000000 00:00 0 
+4eaf9000-4eb00000 ---p 00000000 00:00 0 
+4eb00000-4ebf1000 rw-p 00000000 00:00 0 
+4ebf1000-4ec00000 ---p 00000000 00:00 0 
+4ec00000-4ecf9000 rw-p 00000000 00:00 0 
+4ecf9000-4ed00000 ---p 00000000 00:00 0 
+4ed00000-4edf1000 rw-p 00000000 00:00 0 
+4edf1000-4ee00000 ---p 00000000 00:00 0 
+4ee00000-4eef9000 rw-p 00000000 00:00 0 
+4eef9000-4ef00000 ---p 00000000 00:00 0 
+4ef00000-4eff1000 rw-p 00000000 00:00 0 
+4eff1000-4f000000 ---p 00000000 00:00 0 
+4f000000-4f0f9000 rw-p 00000000 00:00 0 
+4f0f9000-4f100000 ---p 00000000 00:00 0 
+4f100000-4f1f9000 rw-p 00000000 00:00 0 
+4f1f9000-4f200000 ---p 00000000 00:00 0 
+4f200000-4f2f9000 rw-p 00000000 00:00 0 
+4f2f9000-4f300000 ---p 00000000 00:00 0 
+4f300000-4f3f9000 rw-p 00000000 00:00 0 
+4f3f9000-4f400000 ---p 00000000 00:00 0 
+4f400000-4f4f9000 rw-p 00000000 00:00 0 
+4f4f9000-4f500000 ---p 00000000 00:00 0 
+4f500000-4f5f9000 rw-p 00000000 00:00 0 
+4f5f9000-4f600000 ---p 00000000 00:00 0 
+4f600000-4f6f9000 rw-p 00000000 00:00 0 
+4f6f9000-4f700000 ---p 00000000 00:00 0 
+4f700000-4f7f9000 rw-p 00000000 00:00 0 
+4f7f9000-4f800000 ---p 00000000 00:00 0 
+4f800000-4f8f9000 rw-p 00000000 00:00 0 
+4f8f9000-4f900000 ---p 00000000 00:00 0 
+4f900000-4f9fc000 rw-p 00000000 00:00 0 
+4f9fc000-4fa00000 ---p 00000000 00:00 0 
+4fa00000-4faf9000 rw-p 00000000 00:00 0 
+4faf9000-4fb00000 ---p 00000000 00:00 0 
+4fb00000-4fbf9000 rw-p 00000000 00:00 0 
+4fbf9000-4fc00000 ---p 00000000 00:00 0 
+4fc00000-4fdff000 rw-p 00000000 00:00 0 
+4fdff000-4fe00000 ---p 00000000 00:00 0 
+4fe00000-4feee000 rw-p 00000000 00:00 0 
+4feee000-4ff00000 ---p 00000000 00:00 0 
+4ff00000-4ffe5000 rw-p 00000000 00:00 0 
+4ffe5000-50000000 ---p 00000000 00:00 0 
+50000000-500f4000 rw-p 00000000 00:00 0 
+500f4000-50100000 ---p 00000000 00:00 0 
+50100000-501ef000 rw-p 00000000 00:00 0 
+501ef000-50200000 ---p 00000000 00:00 0 
+50200000-502f6000 rw-p 00000000 00:00 0 
+502f6000-50300000 ---p 00000000 00:00 0 
+50400000-504e0000 rw-p 00000000 00:00 0 
+504e0000-50500000 ---p 00000000 00:00 0 
+50500000-505de000 rw-p 00000000 00:00 0 
+505de000-50600000 ---p 00000000 00:00 0 
+50600000-506fd000 rw-p 00000000 00:00 0 
+506fd000-50700000 ---p 00000000 00:00 0 
+50800000-508ea000 rw-p 00000000 00:00 0 
+508ea000-50900000 ---p 00000000 00:00 0 
+50900000-509ff000 rw-p 00000000 00:00 0 
+509ff000-50a00000 ---p 00000000 00:00 0 
+50a00000-50b00000 rw-p 00000000 00:00 0 
+50b00000-50bff000 rw-p 00000000 00:00 0 
+50bff000-50c00000 ---p 00000000 00:00 0 
+50cf9000-50d00000 r--s 00065000 08:01 25562498   /home/standa/.m2/repository/dnsjava/dnsjava/2.1.1/dnsjava-2.1.1.jar
+50d00000-50dfc000 rw-p 00000000 00:00 0 
+50dfc000-50e00000 ---p 00000000 00:00 0 
+50e00000-50f00000 rw-p 00000000 00:00 0 
+50f00000-51100000 rw-p 00000000 00:00 0 
+51100000-511ff000 rw-p 00000000 00:00 0 
+511ff000-51200000 ---p 00000000 00:00 0 
+51200000-51300000 rw-p 00000000 00:00 0 
+51300000-513fa000 rw-p 00000000 00:00 0 
+513fa000-51400000 ---p 00000000 00:00 0 
+51400000-514fe000 rw-p 00000000 00:00 0 
+514fe000-51500000 ---p 00000000 00:00 0 
+515fd000-51600000 r--s 0001c000 08:01 1711777    /home/standa/.m2/repository/com/sun/jersey/jersey-servlet/1.14/jersey-servlet-1.14.jar
+51600000-516ff000 rw-p 00000000 00:00 0 
+516ff000-51700000 ---p 00000000 00:00 0 
+51700000-51800000 rw-p 00000000 00:00 0 
+51800000-518ff000 rw-p 00000000 00:00 0 
+518ff000-51900000 ---p 00000000 00:00 0 
+51900000-51a00000 rw-p 00000000 00:00 0 
+51a00000-51bfe000 rw-p 00000000 00:00 0 
+51bfe000-51c00000 ---p 00000000 00:00 0 
+51c00000-51dff000 rw-p 00000000 00:00 0 
+51dff000-51e00000 ---p 00000000 00:00 0 
+51e00000-51eff000 rw-p 00000000 00:00 0 
+51eff000-51f00000 ---p 00000000 00:00 0 
+51f00000-51ffd000 rw-p 00000000 00:00 0 
+51ffd000-52000000 ---p 00000000 00:00 0 
+52029000-5202c000 r--s 00077000 08:01 20448933   /usr/lib/jvm/java-6-openjdk/jre/lib/ext/localedata.jar
+5202c000-5202f000 ---p 00000000 00:00 0 
+5202f000-5207d000 rw-p 00000000 00:00 0 
+5207d000-52084000 r--s 000fb000 08:01 20448928   /usr/lib/jvm/java-6-openjdk/jre/lib/resources.jar
+52084000-52087000 ---p 00000000 00:00 0 
+52087000-520d5000 rw-p 00000000 00:00 0 
+520d5000-520d7000 r--s 00004000 08:01 1711763    /home/standa/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar
+520d7000-520da000 r--s 00017000 08:01 1711757    /home/standa/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
+520da000-520dc000 r--s 00005000 08:01 25300007   /home/standa/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar
+520dc000-520e5000 r--s 0006d000 08:01 29494405   /home/standa/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar
+520e5000-520e8000 r--s 00015000 08:01 26876095   /home/standa/.m2/repository/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar
+520e8000-520f0000 r--s 000c3000 08:01 26346521   /home/standa/.m2/repository/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar
+520f0000-520fc000 r--s 00090000 08:01 28053227   /home/standa/.m2/repository/com/sun/faces/jsf-api/2.1.13/jsf-api-2.1.13.jar
+520fc000-52100000 r--s 00034000 08:01 1711754    /home/standa/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.4/jackson-core-asl-1.9.4.jar
+52100000-521ff000 rw-p 00000000 00:00 0 
+521ff000-52200000 ---p 00000000 00:00 0 
+52201000-52204000 r--s 00025000 08:01 26614137   /home/standa/.m2/repository/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar
+52204000-52205000 r--s 00002000 08:01 30016397   /home/standa/.m2/repository/org/springframework/security/facelets-taglib-jsf20-spring-3/0.5/facelets-taglib-jsf20-spring-3-0.5.jar
+52205000-52208000 r--s 0002f000 08:01 30016215   /home/standa/.m2/repository/org/springframework/security/spring-security-config/3.1.0.RELEASE/spring-security-config-3.1.0.RELEASE.jar
+52208000-52210000 r--s 00037000 08:01 30016214   /home/standa/.m2/repository/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE.jar
+52210000-52212000 r--s 00009000 08:01 30016211   /home/standa/.m2/repository/org/springframework/security/spring-security-crypto/3.1.0.RELEASE/spring-security-crypto-3.1.0.RELEASE.jar
+52212000-5221e000 r--s 0004a000 08:01 30016210   /home/standa/.m2/repository/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar
+5221e000-52226000 r--s 00051000 08:01 1180795    /home/standa/.m2/repository/org/modelmapper/modelmapper/0.5.4/modelmapper-0.5.4.jar
+52226000-5222f000 r--s 0006c000 08:01 30016207   /home/standa/.m2/repository/org/hibernate/hibernate-entitymanager/4.1.7.Final/hibernate-entitymanager-4.1.7.Final.jar
+5222f000-52294000 r--s 0082c000 08:01 30016305   /home/standa/.m2/repository/org/aspectj/aspectjtools/1.6.12/aspectjtools-1.6.12.jar
+52294000-5229d000 r--s 00096000 08:01 30016203   /home/standa/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar
+5229d000-522a2000 r--s 00014000 08:01 12202      /home/standa/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.0.Final/hibernate-jpa-2.0-api-1.0.0.Final.jar
+522a2000-522a7000 r--s 00048000 08:01 29627363   /home/standa/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+522a7000-522a9000 r--s 0000d000 08:01 30016197   /home/standa/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+522a9000-522ae000 r--s 00068000 08:01 29627377   /home/standa/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+522ae000-522fb000 r--s 003f5000 08:01 30016194   /home/standa/.m2/repository/org/hibernate/hibernate-core/4.1.7.Final/hibernate-core-4.1.7.Final.jar
+522fb000-52300000 r--s 00044000 08:01 29366272   /home/standa/.m2/repository/org/jdom/jdom2/2.0.4/jdom2-2.0.4.jar
+52300000-523ff000 rw-p 00000000 00:00 0 
+523ff000-52400000 ---p 00000000 00:00 0 
+52400000-52401000 r--s 00002000 08:01 30016302   /home/standa/.m2/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar
+52401000-52404000 r--s 00011000 08:01 30016206   /home/standa/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar
+52404000-52406000 r--s 00003000 08:01 1711748    /home/standa/.m2/repository/com/sun/jersey/contribs/jersey-spring/1.14/jersey-spring-1.14.jar
+52406000-52407000 r--s 00006000 08:01 1711783    /home/standa/.m2/repository/org/codehaus/jackson/jackson-xc/1.9.2/jackson-xc-1.9.2.jar
+52407000-52408000 r--s 00004000 08:01 1711771    /home/standa/.m2/repository/org/codehaus/jackson/jackson-jaxrs/1.9.2/jackson-jaxrs-1.9.2.jar
+52408000-5240a000 r--s 0000e000 08:01 1711764    /home/standa/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+5240a000-5241d000 r--s 000c7000 08:01 1711747    /home/standa/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar
+5241d000-5241f000 r--s 0000f000 08:01 29757786   /home/standa/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar
+5241f000-52423000 r--s 00024000 08:01 1711780    /home/standa/.m2/repository/com/sun/jersey/jersey-json/1.14/jersey-json-1.14.jar
+52423000-5242e000 r--s 00068000 08:01 1711774    /home/standa/.m2/repository/com/sun/jersey/jersey-core/1.14/jersey-core-1.14.jar
+5242e000-5243c000 r--s 000b0000 08:01 1711760    /home/standa/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.4/jackson-mapper-asl-1.9.4.jar
+5243c000-52449000 r--s 00078000 08:01 30016195   /home/standa/.m2/repository/org/springframework/spring-web/3.1.0.RELEASE/spring-web-3.1.0.RELEASE.jar
+52449000-5244d000 r--s 00019000 08:01 132370     /home/standa/.m2/repository/org/aspectj/aspectjrt/1.6.12/aspectjrt-1.6.12.jar
+5244d000-5244f000 r--s 00003000 08:01 9048129    /home/standa/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.1/jcl-over-slf4j-1.6.1.jar
+5244f000-52451000 r--s 00005000 08:01 30016304   /home/standa/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar
+52451000-52459000 r--s 00039000 08:01 9048186    /home/standa/.m2/repository/org/springframework/data/spring-data-commons-core/1.4.0.RELEASE/spring-data-commons-core-1.4.0.RELEASE.jar
+52459000-5245d000 r--s 0001e000 08:01 9048187    /home/standa/.m2/repository/org/springframework/data/spring-data-jpa/1.2.0.RELEASE/spring-data-jpa-1.2.0.RELEASE.jar
+5245d000-52467000 r--s 00059000 08:01 30016193   /home/standa/.m2/repository/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE.jar
+52467000-52470000 r--s 00054000 08:01 30016192   /home/standa/.m2/repository/org/springframework/spring-orm/3.1.0.RELEASE/spring-orm-3.1.0.RELEASE.jar
+52470000-52478000 r--s 00035000 08:01 30016187   /home/standa/.m2/repository/org/springframework/spring-tx/3.1.0.RELEASE/spring-tx-3.1.0.RELEASE.jar
+52478000-5247c000 r--s 00017000 08:01 30016185   /home/standa/.m2/repository/org/springframework/spring-context-support/3.1.0.RELEASE/spring-context-support-3.1.0.RELEASE.jar
+5247c000-5247e000 r--s 0000b000 08:01 30016181   /home/standa/.m2/repository/org/springframework/spring-aspects/3.1.0.RELEASE/spring-aspects-3.1.0.RELEASE.jar
+5247e000-52483000 r--s 00027000 08:01 30016177   /home/standa/.m2/repository/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE.jar
+52483000-52485000 r--s 0000d000 08:01 30016172   /home/standa/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+52485000-52490000 r--s 00062000 08:01 30016175   /home/standa/.m2/repository/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE.jar
+52490000-5249c000 r--s 00084000 08:01 30016174   /home/standa/.m2/repository/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE.jar
+5249c000-5249d000 r--s 0000c000 08:01 30016180   /home/standa/.m2/repository/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE.jar
+5249d000-5249f000 r--s 00000000 08:01 26614135   /home/standa/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+5249f000-524a7000 r--s 00049000 08:01 30016173   /home/standa/.m2/repository/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE.jar
+524a7000-524bc000 r--s 000b6000 08:01 30016171   /home/standa/.m2/repository/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE.jar
+524bc000-524d0000 r--s 0012d000 08:01 1180807    /home/standa/.m2/repository/org/primefaces/themes/all-themes/1.0.9/all-themes-1.0.9.jar
+524d0000-524e8000 r--s 001a4000 08:01 1180540    /home/standa/.m2/repository/org/primefaces/primefaces/3.4.2/primefaces-3.4.2.jar
+524e8000-524f3000 r--s 00081000 08:01 30159407   /home/standa/.m2/repository/org/springframework/spring-webmvc/3.1.0.RELEASE/spring-webmvc-3.1.0.RELEASE.jar
+524f3000-5250c000 r--s 001cd000 08:01 28321357   /home/standa/.m2/repository/com/sun/faces/jsf-impl/2.1.13/jsf-impl-2.1.13.jar
+5250c000-5251b000 r--s 00084000 08:01 1711751    /home/standa/.m2/repository/com/sun/jersey/jersey-server/1.14/jersey-server-1.14.jar
+5251b000-5251e000 ---p 00000000 00:00 0 
+5251e000-5256c000 rw-p 00000000 00:00 0 
+5256c000-5256f000 ---p 00000000 00:00 0 
+5256f000-525bd000 rw-p 00000000 00:00 0 
+525bd000-525c0000 ---p 00000000 00:00 0 
+525c0000-5260e000 rw-p 00000000 00:00 0 
+5260e000-52611000 ---p 00000000 00:00 0 
+52611000-5265f000 rw-p 00000000 00:00 0 
+5265f000-52662000 ---p 00000000 00:00 0 
+52662000-526b0000 rw-p 00000000 00:00 0 
+526b0000-526b3000 ---p 00000000 00:00 0 
+526b3000-52701000 rw-p 00000000 00:00 0 
+52701000-52704000 ---p 00000000 00:00 0 
+52704000-52752000 rw-p 00000000 00:00 0 
+52752000-52755000 ---p 00000000 00:00 0 
+52755000-527a3000 rw-p 00000000 00:00 0 
+527a3000-527a5000 r--s 0000a000 08:01 1180745    /home/standa/.m2/repository/org/eclipse/jetty/jetty-start/7.0.0.v20091005/jetty-start-7.0.0.v20091005.jar
+527a5000-527a6000 r--s 0000a000 08:01 28847226   /home/standa/.m2/repository/asm/asm/3.1/asm-3.1.jar
+527a6000-527a8000 r--s 00004000 08:01 1180698    /home/standa/.m2/repository/asm/asm-tree/3.1/asm-tree-3.1.jar
+527a8000-527a9000 r--s 00007000 08:01 1180695    /home/standa/.m2/repository/asm/asm-commons/3.1/asm-commons-3.1.jar
+527a9000-527ab000 r--s 00002000 08:01 1180701    /home/standa/.m2/repository/org/apache/geronimo/specs/geronimo-annotation_1.0_spec/1.1.1/geronimo-annotation_1.0_spec-1.1.1.jar
+527ab000-527ad000 r--s 00009000 08:01 1180742    /home/standa/.m2/repository/org/eclipse/jetty/jetty-annotations/7.0.0.v20091005/jetty-annotations-7.0.0.v20091005.jar
+527ad000-527bc000 r--s 000ee000 08:01 24251604   /home/standa/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar
+527bc000-527bf000 r--s 0001e000 08:01 1180716    /home/standa/.m2/repository/org/mortbay/jetty/jsp-api-2.1-glassfish/9.1.1.B60.25.p2/jsp-api-2.1-glassfish-9.1.1.B60.25.p2.jar
+527bf000-527e2000 r--s 00344000 08:01 528417     /home/standa/.m2/repository/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar
+527e2000-527f3000 r--s 000ea000 08:01 1180685    /home/standa/.m2/repository/org/mortbay/jetty/jsp-2.1-glassfish/9.1.1.B60.25.p2/jsp-2.1-glassfish-9.1.1.B60.25.p2.jar
+527f3000-527f5000 r--s 00007000 08:01 1180739    /home/standa/.m2/repository/org/eclipse/jetty/jetty-jmx/7.0.0.v20091005/jetty-jmx-7.0.0.v20091005.jar
+527f5000-527fb000 r--s 00059000 08:01 528416     /home/standa/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar
+527fb000-527fd000 r--s 00006000 08:01 1180736    /home/standa/.m2/repository/org/eclipse/jetty/jetty-jndi/7.0.0.v20091005/jetty-jndi-7.0.0.v20091005.jar
+527fd000-527fe000 r--s 00003000 08:01 1180692    /home/standa/.m2/repository/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1.1/geronimo-jta_1.1_spec-1.1.1.jar
+527fe000-52800000 r--s 00010000 08:01 1180733    /home/standa/.m2/repository/org/eclipse/jetty/jetty-plus/7.0.0.v20091005/jetty-plus-7.0.0.v20091005.jar
+52800000-52802000 r--s 00006000 08:01 1180687    /home/standa/.m2/repository/org/apache/maven/maven-plugin-tools-api/2.0.5/maven-plugin-tools-api-2.0.5.jar
+52802000-52806000 r--s 00034000 08:01 28049790   /home/standa/.m2/repository/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.jar
+52806000-52808000 r--s 0000e000 08:01 1180730    /home/standa/.m2/repository/org/eclipse/jetty/jetty-io/7.0.0.v20091005/jetty-io-7.0.0.v20091005.jar
+52808000-5280a000 r--s 00018000 08:01 1180727    /home/standa/.m2/repository/org/eclipse/jetty/jetty-http/7.0.0.v20091005/jetty-http-7.0.0.v20091005.jar
+5280a000-5280b000 r--s 00004000 08:01 1180724    /home/standa/.m2/repository/org/eclipse/jetty/jetty-continuation/7.0.0.v20091005/jetty-continuation-7.0.0.v20091005.jar
+5280b000-5280d000 r--s 00018000 08:01 29366206   /home/standa/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+5280d000-52810000 ---p 00000000 00:00 0 
+52810000-5285e000 rw-p 00000000 00:00 0 
+5285e000-52861000 ---p 00000000 00:00 0 
+52861000-528af000 rw-p 00000000 00:00 0 
+528af000-528b2000 ---p 00000000 00:00 0 
+528b2000-52900000 rw-p 00000000 00:00 0 
+52900000-529fc000 rw-p 00000000 00:00 0 
+529fc000-52a00000 ---p 00000000 00:00 0 
+52a00000-52aff000 rw-p 00000000 00:00 0 
+52aff000-52b00000 ---p 00000000 00:00 0 
+52b00000-52bec000 rw-p 00000000 00:00 0 
+52bec000-52c00000 ---p 00000000 00:00 0 
+52c00000-52ce0000 rw-p 00000000 00:00 0 
+52ce0000-52d00000 ---p 00000000 00:00 0 
+52d00000-52dfa000 rw-p 00000000 00:00 0 
+52dfa000-52e00000 ---p 00000000 00:00 0 
+52e00000-52efd000 rw-p 00000000 00:00 0 
+52efd000-52f00000 ---p 00000000 00:00 0 
+52f00000-52ff7000 rw-p 00000000 00:00 0 
+52ff7000-53000000 ---p 00000000 00:00 0 
+53000000-530fb000 rw-p 00000000 00:00 0 
+530fb000-53100000 ---p 00000000 00:00 0 
+53100000-531f2000 rw-p 00000000 00:00 0 
+531f2000-53200000 ---p 00000000 00:00 0 
+53200000-532ff000 rw-p 00000000 00:00 0 
+532ff000-53300000 ---p 00000000 00:00 0 
+53300000-533f7000 rw-p 00000000 00:00 0 
+533f7000-53400000 ---p 00000000 00:00 0 
+53400000-534fd000 rw-p 00000000 00:00 0 
+534fd000-53500000 ---p 00000000 00:00 0 
+53500000-535ec000 rw-p 00000000 00:00 0 
+535ec000-53600000 ---p 00000000 00:00 0 
+53600000-53601000 r--s 00002000 08:01 30016199   /home/standa/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+53601000-53605000 r--s 00038000 08:01 1180721    /home/standa/.m2/repository/org/eclipse/jetty/jetty-server/7.0.0.v20091005/jetty-server-7.0.0.v20091005.jar
+53605000-53608000 r--s 0000e000 08:01 1180715    /home/standa/.m2/repository/org/eclipse/jetty/jetty-security/7.0.0.v20091005/jetty-security-7.0.0.v20091005.jar
+53608000-5360a000 r--s 0000e000 08:01 1180710    /home/standa/.m2/repository/org/eclipse/jetty/jetty-servlet/7.0.0.v20091005/jetty-servlet-7.0.0.v20091005.jar
+5360a000-5360e000 r--s 00028000 08:01 1180707    /home/standa/.m2/repository/org/eclipse/jetty/jetty-util/7.0.0.v20091005/jetty-util-7.0.0.v20091005.jar
+5360e000-5360f000 r--s 00006000 08:01 1180704    /home/standa/.m2/repository/org/eclipse/jetty/jetty-xml/7.0.0.v20091005/jetty-xml-7.0.0.v20091005.jar
+5360f000-53611000 r--s 0000d000 08:01 1180686    /home/standa/.m2/repository/org/eclipse/jetty/jetty-webapp/7.0.0.v20091005/jetty-webapp-7.0.0.v20091005.jar
+53611000-53613000 r--s 00002000 08:01 28050258   /home/standa/.m2/repository/org/codehaus/plexus/plexus-compiler-javac/1.8.1/plexus-compiler-javac-1.8.1.jar
+53613000-53615000 r--s 00000000 08:01 28050259   /home/standa/.m2/repository/org/codehaus/plexus/plexus-compiler-manager/1.8.1/plexus-compiler-manager-1.8.1.jar
+53615000-53616000 r--s 00004000 08:01 28050257   /home/standa/.m2/repository/org/codehaus/plexus/plexus-compiler-api/1.8.1/plexus-compiler-api-1.8.1.jar
+53616000-5361a000 r--s 00033000 08:01 28049861   /home/standa/.m2/repository/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+5361a000-5361c000 r--s 0000b000 08:01 29365919   /home/standa/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.6/plexus-interpolation-1.6.jar
+5361c000-5361e000 r--s 00007000 08:01 29364472   /home/standa/.m2/repository/org/apache/maven/shared/maven-filtering/1.0-beta-2/maven-filtering-1.0-beta-2.jar
+5361e000-53623000 r--s 00039000 08:01 27919966   /home/standa/.m2/repository/org/codehaus/plexus/plexus-utils/1.5.6/plexus-utils-1.5.6.jar
+53623000-53625000 r--s 00006000 08:01 29491790   /home/standa/.m2/repository/org/apache/maven/shared/maven-invoker/2.0.11/maven-invoker-2.0.11.jar
+53625000-53627000 r--s 00006000 08:01 1180774    /home/standa/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/1.4/maven-common-artifact-filters-1.4.jar
+53627000-53629000 r--s 0000c000 08:01 1180771    /home/standa/.m2/repository/org/apache/maven/shared/maven-dependency-tree/2.0/maven-dependency-tree-2.0.jar
+53629000-5362b000 r--s 00000000 08:01 29627361   /home/standa/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+5362b000-5362c000 r--s 0000a000 08:01 9177862    /home/standa/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar
+5362c000-5362e000 r--s 00005000 08:01 1180768    /home/standa/.m2/repository/org/apache/maven/shared/maven-dependency-analyzer/1.3/maven-dependency-analyzer-1.3.jar
+5362e000-53630000 r--s 00008000 08:01 655603     /home/standa/.m2/repository/org/apache/maven/shared/maven-shared-io/1.1/maven-shared-io-1.1.jar
+53630000-53632000 r--s 00008000 08:01 655600     /home/standa/.m2/repository/org/apache/maven/shared/file-management/1.2.1/file-management-1.2.1.jar
+53632000-53635000 r--s 0000c000 08:01 1180765    /home/standa/.m2/repository/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.jar
+53635000-5363a000 r--s 00029000 08:01 1180762    /home/standa/.m2/repository/org/codehaus/plexus/plexus-archiver/2.2/plexus-archiver-2.2.jar
+5363a000-5363e000 r--s 00026000 08:01 29491759   /home/standa/.m2/repository/commons-digester/commons-digester/1.6/commons-digester-1.6.jar
+5363e000-53643000 r--s 0002a000 08:01 29491758   /home/standa/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar
+53643000-53646000 r--s 00014000 08:01 29491756   /home/standa/.m2/repository/commons-validator/commons-validator/1.2.0/commons-validator-1.2.0.jar
+53646000-53649000 r--s 00018000 08:01 29627366   /home/standa/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar
+53649000-5364b000 r--s 00009000 08:01 657658     /home/standa/.m2/repository/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.jar
+5364b000-5364e000 ---p 00000000 00:00 0 
+5364e000-5369c000 rw-p 00000000 00:00 0 
+5369c000-5369f000 ---p 00000000 00:00 0 
+5369f000-536ed000 rw-p 00000000 00:00 0 
+536ed000-5372e000 r--s 0032f000 08:01 28973879   /usr/share/maven2/lib/maven-debian-uber.jar
+5372e000-5372f000 ---p 00000000 00:00 0 
+5372f000-537af000 rw-p 00000000 00:00 0 
+537af000-537b2000 ---p 00000000 00:00 0 
+537b2000-53800000 rw-p 00000000 00:00 0 
+53800000-538ff000 rw-p 00000000 00:00 0 
+538ff000-53900000 ---p 00000000 00:00 0 
+53900000-53902000 r--s 00004000 08:01 29491784   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml/1.0/doxia-module-xhtml-1.0.jar
+53902000-53903000 r--s 00006000 08:01 29491783   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-module-xdoc/1.0/doxia-module-xdoc-1.0.jar
+53903000-53904000 r--s 00004000 08:01 29491782   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-module-fml/1.0/doxia-module-fml-1.0.jar
+53904000-53906000 r--s 0000a000 08:01 29491778   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-module-apt/1.0/doxia-module-apt-1.0.jar
+53906000-53907000 r--s 0000b000 08:01 29491774   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-decoration-model/1.0/doxia-decoration-model-1.0.jar
+53907000-53909000 r--s 0000e000 08:01 27660428   /home/standa/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar
+53909000-5390e000 r--s 00041000 08:01 1180756    /home/standa/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+5390e000-5391c000 r--s 0007f000 08:01 29627373   /home/standa/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+5391c000-53924000 r--s 00058000 08:01 29491773   /home/standa/.m2/repository/org/apache/velocity/velocity/1.5/velocity-1.5.jar
+53924000-53925000 r--s 00001000 08:01 29491770   /home/standa/.m2/repository/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar
+53925000-53927000 r--s 0000a000 08:01 29491769   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-site-renderer/1.0/doxia-site-renderer-1.0.jar
+53927000-5392a000 r--s 0000b000 08:01 29491764   /home/standa/.m2/repository/org/apache/maven/doxia/doxia-core/1.0/doxia-core-1.0.jar
+5392a000-5392e000 r--s 00035000 08:01 1180757    /home/standa/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.jar
+5392e000-53931000 ---p 00000000 00:00 0 
+53931000-539af000 rw-p 00000000 00:00 0 
+539af000-539b2000 ---p 00000000 00:00 0 
+539b2000-53a30000 rw-p 00000000 00:00 0 
+53a30000-53a33000 ---p 00000000 00:00 0 
+53a33000-53a81000 rw-p 00000000 00:00 0 
+53a81000-53a9f000 r--p 00858000 08:01 20455197   /usr/lib/locale/locale-archive
+53a9f000-53adf000 r--p 002bd000 08:01 20455197   /usr/lib/locale/locale-archive
+53adf000-53cdf000 r--p 00000000 08:01 20455197   /usr/lib/locale/locale-archive
+53cdf000-53ce2000 ---p 00000000 00:00 0 
+53ce2000-53d30000 rw-p 00000000 00:00 0 
+53d30000-53d33000 ---p 00000000 00:00 0 
+53d33000-53d81000 rw-p 00000000 00:00 0 
+53d81000-53d82000 ---p 00000000 00:00 0 
+53d82000-53e35000 rw-p 00000000 00:00 0 
+53e35000-53fc7000 r--s 037c2000 08:01 20449660   /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar
+53fc7000-53fc8000 ---p 00000000 00:00 0 
+53fc8000-54048000 rw-p 00000000 00:00 0 
+54048000-54049000 ---p 00000000 00:00 0 
+54049000-54202000 rw-p 00000000 00:00 0 
+54202000-5431f000 rw-p 00000000 00:00 0 
+5431f000-54458000 rw-p 00000000 00:00 0 
+54458000-54574000 rw-p 00000000 00:00 0 
+54574000-5461f000 rw-p 00000000 00:00 0 
+5461f000-7b6b0000 rw-p 00000000 00:00 0 
+7b6b0000-9f0d0000 rw-p 00000000 00:00 0 
+9f0d0000-b4620000 rw-p 00000000 00:00 0 
+b4620000-b4621000 r--s 00002000 08:01 29491768   /home/standa/.m2/repository/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.jar
+b4621000-b4623000 r--s 00004000 08:01 12225      /home/standa/.m2/repository/org/apache/maven/reporting/maven-reporting-impl/2.0.5/maven-reporting-impl-2.0.5.jar
+b4623000-b4624000 r--s 00004000 08:01 1324277    /home/standa/.m2/repository/org/codehaus/mojo/jaxws-maven-plugin/1.10/jaxws-maven-plugin-1.10.jar
+b4624000-b4634000 rw-p 00000000 00:00 0 
+b4634000-b46e4000 rw-p 00000000 00:00 0 
+b46e4000-b4abc000 rwxp 00000000 00:00 0 
+b4abc000-b76e4000 rw-p 00000000 00:00 0 
+b76e4000-b76e7000 ---p 00000000 00:00 0 
+b76e7000-b7738000 rw-p 00000000 00:00 0 
+b7738000-b773a000 r--s 00004000 08:01 9306367    /home/standa/.m2/repository/org/apache/maven/plugins/maven-resources-plugin/2.3/maven-resources-plugin-2.3.jar
+b773a000-b773c000 r--s 0000b000 08:01 657653     /home/standa/.m2/repository/org/mortbay/jetty/jetty-maven-plugin/7.0.0.v20091005/jetty-maven-plugin-7.0.0.v20091005.jar
+b773c000-b773f000 r--s 00021000 08:01 28974007   /home/standa/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.6/maven-dependency-plugin-2.6.jar
+b773f000-b7741000 r--s 00011000 08:01 28712549   /home/standa/.m2/repository/org/apache/maven/plugins/maven-war-plugin/2.1.1/maven-war-plugin-2.1.1.jar
+b7741000-b7743000 r--s 00006000 08:01 28049958   /home/standa/.m2/repository/org/apache/maven/plugins/maven-compiler-plugin/2.3.2/maven-compiler-plugin-2.3.2.jar
+b7743000-b7744000 r--p 00000000 00:00 0 
+b7744000-b7748000 r--s 0007d000 08:01 20451666   /usr/lib/jvm/java-6-openjdk/jre/lib/jsse.jar
+b7748000-b774a000 r--s 00008000 08:01 20980521   /usr/share/java/classworlds-1.1.jar
+b774a000-b774c000 r--s 0000f000 08:01 20450886   /usr/lib/jvm/java-6-openjdk/jre/lib/ext/pulse-java.jar
+b774c000-b7754000 rw-s 00000000 08:01 8390186    /tmp/hsperfdata_standa/13996
+b7754000-b7755000 rw-p 00000000 00:00 0 
+b7755000-b7756000 r--p 00000000 00:00 0 
+b7756000-b7758000 rw-p 00000000 00:00 0 
+bfa8c000-bfaad000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xmx1024m -XX:MaxPermSize=512m -XX:PermSize=512m -Dclassworlds.conf=/usr/share/maven2/bin/m2.conf -Dmaven.home=/usr/share/maven2 
+java_command: org.codehaus.classworlds.Launcher "jetty:run"
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/heroku/bin:/home/standa/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+USERNAME=standa
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-openjdk/jre/lib/i386/server:/usr/lib/jvm/java-6-openjdk/jre/lib/i386:/usr/lib/jvm/java-6-openjdk/jre/../lib/i386
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x66b840], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x66b840], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x52eb20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x52eb20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x52eb20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x52eb20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x52e9b0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x531a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x531a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x531a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x531a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:LinuxMint 12 (lisa)
+uname:Linux 3.0.0-12-generic #20-Ubuntu SMP Fri Oct 7 14:50:42 UTC 2011 i686
+libc:glibc 2.13 NPTL 2.13 
+rlimit: STACK 8192k, CORE 0k, NPROC 23083, NOFILE 4096, AS infinity
+load average:1.16 0.56 0.65
+
+/proc/meminfo:
+MemTotal:        2968716 kB
+MemFree:          740372 kB
+Buffers:           32364 kB
+Cached:           272892 kB
+SwapCached:        37888 kB
+Active:          1724168 kB
+Inactive:         401440 kB
+Active(anon):    1602136 kB
+Inactive(anon):   229900 kB
+Active(file):     122032 kB
+Inactive(file):   171540 kB
+Unevictable:         296 kB
+Mlocked:             296 kB
+HighTotal:       2105000 kB
+HighFree:         206024 kB
+LowTotal:         863716 kB
+LowFree:          534348 kB
+SwapTotal:       2618364 kB
+SwapFree:        2167480 kB
+Dirty:               384 kB
+Writeback:             0 kB
+AnonPages:       1799136 kB
+Mapped:            76920 kB
+Shmem:             11640 kB
+Slab:              40592 kB
+SReclaimable:      23880 kB
+SUnreclaim:        16712 kB
+KernelStack:        4032 kB
+PageTables:        12660 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     4102720 kB
+Committed_AS:    4764416 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       72608 kB
+VmallocChunk:      41468 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       32760 kB
+DirectMap4M:      876544 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2968716k(740372k free), swap 2618364k(2167480k free)
+
+vm_info: OpenJDK Server VM (20.0-b12) for linux-x86 JRE (1.6.0_24-b24), built on Oct 24 2012 16:30:02 by "buildd" with gcc 4.6.1
+
+time: Sun Jan 20 16:43:48 2013
+elapsed time: 49 seconds
+

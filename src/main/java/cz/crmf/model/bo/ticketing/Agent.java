@@ -5,6 +5,7 @@
 package cz.crmf.model.bo.ticketing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
+import cz.crmf.model.bo.invoicing.User;
 import cz.crmf.model.bo.monitoring.Server;
 import java.util.List;
 import javax.persistence.*;
@@ -29,27 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Agent.findByEmail", query = "SELECT a FROM Agent a WHERE a.email = :email"),
     @NamedQuery(name = "Agent.findByPhone", query = "SELECT a FROM Agent a WHERE a.phone = :phone"),
     @NamedQuery(name = "Agent.findBySmsNotification", query = "SELECT a FROM Agent a WHERE a.smsNotification = :smsNotification")})
-public class Agent extends AbstractBusinessObject {
+public class Agent extends User {
 
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "username", nullable = false, length = 100)
-    private String username;
-    @Size(max = 100)
-    @Column(name = "password", length = 100)
-    private String password;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "name", nullable = false, length = 100)
     private String name;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "email", nullable = false, length = 100)
-    private String email;
+
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Size(max = 45)
     @Column(name = "phone", length = 45)
@@ -70,7 +58,7 @@ public class Agent extends AbstractBusinessObject {
 
     public Agent(Integer id, String username, String name, String email) {
         this.id = id;
-        this.username = username;
+        this.username =username;
         this.name = name;
         this.email = email;
     }

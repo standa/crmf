@@ -12,5 +12,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author standa
  */
 public interface RoleRepository extends PagingAndSortingRepository<Role, Integer> {
-    
+    public Role getRoleByRoleName(String roleName);
 }

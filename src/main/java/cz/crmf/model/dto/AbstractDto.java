@@ -16,6 +16,10 @@ public class AbstractDto implements Serializable {
     public Integer getId() {
         return id;
     }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object obj) {

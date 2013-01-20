@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.view.bb;
 
 import cz.crmf.model.bo.ticketing.Ticket;
@@ -17,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * Implementation of the ticketing service used as a view for the JSF.
+ * 
  * @author standa
  */
 @Service("ticketingService")
@@ -88,12 +85,10 @@ public class TicketingServiceImpl extends AbstractDataAccessService
 
     @Override
     public List<TicketDto> getAllTickets() {
-
-        ModelMapper modelMapper = new ModelMapper();
                 
         List<TicketDto> tickets = new ArrayList<TicketDto>();
         for (Ticket t : getGenericDao().getAll(Ticket.class)) {
-            TicketDto dto = modelMapper.map(t, TicketDto.class);
+            TicketDto dto = getModelMapper().map(t, TicketDto.class);
             tickets.add(dto);
         }
         return tickets;
