@@ -9,9 +9,59 @@
 
 
     <ui:define name="content" rendered="#{sec:areAnyGranted('ROLE_AGENT')}">
-
-
+            
         <h:form prependId="false">  
+
+            <p:dataTable id="ticketsDataTable" var="t" value="#{invoicingService.allCustomers}"
+                         paginator="true" rows="10"  
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">  
+                <f:facet name="header">  
+                    Last users / customers created
+                </f:facet>  
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Agent" />  
+                    </f:facet>  
+                    <h:outputText value="#{t.agentId.name}" />
+                </p:column>  
+
+                <p:column>  
+                    <f:facet name="header">
+                        <h:outputText value="Customer" />  
+                    </f:facet>  
+                    <h:outputText value="#{t.customerId.username}" />  
+                </p:column>  
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Date" />  
+                    </f:facet>  
+                    <h:outputText value="#{t.submitDatetime}" />  
+                </p:column>  
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Subject" />  
+                    </f:facet>  
+                    <h:outputText value="#{t.subject}" />  
+                </p:column>  
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Status" />  
+                    </f:facet>  
+                    <h:outputText value="#{t.status}" />  
+                </p:column>  
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Action" />  
+                    </f:facet>  
+                    <h:outputText value="Edit, Delete, etc." />  
+                </p:column>  
+                
+            </p:dataTable>              
 
             <p:dataTable id="ticketsDataTable" var="t" value="#{ticketingService.allTickets}"  
                          paginator="true" rows="10"  

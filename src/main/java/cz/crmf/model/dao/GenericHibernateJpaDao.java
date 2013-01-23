@@ -33,10 +33,8 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     protected EntityManager getEntityManager() {
         
-        return entityManager;
-        
-//        return entityManagerFactory.createEntityManager();
-        
+        return entityManager;        
+//        return entityManagerFactory.createEntityManager();        
 //        return EntityManagerFactoryUtils.getTransactionalEntityManager(entityManagerFactory); //entity manager with @Transactional support
     }
 
@@ -59,7 +57,8 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     @Override
     public <ENTITY> List<ENTITY> getAllOrderedDesc(String property, Class<ENTITY> clazz) {
-        throw new IllegalStateException("Not implemented yet");
+        return getEntityManager().createQuery("FROM "+clazz.getSimpleName()+" ORDER BY :orderBy DESC")
+                .setParameter("orderBy", property).getResultList();
     }
 
     /**
@@ -70,7 +69,8 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     @Override
     public <ENTITY> List<ENTITY> getAllOrderedAsc(String property, Class<ENTITY> clazz) {
-        throw new IllegalStateException("Not implemented yet");
+        return getEntityManager().createQuery("FROM "+clazz.getSimpleName()+" ORDER BY :orderBy ASC")
+                .setParameter("orderBy", property).getResultList();
     }
 
     /**

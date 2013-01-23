@@ -6,16 +6,14 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:sec="http://www.springframework.org/security/tags">
-
     <ui:define name="content">
-        <form  method="post" action="/security_check" class="form-signin">
+        
+        <h:form>
+            
+            <h2 class="form-signin-heading"><h:outputText value="#{msgs['register.heading']}"/></h2>
 
-            <h2 class="form-signin-heading"><h:outputText value="#{msgs['login.pleaseLogin']}"/></h2>
-
-            <input type="text" name="j_username" class="input-block-level" placeholder="#{msgs['login.username']}"/>
-            <input type="password" name="j_password" class="input-block-level" placeholder="#{msgs['login.password']}"/>
-
-            <label><input type="checkbox" name="_spring_security_remember_me" /> #{msgs['login.rememberMe']}</label>
+            <input type="text" name="username" class="input-block-level" placeholder="#{msgs['login.username']}"/>
+            <input type="password" name="password" class="input-block-level" placeholder="#{msgs['login.password']}"/>
 
             <hr/>
 
@@ -34,6 +32,7 @@
 
             <hr />
 
-        </form>
-    </ui:define>
+        </h:form>        
+        
+    </ui:define>    
 </ui:composition>

@@ -86,7 +86,8 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
 
     @Override
     public ContactDto getContactByID(Integer contactId) {
-        throw new UnsupportedOperationException();        
+        return getModelMapper().map(getGenericDao()
+                .getById(contactId, Contact.class), ContactDto.class);
     }
 
     @Override
