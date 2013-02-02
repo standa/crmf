@@ -8,6 +8,27 @@ body {
     padding-bottom: 40px;
 }
 
+.masthead a, .masthead h1, .masthead h2, .masthead h3, .masthead h4,
+.jumbotron a, .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4,
+.lead-container a, .lead-container h1, .lead-container h2, .lead-container h3, .lead-container h4,
+.marketing a, .marketing h1, .marketing h2, .marketing h3, .marketing h4
+{
+    font-family: 'Marck Script', cursive;
+    font-size: 150%;
+}
+
+.masthead button, .jumbotron  button, .lead-container button, .marketing button,
+.lead, .masthead .btn-group, .masthead .btn-group a
+{
+    font-family: 'Marck Script', cursive;
+    font-size: 250%;
+}
+
+#logo-wrapper, #logo-text {
+    font-size: 350%;
+    font-family: 'Marck Script', cursive;
+}
+
 a, .lead-container .btn {
     /*color: #670065;*/
     /*color: #666666;*/
@@ -79,6 +100,13 @@ a:hover {
 }
 .marketing p + h4 {
     margin-top: 28px;
+}
+.marketing .pull-left {
+    width: 70px;
+    text-align: center;
+}
+.marketing i {
+    font-size: 500%;
 }
 
 /* ================================= PRICING ================================ */

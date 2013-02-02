@@ -15,6 +15,7 @@
 
     <http security="none" pattern="/javax.faces.resource/**" />
     <http security="none" pattern="/login.xhtml" />
+    <http security="none" pattern="/index.html" />
     <http security="none" pattern="/resources/**" />
     <http security="none" pattern="/rest/**" />
 
@@ -42,7 +43,7 @@
         <intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN')" />
         <intercept-url pattern="/agent/**" access="hasAnyRole('ROLE_AGENT', 'ROLE_ADMIN')" />
         
-        <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_AGENT', 'ROLE_CUSTOMER')" />
+<!--        <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_AGENT', 'ROLE_CUSTOMER')" />-->
         
         <logout logout-url="/logout" />
     </http>

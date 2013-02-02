@@ -5,10 +5,7 @@ import cz.crmf.service.iface.CompanyDataWebServiceClient;
 import cz.crmf.service.iface.DomainDataWebServiceClient;
 import cz.crmf.service.iface.InvoicingService;
 import java.util.Locale;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -97,6 +94,34 @@ public class Register {
         } else {
             return new Result(dto);
         }
+    }
+    
+    // register a new contact on the user
+    // or do nothing if the contact already exists
+    @POST
+    @Path("/contact")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Result contact() {
+        return null;
+    }
+    
+    // process order given by the details as the POST params
+    @POST
+    @Path("/process")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Result process() {
+        // 1. verify the data
+        // 1.1. verify the domain
+        // 1.2. verify the user data
+        
+        // 2. register the customer's username and password and role
+        
+        // 3. register the customer's order
+        // 3.1. calculate the duration of the order, its expiration date
+        // 3.2. calculate the price
+        
+        // 4. generate the payment link to redirect the customer to
+        return null;
     }
     
 }

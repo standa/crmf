@@ -1,14 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.bo;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- *
+ * This object is the parent of all database entities. It basically just
+ * generates the id to every entity.
+ * 
  * @author standa
  */
 @MappedSuperclass

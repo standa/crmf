@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.EntityManagerFactoryUtils;
@@ -57,8 +59,9 @@ public class GenericHibernateJpaDao implements GenericDao {
      */
     @Override
     public <ENTITY> List<ENTITY> getAllOrderedDesc(String property, Class<ENTITY> clazz) {
-        return getEntityManager().createQuery("FROM "+clazz.getSimpleName()+" ORDER BY :orderBy DESC")
-                .setParameter("orderBy", property).getResultList();
+//        return getEntityManager().createQuery("FROM "+clazz.getSimpleName()+" c ORDER BY c.:orderBy DESC")
+//                .setParameter("orderBy", property).getResultList();
+        return getEntityManager().createQuery("FROM "+clazz.getSimpleName()+" c").getResultList();
     }
 
     /**

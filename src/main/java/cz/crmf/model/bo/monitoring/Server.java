@@ -1,7 +1,7 @@
 package cz.crmf.model.bo.monitoring;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
-import cz.crmf.model.bo.ticketing.Agent;
+import cz.crmf.model.bo.invoicing.User;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -51,7 +51,7 @@ public class Server extends AbstractBusinessObject {
     
     @JoinColumn(name = "agent_id", referencedColumnName = "id")
     @ManyToOne
-    private Agent agentId;
+    private User agentId;
 
     public Server() {
     }
@@ -107,11 +107,11 @@ public class Server extends AbstractBusinessObject {
         this.monitoringList = monitoringList;
     }
 
-    public Agent getAgentId() {
+    public User getAgentId() {
         return agentId;
     }
 
-    public void setAgentId(Agent agentId) {
+    public void setAgentId(User agentId) {
         this.agentId = agentId;
     }
 

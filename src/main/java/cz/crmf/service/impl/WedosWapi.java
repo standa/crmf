@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class WedosWapi implements DomainDataWebServiceClient {
     /**
      * the testing flag... no changes will be comitted
      */
-    private static final boolean TEST = true;
+    private static final boolean TEST = false;
     
     
     private static final String ENDPOINT_URL = "https://api.wedos.com/wapi/xml";
@@ -66,7 +67,7 @@ public class WedosWapi implements DomainDataWebServiceClient {
         this.wapiPassword = wapiPassword;
         
         computeAuth();        
-        System.out.println("WEDOS auth: "+auth);
+//        System.out.println("WEDOS auth: "+auth);
         
     }
     
@@ -75,13 +76,14 @@ public class WedosWapi implements DomainDataWebServiceClient {
         Date date = new Date();
         HashProvider hash = new SHA1Provider();
         
-        System.out.println("AUTH: "+wedosUser+"+"+wapiPassword+"+"+dateFormat.format(date));
+//        System.out.println("AUTH: "+wedosUser+"+"+wapiPassword+"+"+dateFormat.format(date));
         
         auth = hash.computeHash(wedosUser+hash.computeHash(wapiPassword)+dateFormat.format(date));        
     }
     
     /**
      * builds the request XML
+     * <?xml version="1.0" encoding="UTF-8" ?>
      * <code>
      * 
      * <request>
@@ -113,7 +115,9 @@ public class WedosWapi implements DomainDataWebServiceClient {
         request.addContent(new Element("user").setText(wedosUser));
         request.addContent(new Element("auth").setText(auth));
         request.addContent(new Element("command").setText(command));
-        request.addContent(new Element("clTRID").setText(String.valueOf(System.currentTimeMillis())));
+        request.addContent(new Element("clTRID")
+                .setText(String.valueOf(System.currentTimeMillis())));
+        
         if (data != null) {
             request.addContent(data);            
         }
@@ -128,30 +132,41 @@ public class WedosWapi implements DomainDataWebServiceClient {
         
     }
     
+    /**
+     * send HTTP POST request with XML data to the ENDPOINT_URL
+     * 
+     * @param xml the xml document to be sent
+     * @return 
+     */
     private Document postXml(Document xml) {
         
-        printElement(xml.getRootElement());
+//        printElement(xml.getRootElement());
         
         try {
             // Create a URLConnection object for a URL
             URL url = new URL(ENDPOINT_URL);
-            URLConnection conn = url.openConnection();            
+            URLConnection conn = (HttpURLConnection)url.openConnection();            
             HttpURLConnection httpConn;
             
             httpConn = (HttpURLConnection) conn;
                         
             httpConn.setUseCaches(false);
             httpConn.setDoOutput(true);
+            httpConn.setDoInput(true);
             httpConn.setRequestMethod("POST");
+            httpConn.setRequestProperty("Content-Type", 
+                "application/x-www-form-urlencoded");
             
             OutputStream os = httpConn.getOutputStream();            
             BufferedWriter osw = new BufferedWriter(new OutputStreamWriter(os));
             
             XMLOutputter xmlOutput = new XMLOutputter();
             xmlOutput.setFormat(Format.getCompactFormat());
-            xmlOutput.output(xml, osw);
             
-            // osw.write(data); // in case of additional string data being sent
+            // in case of additional string data being sent
+            String data = "request="+URLEncoder.encode(xmlOutput.outputString(xml), "UTF-8");
+            
+            osw.write(data);
             
             osw.flush();
             osw.close();       
@@ -197,6 +212,7 @@ public class WedosWapi implements DomainDataWebServiceClient {
      * Check if the domain of the given name (ie. domain.com) exists.
      * Please note that some additional regulations may apply. Like the Czech
      * domains cannot be shorter than 3 letters.
+     * 
      * @param domain
      * @return true if the domain is free to register, false if it cannot be
      * registered
@@ -204,10 +220,10 @@ public class WedosWapi implements DomainDataWebServiceClient {
     @Override
     public boolean checkDomain(String domain) {
         
+        System.out.println("checkDomain("+domain+")");
+        
         Element data = new Element("data").addContent(new Element("name").setText(domain));
         Element response = request("domain-check", data);
-        
-        printElement(response);
         
         String code = response.getChildText("code");
         
@@ -218,7 +234,8 @@ public class WedosWapi implements DomainDataWebServiceClient {
             // domain is already registered
             return false;
         } else { // other error
-            System.out.println("ERROR in WedosWapi.domainExists()");
+            printElement(response);            
+            System.out.println("ERROR in WedosWapi.checkDomain()");
             return false;
         }
     }

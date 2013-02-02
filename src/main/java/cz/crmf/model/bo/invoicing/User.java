@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.bo.invoicing;
 
 import cz.crmf.model.bo.AbstractBusinessObject;
@@ -16,12 +12,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * Entity for users. Basically, there are 3 types of users: customers (default),
+ * admins (system wide administrators), and agents (that manage communication process,
+ * ie. ticketing). 
  * @author standa
  */
 @Entity
 @Table(name = "users", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"username"})})
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT c FROM User c"),
@@ -36,20 +35,42 @@ public class User extends AbstractBusinessObject {
     @Size(min = 1, max = 45)
     @Column(name = "username", nullable = false, length = 45)
     protected String username;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "password", nullable = false, length = 100)
     protected String password;
+    
     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "email", nullable = false, length = 100)
     protected String email;    
+
     @Basic(optional = false)
     @Column(name = "enabled")
     private Boolean enabled = true;
+
+    
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
+
+    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
+    @Basic(optional = true)
+    @Size(max = 45)
+    @Column(name = "phone", length = 45)
+    private String phone;
+
+    
+    @Column(name = "sms_notification")
+    private Boolean smsNotification = false;    
+   
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Role> roleList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")

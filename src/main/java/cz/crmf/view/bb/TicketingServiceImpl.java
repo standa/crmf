@@ -2,7 +2,6 @@ package cz.crmf.view.bb;
 
 import cz.crmf.model.bo.ticketing.Ticket;
 import cz.crmf.model.dto.ticketing.TicketDto;
-import cz.crmf.model.repositories.ticketing.AgentRepository;
 import cz.crmf.model.repositories.ticketing.TicketRepository;
 import cz.crmf.service.iface.AbstractDataAccessService;
 import cz.crmf.service.iface.TicketingService;
@@ -23,8 +22,6 @@ public class TicketingServiceImpl extends AbstractDataAccessService
     
     @Autowired
     TicketRepository ticketRepository;
-    @Autowired
-    AgentRepository agentRepository;
     
     @Override
     public Integer createTicket(String subject, String message, byte[] attachment, String url, String status) {
