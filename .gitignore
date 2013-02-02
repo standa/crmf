@@ -1,2 +1,5 @@
 /target/
 jetty.sh
+src/main/webapp/www
+src/main/webapp/*.php
+src/main/webapp/index.jsp
