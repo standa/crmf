@@ -155,10 +155,28 @@
     </servlet-mapping>
     <!-- ================= Jersey REST Service END ======================== -->
     
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>ServletAdaptor</servlet-name>
         <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>-->
+    
+    <!-- ============= Granule Resource minifier START ==================== -->
+    <servlet>
+        <servlet-name>CompressServlet</servlet-name>
+        <servlet-class>com.granule.CompressServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CompressServlet</servlet-name>
+        <url-pattern>/combined.js</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompressServlet</servlet-name>
+        <url-pattern>/combined.css</url-pattern>
+    </servlet-mapping>
+    <!-- ============= Granule RESOURCE MINIFIER END ====================== -->
+    
+    
     <session-config>
         <session-timeout>
             30
