@@ -174,6 +174,10 @@
         <servlet-name>CompressServlet</servlet-name>
         <url-pattern>/combined.css</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/granule.taglib.xml</param-value>
+    </context-param>
     <!-- ============= Granule RESOURCE MINIFIER END ====================== -->
     
     

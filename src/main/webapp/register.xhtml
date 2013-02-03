@@ -6,28 +6,27 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:sec="http://www.springframework.org/security/tags">
+    
     <ui:define name="content">
-        
-        <h:form>
+                
+        <h:form class="form-signin">
             
             <h2 class="form-signin-heading"><h:outputText value="#{msgs['register.heading']}"/></h2>
 
-            <input type="text" name="username" class="input-block-level" placeholder="#{msgs['login.username']}"/>
-            <input type="password" name="password" class="input-block-level" placeholder="#{msgs['login.password']}"/>
+            <p:inputText id="username" label="#{msgs['login.username']}" styleClass="input-block-level"/>
+            <p:password id="password" feedback="true" label="#{msgs['login.password']}"  styleClass="input-block-level"
+                        promptLabel="#{msgs['register.enterPassword']}" weakLabel="#{msgs['register.weakPassword']}"  
+                        goodLabel="#{msgs['register.goodPassword']}" strongLabel="#{msgs['register.strongPassword']}" /> 
+            <p:inputText id="email" required="true" label="#{msgs['register.email']}" styleClass="input-block-level">
+                <f:validator binding="#{emailValidator}" />
+            </p:inputText>
 
-            <hr/>
+            <p:commandButton styleClass="btn btn-primary" 
+                             action="#{invoicingService.createCustomer}"
+                             value="#{msgs['register.registerButton']}" ajax="false"/>
 
-            <button class="btn btn-large btn-primary pull-left" type="submit">#{msgs['login.loginButton']}</button>
-
-            <div class="btn-group pull-right">                    
-                <button class="btn dropdown-toggle" data-toggle="dropdown">
-                    #{msgs['login.registerButton']} <span class="caret"></span>
-                </button>                
-            </div>
-
-            <hr />
-
-        </h:form>        
+           
+        </h:form>
         
     </ui:define>    
 </ui:composition>

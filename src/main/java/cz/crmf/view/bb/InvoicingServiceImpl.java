@@ -97,7 +97,7 @@ public class InvoicingServiceImpl extends AbstractDataAccessService
 
     @Override
     public Integer createCustomer(String username, String password, 
-        String email, Integer roleId) {
+        String email) {
         
         List<RoleDto> roles = new ArrayList<RoleDto>();
         roles.add(getModelMapper().map(roleRepository.getRoleByRoleName("CUSTOMER"), RoleDto.class));

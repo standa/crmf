@@ -19,6 +19,13 @@
             <var>msgs</var>
         </resource-bundle>
     </application>
+    
+    <component>
+        <component-type>cz.crmf.view.helper.CompressComponent</component-type>
+        <component-class>cz.crmf.view.helper.CompressComponent</component-class>
+    </component>
+    
+    
     <navigation-rule>
         <from-view-id>/*</from-view-id>
         <navigation-case>

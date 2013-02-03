@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.service.iface;
 
 import cz.crmf.model.dto.invoicing.*;
@@ -9,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
+ * Supporting service for the invoicing component of the CRM framework.
  * @author standa
  */
 public interface InvoicingService {
@@ -31,7 +27,7 @@ public interface InvoicingService {
     public void deleteContact(Integer contactId);
 
     // customers
-    public Integer createCustomer(String username, String password, String email, Integer roleId);
+    public Integer createCustomer(String username, String password, String email);
     public CustomerDto getCustomerById(Integer customerId);
     public void deleteCustomer(Integer customerId);
     public List<CustomerDto> getAllCustomers();

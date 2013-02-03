@@ -394,6 +394,15 @@
         </dependency>
         <!-- DNS JAVA DNS RESOLUTION END -->
 
+        <dependency>
+		<groupId>com.granule</groupId>
+		<artifactId>compress</artifactId>
+		<version>1.0.9</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/granule1.0.9.jar</systemPath>
+	</dependency>
+
+
     </dependencies>
 
     <build>
