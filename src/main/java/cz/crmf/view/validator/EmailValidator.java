@@ -1,5 +1,6 @@
 package cz.crmf.view.validator;
 
+import cz.crmf.view.helper.FacesUtil;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.faces.application.FacesMessage;
@@ -37,8 +38,9 @@ public class EmailValidator implements Validator {
         if (!matcher.matches()) {
 
             FacesMessage msg =
-                    new FacesMessage("E-mail validation failed.",
-                    "Invalid E-mail format.");
+                    new FacesMessage(
+                        FacesUtil.getMessage("cz.crmf.server", "register.emailValidationFailed"),
+                        FacesUtil.getMessage("cz.crmf.server", "register.invalidEmailFormat"));
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
 

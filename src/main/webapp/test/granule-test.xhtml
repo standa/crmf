@@ -5,14 +5,24 @@
       xmlns:g="http://code.google.com/p/granule">
     <h:head>
         <title>Granule test</title>
-        <g:compress>
+        <g:compress>            
             <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/default.css" />
         </g:compress>
     </h:head>
     <h:body>
         <h1>Granule Test</h1>
         
+        <p>If this works correctly, the source of this page only contains one 
+        css source file named /combined.css?v=xyz, and contains
+        all the resources named in the source xhtml file.
+        </p>
         
+        <p>The same applies to any local script resources attached 
+        to this file.</p>
+        
+        <g:compress>
+            <script type="text/javascript" src="../resources/bootstrap-wysihtml5/wysihtml5-0.3.0.min.js"></script>
+        </g:compress>
         
     </h:body>
 </html>

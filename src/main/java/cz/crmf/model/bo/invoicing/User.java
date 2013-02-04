@@ -133,7 +133,7 @@ public class User extends AbstractBusinessObject {
         return roleList;
     }
 
-    public void setRoleId(List<Role> roleList) {
+    public void setRoleList(List<Role> roleList) {
         this.roleList = roleList;
     }
 

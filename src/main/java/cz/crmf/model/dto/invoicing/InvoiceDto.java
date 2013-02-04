@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.dto.invoicing;
 
 import cz.crmf.model.dto.AbstractDto;
@@ -10,7 +6,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * Represents one invoice for a particular order. Each invoice has 
+ * some OrderItems.
+ * 
  * @author standa
  */
 public class InvoiceDto extends AbstractDto {
@@ -87,6 +85,48 @@ public class InvoiceDto extends AbstractDto {
     public CustomerDto getCustomerId() {
         return customer;
     }
+
+    public void setBillingContact(ContactDto billingContact) {
+        this.billingContact = billingContact;
+    }
+
+    public void setBookingAmount(Float bookingAmount) {
+        this.bookingAmount = bookingAmount;
+    }
+
+    public void setCustomer(CustomerDto customer) {
+        this.customer = customer;
+    }
+
+    public void setDeliveryContact(ContactDto deliveryContact) {
+        this.deliveryContact = deliveryContact;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setInvoicePdf(byte[] invoicePdf) {
+        this.invoicePdf = invoicePdf;
+    }
+
+    public void setIssueDate(Date issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setOrderItemList(List<OrderItemDto> orderItemList) {
+        this.orderItemList = orderItemList;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+    
+    
 
     @Override
     public String toString() {

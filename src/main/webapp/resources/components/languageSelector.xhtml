@@ -4,29 +4,31 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:cc="http://java.sun.com/jsf/composite">
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui">
 
-    <f:view locale="#{languageSelectionService.locale}"/>
+    <!-- don't forget to place this somewhere in your layout template ! (after html tag) -->
+    <!-- INTERFACE -->
+    <cc:interface>
+    </cc:interface>
 
-        <!-- INTERFACE -->
-        <cc:interface>
-        </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
 
-        <!-- IMPLEMENTATION -->
-        <cc:implementation>
-            <h:form class="pull-right">
-                
-                <h:outputText value="#{msgs['language.selector']}: " />
-                <br/>
-                <h:selectOneMenu value="#{languageSelectionService.language}" onchange="submit()"
-                                 valueChangeListener="#{languageSelectionService.countryLocaleCodeChanged}">
-                    <f:selectItems value="#{languageSelectionService.languages}" /> 
-                </h:selectOneMenu>                
-                <br/>                
-                <h:outputFormat value="#{msgs['language.current']}">
-                    <f:param value="#{languageSelectionService.language}" />
-                </h:outputFormat>
-                
-            </h:form>
-        </cc:implementation>
+
+        <h:form styleClass="pull-right" id="languageSelector" >
+
+            <h:selectOneMenu value="#{languageSelectionService.language}" 
+                             onchange="submit()"                             
+                             valueChangeListener="#{languageSelectionService.countryLocaleCodeChanged}">
+                <f:selectItems value="#{languageSelectionService.languages}" /> 
+            </h:selectOneMenu>                
+            <br/>                
+            <h:outputFormat value="#{msgs['language.current']}">
+                <f:param value="#{languageSelectionService.language}" />
+            </h:outputFormat>
+
+        </h:form>
+
+    </cc:implementation>
 </html>

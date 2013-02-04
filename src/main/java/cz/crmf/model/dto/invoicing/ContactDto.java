@@ -225,6 +225,92 @@ public class ContactDto extends AbstractDto {
         return customer;
     }
 
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setCustomer(CustomerDto customer) {
+        this.customer = customer;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public void setInvoiceList(List<InvoiceDto> invoiceList) {
+        this.invoiceList = invoiceList;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setPrimaryContact(boolean primaryContact) {
+        this.primaryContact = primaryContact;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setSwiftBic(String swiftBic) {
+        this.swiftBic = swiftBic;
+    }
+
+    public void setVatNo(String vatNo) {
+        this.vatNo = vatNo;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "cz.crmf.dto.Contact[ id=" + id + " ]";

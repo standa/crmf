@@ -6,27 +6,59 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:sec="http://www.springframework.org/security/tags">
-    
+
+    <ui:param name="title" value="#{msgs['register.heading']}" />
+
+    <f:metadata>
+        <f:viewParam name="role" value="#{registerBean.roleName}" />
+    </f:metadata>
+
     <ui:define name="content">
-                
+
+
         <h:form class="form-signin">
-            
+
             <h2 class="form-signin-heading"><h:outputText value="#{msgs['register.heading']}"/></h2>
 
-            <p:inputText id="username" label="#{msgs['login.username']}" styleClass="input-block-level"/>
-            <p:password id="password" feedback="true" label="#{msgs['login.password']}"  styleClass="input-block-level"
-                        promptLabel="#{msgs['register.enterPassword']}" weakLabel="#{msgs['register.weakPassword']}"  
-                        goodLabel="#{msgs['register.goodPassword']}" strongLabel="#{msgs['register.strongPassword']}" /> 
-            <p:inputText id="email" required="true" label="#{msgs['register.email']}" styleClass="input-block-level">
-                <f:validator binding="#{emailValidator}" />
+            <p:outputLabel for="roleName" value="Role" />
+            <p:selectOneMenu id="roleName" value="#{registerBean.roleName}" styleClass="input-block-level">
+                <f:selectItem itemLabel="Customer" itemValue="CUSTOMER" />
+                <f:selectItem itemLabel="Agent" itemValue="AGENT" />
+                <f:selectItem itemLabel="Admin" itemValue="ADMIN" />
+            </p:selectOneMenu>
+
+            <p:outputLabel for="username" value="#{msgs['login.username']}" />
+
+            <p:inputText id="username" styleClass="input-block-level" 
+                         required="true" value="#{registerBean.user.username}">
+                <f:ajax event="keyup" listener="#{registerBean.checkUsername}"/>
             </p:inputText>
 
-            <p:commandButton styleClass="btn btn-primary" 
-                             action="#{invoicingService.createCustomer}"
-                             value="#{msgs['register.registerButton']}" ajax="false"/>
+            <h:message for="username" styleClass="alert alert-error input-block-level"/>
 
-           
+            <p:outputLabel for="password" value="#{msgs['login.password']}" />
+            <p:password id="password" required="true" styleClass="input-block-level" value="#{registerBean.user.password}"> 
+                <f:validateLength minimum="6" />
+            </p:password>
+            <h:message for="password" styleClass="alert alert-error input-block-level"/>
+
+
+            <p:outputLabel for="email" value="#{msgs['register.email']}" />
+            <p:inputText id="email" required="true" label="#{msgs['register.email']}" 
+                         styleClass="input-block-level" value="#{registerBean.user.email}">
+                <!-- cannot use validatorId - doesnt work with Spring @autowire then -->
+                <f:validator binding="#{emailValidator}" />
+            </p:inputText>
+            <h:message for="email" styleClass="alert alert-error input-block-level"/>
+
+
+            <p:commandButton styleClass="btn btn-primary" 
+                             action="#{registerBean.registerUser}"
+                             value="#{msgs['register.registerButton']}" />
+
+
         </h:form>
-        
+
+
     </ui:define>    
 </ui:composition>

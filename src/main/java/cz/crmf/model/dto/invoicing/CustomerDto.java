@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.crmf.model.dto.invoicing;
 
 import cz.crmf.model.dto.AbstractDto;
@@ -12,7 +8,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * Register a new customer. 
+ * A customer is in fact a user with the role 'CUSTOMER'.
+ * 
  * @author standa
  */
 public class CustomerDto extends AbstractDto {
@@ -79,7 +77,34 @@ public class CustomerDto extends AbstractDto {
         return contactList;
     }
 
+    public void setContactList(List<ContactDto> contactList) {
+        this.contactList = contactList;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setInvoiceList(List<InvoiceDto> invoiceList) {
+        this.invoiceList = invoiceList;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRoleList(List<RoleDto> roleList) {
+        this.roleList = roleList;
+    }
+
+    public void setTicketList(List<TicketDto> ticketList) {
+        this.ticketList = ticketList;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     @Override
     public String toString() {
         return "cz.crmf.bo.Customer[ id=" + id + " ]";
